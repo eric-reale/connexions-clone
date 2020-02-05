@@ -89,3 +89,21 @@ body {
   width: 160px;
   padding: 14px;
 }
+
+@media (min-width: 700px) {
+   .title-header, .title-text, .login-register {
+    max-width: 900px;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .login-register {
+    grid-gap: 20px;
+  }
+  .title-text {
+    display: block;
+    p {
+      text-align: center;
+    }
+  }
+}
