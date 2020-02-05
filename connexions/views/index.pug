@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  .homepage-container
+    .background-image-section
+      .title-header
+        h1 conne<span>x</span>ions
+        hr
+      .title-text
+        p create, cherish, and cultivate more meaningful relationships.
+    .login-register
+      form(action="/login" method="GET")
+        input.login-primary(type="submit" value="log in")
+      form(action="/register" method="GET")
+        input.register-secondary(type="submit" value="register")
+

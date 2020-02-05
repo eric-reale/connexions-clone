@@ -1,0 +1,91 @@
+body {
+  background: white;
+}
+
+.homepage-container {
+  min-height: 100vh;
+  display: grid;
+  grid-gap: 0px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 6fr 1fr;
+  grid-template-areas:
+        "background-image-section"
+        "login-register"
+}
+
+.background-image-section {
+  grid-area: 'background-image-section';
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 4fr;
+  background-image: linear-gradient(white, $blue 80%);
+}
+
+.title-header {
+  display: grid;
+  justify-content: center;
+  align-content: flex-end;
+}
+
+.title-header h1 {
+  color: $blue;
+  font-size: 3rem;
+  letter-spacing: .12em;
+  font-weight: 300;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 0px;
+}
+
+.title-header hr {
+  color: white;
+  width: 90%;
+  border: solid white 1px;
+}
+
+.title-header span {
+  color: white;
+}
+
+.title-text {
+  display: grid;
+  grid-template-columns: 8fr 1fr;
+  color: white;
+}
+
+.title-text p {
+  margin-top: 50px;
+  padding: 20px;
+  line-height: 36px;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: .10em;
+}
+
+.login-register {
+  grid-area: login-register;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  justify-content: space-around;
+  align-content: center;
+  background: white;
+}
+
+.login-primary {
+  padding: 13px;
+  background: #FFFFFF;
+  border: 2px solid $blue;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  width: 160px;
+  color: $blue;
+}
+
+.register-secondary {
+  background: #4E8AFE;
+  border-radius: 6px;
+  color: white;
+  width: 160px;
+  padding: 14px;
+}
