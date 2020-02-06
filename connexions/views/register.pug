@@ -1,15 +1,14 @@
 extends layout
 
+include mixins/_loginForm
+
 block content
-  .inner
-    form.form(action="/register" method="POST")
-      h2 Register
-      label(for="name") Name
-      input(type="text" name="name")
-      label(for="email") Email
-      input(type="email" name="email")
-      label(for="password") Password
-      input(type="password" name="password")
-      label(for="password-confirm") Confirm Password
-      input(type="password" name="password-confirm")
-      input.button(type="submit" value="Register →")
+  .login-register-container
+    a.login-back(href=`/`)
+      p back
+    h2.login-register-form-header register
+    form.login-register-forms(action="/register" method="POST" autocomplete="off")
+      input.email-password(type="email" name="email" placeholder="email address")
+      input.email-password(type="password" name="password" placeholder="password")
+      input.email-password(type="password" name="password-confirm" placeholder="confirm password")
+      input.register-secondary.register-register(type="submit" value="register")

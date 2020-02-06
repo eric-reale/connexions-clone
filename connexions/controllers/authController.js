@@ -15,3 +15,7 @@ exports.login = passport.authenticate('local', {
   successRedirect: '/',
   successFlash: 'You are now logged in!'
 });
+
+exports.forgotPassword = (req, res) => {
+  res.render('forgot');
+}

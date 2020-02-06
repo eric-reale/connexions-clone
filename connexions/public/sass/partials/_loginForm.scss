@@ -39,10 +39,7 @@
 
 .email-password {
   background-color: red !important;
-  // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0 0 0 100px white;
-  // width: 90%;
-  // height: 40px;
   border: 1px solid black;
   border-radius: 2px;
   color: black;
@@ -56,6 +53,10 @@
 }
 
 .login-login {
+  width: 90%;
+}
+
+.register-register {
   width: 90%;
 }
 

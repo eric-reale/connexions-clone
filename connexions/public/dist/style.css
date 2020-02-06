@@ -581,6 +581,9 @@ body {
 .login-login {
   width: 90%; }
 
+.register-register {
+  width: 90%; }
+
 .forgot-password {
   margin-top: 10px;
   color: rgba(0, 0, 0, 0.5);
