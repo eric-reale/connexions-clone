@@ -3,18 +3,22 @@ body {
 }
 
 .main-container {
-  min-height: 100vh;
-  display: grid;
-  grid-gap: 0px;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto 7fr 1fr;
-  // grid-template-rows: 6fr 1fr;
-  grid-template-areas:
-        "logo-settings"
-        "section-header"
-        "section-body"
-        "footer-tabs"
+  max-height: 100vh;
+  // display: grid;
+  // grid-gap: 0px;
+
+    display: flex;
+  flex-direction: column
 }
+//   grid-template-columns: 1fr;
+//   grid-template-rows: auto auto 7fr 1fr;
+//   // grid-template-rows: 6fr 1fr;
+//   grid-template-areas:
+//         "logo-settings"
+//         "section-header"
+//         "section-body"
+//         "footer-tabs"
+// }
 
 .logo-settings {
   grid-area: logo-settings;
@@ -22,7 +26,9 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid $gray;
+
+  flex-shrink: 0;
 }
 
 .section-header {
@@ -31,18 +37,112 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid $gray;
+
+  flex-shrink: 0;
 }
 
 .section-header h4 {
   font-size: 30px;
   margin: 0;
 }
+
 .section-body {
   grid-area: section-body;
+  overflow-y: auto;
+  max-width: 100%;
+
+}
+
+.section-body-connexion {
+  // display: flex;
+  // justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid $gray;
+  height: 100px;
+}
+
+.connexion-image img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.connextion-info {
+
+}
+
+.connexion-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 2px;
+  margin-bottom: 10px;
+}
+
+.connexion-circle-list {
+  font-size: 14px;
+  margin: 4px;
+}
+
+.connexion-logged {
+  font-size: 14px;
+  margin: 4px;
+}
+
+.connextion-circles {
+
+}
+
+.circle {
+  height: 20px;
+  width: 20px;
+  background-color: $blue;
+  border-radius: 50%;
+  display: inline-block;
 }
 
 .footer-tabs {
   grid-area: footer-tabs;
-  border: 1px solid blue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: 12px;
+  color: $gray;
+  padding: 10px;
+  margin: 10px 0px;
+  box-shadow: inset 0px 11px 8px -10px #CCC,
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar p {
+  margin: 0;
+}
+
+.calendar span {
+  color: $blue
+}
+
+.conversations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.conversations span {
+  color: $blue
+}
+
+.conversations p {
+  margin: 0;
 }
