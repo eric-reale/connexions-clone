@@ -2,8 +2,11 @@ const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController');
 const userController = require('../controllers/userController');
+const connexionController = require('../controllers/connexionController');
 
 router.get('/', authController.homePage);
+
+router.get('/connexions', connexionController.getConnexions);
 
 router.get('/login', userController.loginForm);
 router.post('/login', authController.login);
