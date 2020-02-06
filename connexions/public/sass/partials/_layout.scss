@@ -17,7 +17,12 @@ html {
 // }
 
 h1,h2,h3,h4,h5,h6 {
+  color: $blue;
+  font-size: 3rem;
+  letter-spacing: .12em;
+  font-weight: 300;
   font-family: 'Raleway', sans-serif;
+  margin-bottom: 0px;
 }
 p {
   font-family: 'Comfortaa', cursive;

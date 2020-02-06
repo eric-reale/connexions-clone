@@ -1,5 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Comfortaa:300,400,600|Raleway:300,400,600,700&display=swap);h1, h2, h3, h4, h5, h6 {
-  font-family: 'Raleway', sans-serif; }
+  color: #4E8AFE;
+  font-size: 3rem;
+  letter-spacing: .12em;
+  font-weight: 300;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 0px; }
 
 p {
   font-family: 'Comfortaa', cursive; }
@@ -62,10 +67,6 @@ section {
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
  */
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0; }
-
 /* Grouping content
    ========================================================================== */
 /**
@@ -231,11 +232,10 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: sans-serif;
+  font-family: 'Comfortaa', cursive;
+  font-size: 16px;
   /* 1 */
-  font-size: 100%;
-  /* 1 */
-  line-height: 1.15;
+  line-height: 1.16;
   /* 1 */
   margin: 0;
   /* 2 */ }
@@ -509,5 +509,100 @@ body {
   color: white;
   width: 160px;
   padding: 14px; }
+
+@media (min-width: 700px) {
+  .title-header, .title-text, .login-register {
+    max-width: 900px;
+    -ms-flex-pack: center;
+        justify-content: center;
+    margin-right: auto;
+    margin-left: auto; }
+  .login-register {
+    grid-gap: 20px; }
+  .title-text {
+    display: block; }
+    .title-text p {
+      text-align: center; } }
+
+.login-register-container {
+  margin-top: 40%;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  grid-template-areas: "login-register-form-header" "login-register-forms"; }
+
+.login-register-form-header {
+  margin: auto 0px;
+  padding: 0 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr; }
+
+.login-register-forms {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  -ms-grid-column-align: center;
+      justify-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+  grid-gap: 20px; }
+
+.login-register-forms h2 {
+  color: #4E8AFE;
+  font-size: 3rem;
+  letter-spacing: .12em;
+  font-weight: 300;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 0px; }
+
+.email-password {
+  background-color: red !important;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0 0 0 100px white;
+  border: 1px solid black;
+  border-radius: 2px;
+  color: black;
+  width: 90%;
+  padding: 14px; }
+
+.email-password input[type="email"] {
+  font-family: 'Comfortaa', cursive;
+  font-size: 16px;
+  line-height: 16px; }
+
+.login-login {
+  width: 90%; }
+
+.forgot-password {
+  margin-top: 10px;
+  color: rgba(0, 0, 0, 0.5);
+  justify-self: center;
+  font-size: 15px;
+  line-height: 17px;
+  letter-spacing: 0.04em; }
+
+.login-back {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 15px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  padding: 0 20px; }
+
+@media (min-width: 700px) {
+  .login-register-container {
+    margin-top: 10%;
+    max-width: 900px;
+    -ms-flex-pack: center;
+        justify-content: center;
+    margin-right: auto;
+    margin-left: auto; } }
 
 /*# sourceMappingURL=style.css.map*/

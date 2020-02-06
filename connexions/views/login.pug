@@ -4,6 +4,14 @@ include mixins/_loginForm
 include mixins/_forgot
 
 block content
-  .inner
-    +loginForm()
-    +forgotForm()
+  .login-register-container
+    a.login-back(href=`/`)
+      p back
+    h2.login-register-form-header log in
+    form.login-register-forms(action="/login" method="POST" autocomplete="off")
+      input.email-password(type="email" name="email" placeholder="email address")
+      input.email-password(type="password" name="password" placeholder="password")
+      input.login-primary.login-login(type="submit" value="log in")
+    a.forgot-password(href=`/login`)
+      p forgot password
+    //- +forgotForm()
