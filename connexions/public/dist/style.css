@@ -737,4 +737,14 @@ body {
 .conversations p {
   margin: 0; }
 
+@media (min-width: 700px) {
+  .main-container {
+    height: 95vh;
+    margin-top: 25px;
+    max-width: 900px;
+    -ms-flex-pack: center;
+        justify-content: center;
+    margin-right: auto;
+    margin-left: auto; } }
+
 /*# sourceMappingURL=style.css.map*/
