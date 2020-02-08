@@ -6,3 +6,7 @@ exports.getConnexions = (req, res) => {
   // const connexions = await Connexion.find();
   res.render('connexions', { title: 'Connexions'});
 }
+
+exports.addConnexion = (req, res) => {
+  res.render('connexion-single', { title: ''})
+}

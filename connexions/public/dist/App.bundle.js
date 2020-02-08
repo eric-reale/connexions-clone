@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -98,20 +98,51 @@ exports.$$ = $$;
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// import axios from 'axios';
+// import { $ } from './bling';
+
+// function newConnexion(e) {
+//   e.preventDefault();
+//   addConnexionSection()
+//   // console.log(this.action)
+//   // console.log('here');
+//   // axios
+//   //   .post(this.action)
+//   //   .then(res => {
+//   //     console.log('res');
+//   //   }
+//   // )
+//   //   .catch(console.error);
+// };
+
+// export default newConnexion;
+
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(1);
+__webpack_require__(2);
 
 var _bling = __webpack_require__(0);
+
+var _newConnexion = __webpack_require__(1);
+
+var _newConnexion2 = _interopRequireDefault(_newConnexion);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ })
 /******/ ]);
