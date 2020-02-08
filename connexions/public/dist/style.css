@@ -747,4 +747,29 @@ body {
     margin-right: auto;
     margin-left: auto; } }
 
+#back {
+  color: rgba(0, 0, 0, 0.5); }
+
+.tabs-underlined {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center; }
+
+.tabs-underlined li {
+  text-decoration: none; }
+
+.tabs-underlined .tab-underlined {
+  color: black;
+  padding: 8px;
+  margin: 8px 16px;
+  opacity: .4;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 4px solid transparent; }
+
+.tabs-underlined .tab-underlined.active {
+  opacity: 1;
+  border-bottom: 3px solid #555555; }
+
 /*# sourceMappingURL=style.css.map*/

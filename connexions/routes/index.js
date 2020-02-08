@@ -3,10 +3,12 @@ const router = express.Router();
 const authController = require('../controllers/authController');
 const userController = require('../controllers/userController');
 const connexionController = require('../controllers/connexionController');
+const { catchErrors } = require('../handlers/errorHandlers');
 
 router.get('/', authController.homePage);
 
 router.get('/connexions', connexionController.getConnexions);
+router.get('/connexions/add', connexionController.addConnexion);
 
 router.get('/login', userController.loginForm);
 router.post('/login', authController.login);
