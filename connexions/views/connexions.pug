@@ -18,6 +18,9 @@ block content
         a(href=`connexions/add`)
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>ic_add_24px</title><g class="nc-icon-wrapper" fill="#111111"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></g></svg>
     .section-body
+      form(method="POST" action="/connexions/add")
+        input(type="text" name="name")
+        button(type="submit" value="add")
       .section-body-connexion
         div.connexion-image
           img(src=`https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80`)
