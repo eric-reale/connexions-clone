@@ -8,7 +8,8 @@ const { catchErrors } = require('../handlers/errorHandlers');
 router.get('/', authController.homePage);
 
 router.get('/connexions', connexionController.getConnexions);
-router.get('/connexions/add', connexionController.addConnexion);
+// router.get('/connexions/add', connexionController.addConnexion);
+router.post('/connexions/add', connexionController.addConnexion);
 
 router.get('/login', userController.loginForm);
 router.post('/login', authController.login);
