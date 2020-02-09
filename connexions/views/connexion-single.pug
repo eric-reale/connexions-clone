@@ -14,9 +14,10 @@ block content
         a#back(href="/connexions")
           p back
       div
-        p new connexion
+        p #{connexion.name}
       div
-        p edit
+       a#back(href="/connexions/:id/update")
+          p edit
     .profile-chapter
       <ul class="list-inline tabs-underlined">
         <li>

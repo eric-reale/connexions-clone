@@ -25,7 +25,9 @@ exports.addConnexion = (req, res) => {
   // res.render('connexion-single', { title: ''})
 }
 
-exports.viewConnexion = (req, res) => {
-  console.log('here');
-  res.send('your connexion is here')
+exports.viewConnexion = async (req, res) => {
+  const connexion = await Connexion.findById(req.params.id)
+  console.log(connexion);
+  // console.log('here');
+  res.render('connexion-single', { title: `My connexion`, connexion });
 }
