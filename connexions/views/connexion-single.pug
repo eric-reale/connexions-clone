@@ -19,13 +19,21 @@ block content
        a#back(href="/connexions/:id/update")
           p edit
     .profile-chapter
-      <ul class="list-inline tabs-underlined">
-        <li>
-          <a href="#" class="tab-underlined active">profile</a>
-        </li>
-        <li>
-          <a href="#" class="tab-underlined">chapter</a>
-        </li>
-      </ul>
+      div.tabs-section
+        <ul class="list-inline tabs-underlined">
+          <li>
+            <a href="#" class="tab-underlined active">profile</a>
+          </li>
+        </ul>
+        <ul class="list-inline tabs-underlined">
+          <li>
+            <a href="#" class="tab-underlined">chapter</a>
+          </li>
+        </ul>
+      div.profile-chapter-sections
+        div.profile-active.active
+          p Here I am
+        div.chapter-active
+          p this is for the chapter
 
 

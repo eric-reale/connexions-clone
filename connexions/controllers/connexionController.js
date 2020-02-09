@@ -3,9 +3,10 @@ const User = mongoose.model('User');
 const Connexion = mongoose.model('Connexion');
 const promisify = require('es6-promisify');
 
-exports.getConnexions = (req, res) => {
-  // const connexions = await Connexion.find();
-  res.render('connexions', { title: 'Connexions'});
+exports.getConnexions = async (req, res) => {
+  const connexions = await Connexion.find();
+  // console.log(connexions);
+  res.render('connexions', { title: 'Connexions', connexions});
 }
 
 exports.addConnexion = (req, res) => {
@@ -27,7 +28,7 @@ exports.addConnexion = (req, res) => {
 
 exports.viewConnexion = async (req, res) => {
   const connexion = await Connexion.findById(req.params.id)
-  console.log(connexion);
+  // console.log(connexion);
   // console.log('here');
   res.render('connexion-single', { title: `My connexion`, connexion });
 }

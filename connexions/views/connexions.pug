@@ -22,96 +22,17 @@ block content
       //-   form.add-new-connexion(method="POST" action="/connexions/add")
       //-     input.add-new-connexion-input(type="text" name="name")
       //-     button.add-new-connexion-button(type="submit" value="add") Add
-      a.section-body-connexion(href=`/connexions/${_id}`)
-        div.connexion-image
-          img(src=`https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80`)
-        div.connexion-info
-          p.connexion-name Eric Reale
-          p.connexion-circle-list circle 1 circle 2 circle 3
-          p.connexion-logged last logged: 1/20/2020
-        div.connexion-cirlces
-          <span class="circle"></span>
-          <span class="circle"></span>
-      .section-body-connexion
-        div.connexion-image
-          img(src=`https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80`)
-        div.connexion-info
-          p.connexion-name Eric Reale
-          p.connexion-circle-list circle 1 circle 2 circle 3
-          p.connexion-logged last logged: 1/20/2020
-        div.connexion-cirlces
-          <span class="circle"></span>
-          <span class="circle"></span>
-          <span class="circle"></span>
-      .section-body-connexion
-        div.connexion-image
-          img(src=`https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80`)
-        div.connexion-info
-          p.connexion-name Eric Reale
-          p.connexion-circle-list circle 1 circle 2 circle 3
-          p.connexion-logged last logged: 1/20/2020
-        div.connexion-cirlces
-          <span class="circle"></span>
-      .section-body-connexion
-        div.connexion-image
-          img(src=`https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80`)
-        div.connexion-info
-          p.connexion-name Eric Reale
-          p.connexion-circle-list circle 1 circle 2 circle 3
-          p.connexion-logged last logged: 1/20/2020
-        div.connexion-cirlces
-          <span class="circle"></span>
-          <span class="circle"></span>
-      .section-body-connexion
-        div.connexion-image
-          img(src=`https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80`)
-        div.connexion-info
-          p.connexion-name Eric Reale
-          p.connexion-circle-list circle 1 circle 2 circle 3
-          p.connexion-logged last logged: 1/20/2020
-        div.connexion-cirlces
-          <span class="circle"></span>
-          <span class="circle"></span>
-          <span class="circle"></span>
-      .section-body-connexion
-        div.connexion-image
-          img(src=`https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80`)
-        div.connexion-info
-          p.connexion-name Eric Reale
-          p.connexion-circle-list circle 1 circle 2 circle 3
-          p.connexion-logged last logged: 1/20/2020
-        div.connexion-cirlces
-          <span class="circle"></span>
-      .section-body-connexion
-        div.connexion-image
-          img(src=`https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80`)
-        div.connexion-info
-          p.connexion-name Eric Reale
-          p.connexion-circle-list circle 1 circle 2 circle 3
-          p.connexion-logged last logged: 1/20/2020
-        div.connexion-cirlces
-          <span class="circle"></span>
-          <span class="circle"></span>
-      .section-body-connexion
-        div.connexion-image
-          img(src=`https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80`)
-        div.connexion-info
-          p.connexion-name Eric Reale
-          p.connexion-circle-list circle 1 circle 2 circle 3
-          p.connexion-logged last logged: 1/20/2020
-        div.connexion-cirlces
-          <span class="circle"></span>
-          <span class="circle"></span>
-          <span class="circle"></span>
-      .section-body-connexion
-        div.connexion-image
-          img(src=`https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80`)
-        div.connexion-info
-          p.connexion-name Eric Reale
-          p.connexion-circle-list circle 1 circle 2 circle 3
-          p.connexion-logged last logged: 1/20/2020
-        div.connexion-cirlces
-          <span class="circle"></span>
+      each connexion in connexions
+        a.section-body-connexion.section-body-connexion-a(href=`/connexions/${connexion.id}`)
+          div.connexion-image
+            img(src=`https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80`)
+          div.connexion-info
+            p.connexion-name #{connexion.name}
+            p.connexion-circle-list circle 1 circle 2 circle 3
+            p.connexion-logged last logged: 1/20/2020
+          div.connexion-cirlces
+            <span class="circle"></span>
+            <span class="circle"></span>
     .footer-tabs
       div
         p connexions

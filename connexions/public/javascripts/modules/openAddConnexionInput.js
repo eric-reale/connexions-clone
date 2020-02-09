@@ -11,11 +11,11 @@ let allConnexions;
 //   console.log(e);
 // }
 
-window.addEventListener('DOMContentLoaded', function() {
-  allConnexions = document.querySelectorAll('.section-body-connexion');
-  allConnexions.forEach(con => {
-    con.addEventListener('click', goToSinglePage)});
-});
+// window.addEventListener('DOMContentLoaded', function() {
+//   allConnexions = document.querySelectorAll('.section-body-connexion');
+//   allConnexions.forEach(con => {
+//     con.addEventListener('click', goToSinglePage)});
+// });
 
 function displayNewConnexion(value) {
   const now = new Date();
