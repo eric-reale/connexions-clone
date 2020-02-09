@@ -11,6 +11,8 @@ router.get('/connexions', connexionController.getConnexions);
 // router.get('/connexions/add', connexionController.addConnexion);
 router.post('/connexions/add', connexionController.addConnexion);
 
+router.get('/connexions/:id', connexionController.viewConnexion);
+
 router.get('/login', userController.loginForm);
 router.post('/login', authController.login);
 
