@@ -10,7 +10,7 @@ exports.getConnexions = (req, res) => {
 
 exports.addConnexion = (req, res) => {
   req.body.author = req.user._id;
-  console.log(req.body);
+  // console.log(req.body);
   const newConnexion = new Connexion({
     name: req.body.name,
     author: req.body.author
