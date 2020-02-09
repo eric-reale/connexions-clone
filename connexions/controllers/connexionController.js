@@ -24,3 +24,7 @@ exports.addConnexion = (req, res) => {
     });
   // res.render('connexion-single', { title: ''})
 }
+
+exports.viewConnexion = (req, res) => {
+  console.log(req.body);
+}
