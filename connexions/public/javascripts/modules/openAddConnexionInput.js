@@ -5,11 +5,16 @@ const connexionInput = document.querySelector('.connexion-input');
 
 let addNewConnexion;
 let closeOut;
-
 let allConnexions;
+
+// function goToSinglePage(e) {
+//   console.log(e);
+// }
+
 window.addEventListener('DOMContentLoaded', function() {
   allConnexions = document.querySelectorAll('.section-body-connexion');
-  allConnexions.forEach(con => con.addEventListener('click', function() {console.log('here')}))
+  allConnexions.forEach(con => {
+    con.addEventListener('click', goToSinglePage)});
 });
 
 function displayNewConnexion(value) {
@@ -37,7 +42,7 @@ function displayNewConnexion(value) {
   sectionBody.insertAdjacentHTML('afterbegin', html);
 
   allConnexions = document.querySelectorAll('.section-body-connexion');
-  allConnexions.forEach(con => con.addEventListener('click', function() {console.log('here')}))
+  allConnexions.forEach(con => con.addEventListener('click', goToSinglePage));
 
 }
 
@@ -85,7 +90,9 @@ function newConnexion(e) {
 };
 
 
-connexionInput.on('click', openAddConnexionInput);
+if (connexionInput) {
+  connexionInput.on('click', openAddConnexionInput);
+};
 
 // addNewConnexion.on('submit', newConnexion);
 

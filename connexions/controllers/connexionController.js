@@ -26,5 +26,6 @@ exports.addConnexion = (req, res) => {
 }
 
 exports.viewConnexion = (req, res) => {
-  console.log(req.body);
+  console.log('here');
+  res.send('your connexion is here')
 }

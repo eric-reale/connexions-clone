@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 30);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,9 +73,166 @@
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+// based on https://gist.github.com/paulirish/12fb951a8b893a454b32
+
+var $ = document.querySelector.bind(document);
+var $$ = document.querySelectorAll.bind(document);
+
+Node.prototype.on = window.on = function (name, fn) {
+  this.addEventListener(name, fn);
+};
+
+NodeList.prototype.__proto__ = Array.prototype; // eslint-disable-line
+
+NodeList.prototype.on = NodeList.prototype.addEventListener = function (name, fn) {
+  this.forEach(function (elem) {
+    elem.on(name, fn);
+  });
+};
+
+exports.$ = $;
+exports.$$ = $$;
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _openAddConnexionInput = __webpack_require__(1);
+
+Object.keys(_openAddConnexionInput).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _openAddConnexionInput[key];
+    }
+  });
+});
+
+var _axios = __webpack_require__(13);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _bling = __webpack_require__(0);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var connexionInput = document.querySelector('.connexion-input');
+
+var addNewConnexion = void 0;
+var closeOut = void 0;
+var allConnexions = void 0;
+
+// function goToSinglePage(e) {
+//   console.log(e);
+// }
+
+window.addEventListener('DOMContentLoaded', function () {
+  allConnexions = document.querySelectorAll('.section-body-connexion');
+  allConnexions.forEach(function (con) {
+    con.addEventListener('click', goToSinglePage);
+  });
+});
+
+function displayNewConnexion(value) {
+  var now = new Date();
+  var day = now.getDate();
+  var month = now.getMonth() + 1;
+  var year = now.getFullYear();
+
+  var sectionBody = document.querySelector('.section-body');
+  var html = '\n    <div class="section-body-connexion">\n      <div class="connexion-image">\n        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80">\n      </div>\n      <div class="connexion-info">\n        <p class="connexion-name">' + value + '</p>\n        <p class="connexion-circle-list">No circles yet!</p>\n        <p class="connexion-logged">last logged: ' + month + '/' + day + '/' + year + '</p>\n      </div>\n      <div class="connexion-cirlces">\n        <span></span>\n      </div>\n    </div>\n  ';
+  sectionBody.insertAdjacentHTML('afterbegin', html);
+
+  allConnexions = document.querySelectorAll('.section-body-connexion');
+  allConnexions.forEach(function (con) {
+    return con.addEventListener('click', goToSinglePage);
+  });
+}
+
+function closeDiv() {
+  var section = document.querySelector('.add-new-connexion-section');
+  section.classList.add('removed-item');
+  section.remove();
+}
+
+function openAddConnexionInput() {
+  var sectionBody = document.querySelector('.section-body');
+  var html = '\n    <div class="add-new-connexion-section">\n      <form class="add-new-connexion" method="POST" action="/connexions/add">\n        <input class="add-new-connexion-input" type="text" name="name">\n        <button class="add-new-connexion-button" type="submit" value="add">Add</button>\n        <button class="close-out" type="submit" value="add">Close</button>\n      </form>\n    </div>\n  ';
+  sectionBody.insertAdjacentHTML('afterbegin', html);
+
+  var closeOutButton = document.querySelector('.close-out');
+  closeOutButton.on('click', closeDiv);
+
+  addNewConnexion = document.querySelector('.add-new-connexion');
+  addNewConnexion.on('submit', newConnexion);
+};
+
+function newConnexion(e) {
+  e.preventDefault();
+  var form = e.target;
+  var input = form.querySelector('input');
+
+  _axios2.default.post(this.action, {
+    name: input.value
+  }).then(function (res) {}).catch(console.error);
+  closeDiv();
+  displayNewConnexion(input.value);
+};
+
+if (connexionInput) {
+  connexionInput.on('click', openAddConnexionInput);
+};
+
+// addNewConnexion.on('submit', newConnexion);
+
+
+// export default openAddConnexionInput;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(2);
+
+var _bling = __webpack_require__(0);
+
+var _openAddConnexionInput = __webpack_require__(1);
+
+var connexionsNew = _interopRequireWildcard(_openAddConnexionInput);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+/***/ }),
+/* 4 */,
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var bind = __webpack_require__(7);
+var bind = __webpack_require__(11);
 
 /*global toString:true*/
 
@@ -370,14 +527,14 @@ module.exports = {
 };
 
 /***/ }),
-/* 1 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(27);
+var utils = __webpack_require__(5);
+var normalizeHeaderName = __webpack_require__(28);
 
 var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 var DEFAULT_CONTENT_TYPE = {
@@ -394,10 +551,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(3);
+    adapter = __webpack_require__(7);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(3);
+    adapter = __webpack_require__(7);
   }
   return adapter;
 }
@@ -462,52 +619,22 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 });
 
 module.exports = defaults;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-// based on https://gist.github.com/paulirish/12fb951a8b893a454b32
-
-var $ = document.querySelector.bind(document);
-var $$ = document.querySelectorAll.bind(document);
-
-Node.prototype.on = window.on = function (name, fn) {
-  this.addEventListener(name, fn);
-};
-
-NodeList.prototype.__proto__ = Array.prototype; // eslint-disable-line
-
-NodeList.prototype.on = NodeList.prototype.addEventListener = function (name, fn) {
-  this.forEach(function (elem) {
-    elem.on(name, fn);
-  });
-};
-
-exports.$ = $;
-exports.$$ = $$;
-
-/***/ }),
-/* 3 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(0);
-var settle = __webpack_require__(19);
-var buildURL = __webpack_require__(22);
-var parseHeaders = __webpack_require__(28);
-var isURLSameOrigin = __webpack_require__(26);
-var createError = __webpack_require__(6);
-var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(21);
+var utils = __webpack_require__(5);
+var settle = __webpack_require__(20);
+var buildURL = __webpack_require__(23);
+var parseHeaders = __webpack_require__(29);
+var isURLSameOrigin = __webpack_require__(27);
+var createError = __webpack_require__(10);
+var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(22);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -600,7 +727,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(24);
+      var cookies = __webpack_require__(25);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ? cookies.read(config.xsrfCookieName) : undefined;
@@ -671,10 +798,10 @@ module.exports = function xhrAdapter(config) {
     request.send(requestData);
   });
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
-/* 4 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -700,7 +827,7 @@ Cancel.prototype.__CANCEL__ = true;
 module.exports = Cancel;
 
 /***/ }),
-/* 5 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -711,13 +838,13 @@ module.exports = function isCancel(value) {
 };
 
 /***/ }),
-/* 6 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var enhanceError = __webpack_require__(18);
+var enhanceError = __webpack_require__(19);
 
 /**
  * Create an Error with the specified message, config, error code, and response.
@@ -734,7 +861,7 @@ module.exports = function createError(message, config, code, response) {
 };
 
 /***/ }),
-/* 7 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -751,7 +878,7 @@ module.exports = function bind(fn, thisArg) {
 };
 
 /***/ }),
-/* 8 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -944,133 +1071,25 @@ process.umask = function () {
 };
 
 /***/ }),
-/* 9 */,
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _openAddConnexionInput = __webpack_require__(10);
-
-Object.keys(_openAddConnexionInput).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _openAddConnexionInput[key];
-    }
-  });
-});
-
-var _axios = __webpack_require__(12);
-
-var _axios2 = _interopRequireDefault(_axios);
-
-var _bling = __webpack_require__(2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var connexionInput = document.querySelector('.connexion-input');
-
-var addNewConnexion = void 0;
-var closeOut = void 0;
-
-var allConnexions = void 0;
-window.addEventListener('DOMContentLoaded', function () {
-  allConnexions = document.querySelectorAll('.section-body-connexion');
-  allConnexions.forEach(function (con) {
-    return con.addEventListener('click', function () {
-      console.log('here');
-    });
-  });
-});
-
-function displayNewConnexion(value) {
-  var now = new Date();
-  var day = now.getDate();
-  var month = now.getMonth() + 1;
-  var year = now.getFullYear();
-
-  var sectionBody = document.querySelector('.section-body');
-  var html = '\n    <div class="section-body-connexion">\n      <div class="connexion-image">\n        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80">\n      </div>\n      <div class="connexion-info">\n        <p class="connexion-name">' + value + '</p>\n        <p class="connexion-circle-list">No circles yet!</p>\n        <p class="connexion-logged">last logged: ' + month + '/' + day + '/' + year + '</p>\n      </div>\n      <div class="connexion-cirlces">\n        <span></span>\n      </div>\n    </div>\n  ';
-  sectionBody.insertAdjacentHTML('afterbegin', html);
-
-  allConnexions = document.querySelectorAll('.section-body-connexion');
-  allConnexions.forEach(function (con) {
-    return con.addEventListener('click', function () {
-      console.log('here');
-    });
-  });
-}
-
-function closeDiv() {
-  var section = document.querySelector('.add-new-connexion-section');
-  section.classList.add('removed-item');
-  section.remove();
-}
-
-function openAddConnexionInput() {
-  var sectionBody = document.querySelector('.section-body');
-  var html = '\n    <div class="add-new-connexion-section">\n      <form class="add-new-connexion" method="POST" action="/connexions/add">\n        <input class="add-new-connexion-input" type="text" name="name">\n        <button class="add-new-connexion-button" type="submit" value="add">Add</button>\n        <button class="close-out" type="submit" value="add">Close</button>\n      </form>\n    </div>\n  ';
-  sectionBody.insertAdjacentHTML('afterbegin', html);
-
-  var closeOutButton = document.querySelector('.close-out');
-  closeOutButton.on('click', closeDiv);
-
-  addNewConnexion = document.querySelector('.add-new-connexion');
-  addNewConnexion.on('submit', newConnexion);
-};
-
-function newConnexion(e) {
-  e.preventDefault();
-  var form = e.target;
-  var input = form.querySelector('input');
-
-  _axios2.default.post(this.action, {
-    name: input.value
-  }).then(function (res) {}).catch(console.error);
-  closeDiv();
-  displayNewConnexion(input.value);
-};
-
-connexionInput.on('click', openAddConnexionInput);
-
-// addNewConnexion.on('submit', newConnexion);
-
-
-// export default openAddConnexionInput;
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(13);
-
-/***/ }),
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
-var bind = __webpack_require__(7);
-var Axios = __webpack_require__(15);
-var defaults = __webpack_require__(1);
+module.exports = __webpack_require__(14);
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(5);
+var bind = __webpack_require__(11);
+var Axios = __webpack_require__(16);
+var defaults = __webpack_require__(6);
 
 /**
  * Create an instance of Axios
@@ -1103,15 +1122,15 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(4);
-axios.CancelToken = __webpack_require__(14);
-axios.isCancel = __webpack_require__(5);
+axios.Cancel = __webpack_require__(8);
+axios.CancelToken = __webpack_require__(15);
+axios.isCancel = __webpack_require__(9);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(29);
+axios.spread = __webpack_require__(30);
 
 module.exports = axios;
 
@@ -1119,13 +1138,13 @@ module.exports = axios;
 module.exports.default = axios;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Cancel = __webpack_require__(4);
+var Cancel = __webpack_require__(8);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -1182,18 +1201,18 @@ CancelToken.source = function source() {
 module.exports = CancelToken;
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var defaults = __webpack_require__(1);
-var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(16);
-var dispatchRequest = __webpack_require__(17);
-var isAbsoluteURL = __webpack_require__(25);
-var combineURLs = __webpack_require__(23);
+var defaults = __webpack_require__(6);
+var utils = __webpack_require__(5);
+var InterceptorManager = __webpack_require__(17);
+var dispatchRequest = __webpack_require__(18);
+var isAbsoluteURL = __webpack_require__(26);
+var combineURLs = __webpack_require__(24);
 
 /**
  * Create a new instance of Axios
@@ -1273,13 +1292,13 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = Axios;
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(5);
 
 function InterceptorManager() {
   this.handlers = [];
@@ -1331,16 +1350,16 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 module.exports = InterceptorManager;
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
-var transformData = __webpack_require__(20);
-var isCancel = __webpack_require__(5);
-var defaults = __webpack_require__(1);
+var utils = __webpack_require__(5);
+var transformData = __webpack_require__(21);
+var isCancel = __webpack_require__(9);
+var defaults = __webpack_require__(6);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -1397,7 +1416,7 @@ module.exports = function dispatchRequest(config) {
 };
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1423,13 +1442,13 @@ module.exports = function enhanceError(error, config, code, response) {
 };
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var createError = __webpack_require__(6);
+var createError = __webpack_require__(10);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -1449,13 +1468,13 @@ module.exports = function settle(resolve, reject, response) {
 };
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(5);
 
 /**
  * Transform the data for a request or a response
@@ -1475,7 +1494,7 @@ module.exports = function transformData(data, headers, fns) {
 };
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1516,13 +1535,13 @@ function btoa(input) {
 module.exports = btoa;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(5);
 
 function encode(val) {
   return encodeURIComponent(val).replace(/%40/gi, '@').replace(/%3A/gi, ':').replace(/%24/g, '$').replace(/%2C/gi, ',').replace(/%20/g, '+').replace(/%5B/gi, '[').replace(/%5D/gi, ']');
@@ -1583,7 +1602,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 };
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1602,13 +1621,13 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 };
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(5);
 
 module.exports = utils.isStandardBrowserEnv() ?
 
@@ -1661,7 +1680,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1683,13 +1702,13 @@ module.exports = function isAbsoluteURL(url) {
 };
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(5);
 
 module.exports = utils.isStandardBrowserEnv() ?
 
@@ -1752,13 +1771,13 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(5);
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -1770,13 +1789,13 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 };
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(5);
 
 /**
  * Parse headers into an object
@@ -1815,7 +1834,7 @@ module.exports = function parseHeaders(headers) {
 };
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1847,40 +1866,6 @@ module.exports = function spread(callback) {
     return callback.apply(null, arr);
   };
 };
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(11);
-
-var _bling = __webpack_require__(2);
-
-var _openAddConnexionInput = __webpack_require__(10);
-
-var connexionsNew = _interopRequireWildcard(_openAddConnexionInput);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-// const connexionInput = document.querySelector('.connexion-input');
-// connexionInput.on('click', addConnexionInput);
-
-// let addNewConnexion;
-// // const addNewConnexion = document.querySelector('.add-new-connexion');
-// if(addNewConnexion) {
-//   addNewConnexion.on('submit', newConnexion);
-// }
-
-var allConnexions = void 0;
-// import newConnexion from './modules/newConnexion';
-// import addConnexionInput from './modules/openAddConnexionInput';
-
-window.addEventListener('DOMContentLoaded', function () {
-  allConnexions = document.querySelectorAll('.section-body-connexion');
-});
 
 /***/ })
 /******/ ]);

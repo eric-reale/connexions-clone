@@ -16,8 +16,4 @@ import * as connexionsNew from './modules/openAddConnexionInput';
 //   addNewConnexion.on('submit', newConnexion);
 // }
 
-let allConnexions;
-window.addEventListener('DOMContentLoaded', function() {
-  allConnexions = document.querySelectorAll('.section-body-connexion');
-});
 
