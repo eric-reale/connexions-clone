@@ -16,7 +16,7 @@ block content
       div
         p #{connexion.name}
       div
-       a#back(href="/connexions/:id/update")
+       a#back(href=`/connexions/${connexion.id}/edit`)
           p edit
     .profile-chapter
       div.tabs-section

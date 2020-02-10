@@ -12,6 +12,10 @@ const connexionSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'User',
     required: 'A user must be associated with this connexion!'
+  },
+  created: {
+    type: Date,
+    default: Date.now
   }
 })
 
