@@ -5,6 +5,7 @@ import { $, $$ } from './modules/bling';
 // import addConnexionInput from './modules/openAddConnexionInput';
 
 import getTabular from './modules/singlePageTab';
+import connexionProperties from './modules/displayConnexionProperties';
 
 import * as connexionsNew from './modules/openAddConnexionInput';
 
@@ -17,6 +18,8 @@ window.addEventListener('DOMContentLoaded', function() {
     });
   }
 })
+
+// window.addEventListener('DOMContentLoaded', connexionProperties(connexion));
 
 
 
