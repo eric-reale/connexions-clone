@@ -31,18 +31,18 @@ exports.addConnexion = (req, res) => {
   // res.render('connexion-single', { title: ''})
 }
 
+const confirmOwner = (connexion, user) => {
+  if (!connexion.author.equals(user._id)) {
+    throw Error('Not your connexion!');
+  }
+};
+
 exports.viewConnexion = async (req, res) => {
   const connexion = await Connexion.findById(req.params.id)
   // console.log(connexion);
   // console.log('here');
   confirmOwner(connexion, req.user);
   res.render('connexion-single', { title: `My connexion`, connexion });
-}
-
-const confirmOwner = (connexion, user) => {
-  if (!connexion.author.equals(user._id)) {
-    throw Error('Not your connexion!');
-  }
 };
 
 exports.editConnexion = async (req, res) => {
@@ -50,15 +50,16 @@ exports.editConnexion = async (req, res) => {
   // console.log(connexion);
   confirmOwner(connexion, req.user);
   res.render('connexion-edit', { title: `Update my connexion`, connexion });
-}
+};
 
 exports.updateConnexion = async (req, res) => {
   // console.log(req.body)
   const connexion = await Connexion.findOneAndUpdate({_id: req.params.id }, req.body, {
     new: true,
-    runValidators: true
+    runValidators: true,
+    strict: false
   }).exec();
-  // console.log(connexion);
+  console.log(connexion);
   // console.log('here');
   res.render('connexion-edit', { title: `Update my connexion`, connexion });
 }
