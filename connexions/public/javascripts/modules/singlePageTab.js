@@ -1,9 +1,10 @@
 function singlePageTab(e) {
-  let otherTab = e.currentTarget.parentElement.previousElementSibling
+  let otherTab = e.currentTarget.parentElement.parentElement.previousElementSibling
   if (otherTab === null) {
-    otherTab = e.currentTarget.parentElement.nextElementSibling
+    otherTab = e.currentTarget.parentElement.parentElement.nextElementSibling
   };
-  const otherActiveTab = otherTab.childNodes[1];
+
+  const otherActiveTab = otherTab.childNodes[1].firstElementChild;
   otherActiveTab.classList.remove('active');
   e.currentTarget.classList.add('active');
 

@@ -2,6 +2,11 @@
   color: $gray;
 }
 
+#back {
+  letter-spacing: 0.04em;
+  font-family: 'Comfortaa', cursive;
+}
+
 // .profile-chapter {
 //   display: flex;
 //   justify-content: space-between;
@@ -12,15 +17,29 @@
 // }
 
 .tabs-section {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-content: space-around;
+  padding: 0;
+  margin: 0px;
 }
 
+.tabs-section a {
+  letter-spacing: 0.04em;
+  font-family: 'Comfortaa', cursive;
+}
+
+
 .tabs-underlined {
-  // display: flex;
-  // align-items: center;
-  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  margin: 0px;
+}
+
+ul {
+  padding-inline-start: 0px;
 }
 
 .tabs-underlined li {
@@ -42,6 +61,10 @@
   opacity: 1;
   border-bottom: 3px solid #555555;
 }
+
+// .tab-background {
+//   background: gray;
+// }
 
 .profile-active {
   display: none;

@@ -4,7 +4,7 @@ const Connexion = mongoose.model('Connexion');
 const promisify = require('es6-promisify');
 
 exports.getConnexions = async (req, res) => {
-  const connexions = await Connexion.find();
+  const connexions = await Connexion.find().sort({ created: 'desc' });;
   // console.log(connexions);
   res.render('connexions', { title: 'Connexions', connexions});
 }

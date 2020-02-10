@@ -25,7 +25,7 @@ function displayNewConnexion(value) {
 
   const sectionBody = document.querySelector('.section-body');
   const html = `
-    <div class="section-body-connexion">
+    <a class="section-body-connexion section-body-connexion-a" href="/connexions/testrun">
       <div class="connexion-image">
         <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80">
       </div>
@@ -41,8 +41,8 @@ function displayNewConnexion(value) {
   `;
   sectionBody.insertAdjacentHTML('afterbegin', html);
 
-  allConnexions = document.querySelectorAll('.section-body-connexion');
-  allConnexions.forEach(con => con.addEventListener('click', goToSinglePage));
+  // allConnexions = document.querySelectorAll('.section-body-connexion');
+  // allConnexions.forEach(con => con.addEventListener('click', goToSinglePage));
 
 }
 
