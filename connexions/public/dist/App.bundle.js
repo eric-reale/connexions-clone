@@ -1901,6 +1901,10 @@ var _singlePageTab = __webpack_require__(10);
 
 var _singlePageTab2 = _interopRequireDefault(_singlePageTab);
 
+var _displayConnexionProperties = __webpack_require__(32);
+
+var _displayConnexionProperties2 = _interopRequireDefault(_displayConnexionProperties);
+
 var _openAddConnexionInput = __webpack_require__(3);
 
 var connexionsNew = _interopRequireWildcard(_openAddConnexionInput);
@@ -1908,9 +1912,6 @@ var connexionsNew = _interopRequireWildcard(_openAddConnexionInput);
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// import newConnexion from './modules/newConnexion';
-// import addConnexionInput from './modules/openAddConnexionInput';
 
 window.addEventListener('DOMContentLoaded', function () {
   var tabs = document.querySelectorAll('.tab-underlined');
@@ -1921,6 +1922,9 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 });
 
+// window.addEventListener('DOMContentLoaded', connexionProperties(connexion));
+
+
 // const connexionInput = document.querySelector('.connexion-input');
 // connexionInput.on('click', addConnexionInput);
 
@@ -1929,6 +1933,22 @@ window.addEventListener('DOMContentLoaded', function () {
 // if(addNewConnexion) {
 //   addNewConnexion.on('submit', newConnexion);
 // }
+
+// import newConnexion from './modules/newConnexion';
+// import addConnexionInput from './modules/openAddConnexionInput';
+
+/***/ }),
+/* 31 */,
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function connexionProperties(connexion) {
+  console.log('here');
+  console.log(connexion);
+}
 
 /***/ })
 /******/ ]);
