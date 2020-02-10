@@ -2,6 +2,11 @@
   color: $gray;
 }
 
+#back {
+  letter-spacing: 0.04em;
+  font-family: 'Comfortaa', cursive;
+}
+
 // .profile-chapter {
 //   display: flex;
 //   justify-content: space-between;
@@ -11,19 +16,42 @@
 //   flex-shrink: 0;
 // }
 
+.tabs-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 0;
+  margin: 0px;
+}
+
+.tabs-section a {
+  letter-spacing: 0.04em;
+  font-family: 'Comfortaa', cursive;
+}
+
+
 .tabs-underlined {
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  margin: 0px;
+  margin-top: 5px;
+}
+
+ul {
+  padding-inline-start: 0px;
 }
 
 .tabs-underlined li {
   text-decoration: none;
+  list-style: none;
 }
 
 .tabs-underlined .tab-underlined {
   color: black;
   padding: 8px;
-  margin: 8px 16px;
+  margin: 8px 8px;
   opacity: .4;
   cursor: pointer;
   text-decoration: none;
@@ -34,3 +62,100 @@
   opacity: 1;
   border-bottom: 3px solid #555555;
 }
+
+// .tab-background {
+//   background: gray;
+// }
+
+.profile-active {
+  display: none;
+}
+
+.profile-active.active {
+  display: block;
+}
+
+.chapter-active {
+  display: none;
+}
+
+.chapter-active.active {
+  display: block;
+}
+
+.no-border {
+  border: none;
+}
+
+
+.connexion-attributes-section {
+display: grid;
+grid-template-columns: 1fr 1fr;
+justify-content: center;
+align-items: center;
+margin: 10px 0px;
+}
+
+.connexion-attributes-categories {
+font-weight: 700;
+display: flex;
+justify-content: center;
+height: 60px;
+}
+
+.connexion-attributes-answers {
+font-weight: 300;
+display: flex;
+justify-content: center;
+height: 60px;
+}
+
+.add-new-category {
+display: grid;
+grid-template-columns: auto;
+height: 60px;
+justify-content: center;
+align-items: center;
+margin: 10px auto;
+width: 50%;
+background-color: white;
+}
+
+.add-new-category-button {
+display: flex;
+justify-content: center;
+padding: 15px;
+border: 1px solid $gray;
+background-color: white;
+font-size: 12px;
+}
+
+.add-new-category-button > svg {
+  font-size: 12px;
+}
+
+.profile-circles-section {
+  border-top: 1px solid $gray;
+}
+
+.my-circles {
+  display: flex;
+  justify-content: center;
+
+}
+
+.connexion-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-family: 'Comfortaa', cursive;
+  color: $blue;
+  line-height: 100px;
+  text-align: center;
+  background: white;
+  border: 1px solid $blue;
+  padding: 0px;
+  margin: 5px;
+}
+
