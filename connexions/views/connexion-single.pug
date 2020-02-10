@@ -32,7 +32,45 @@ block content
         </ul>
       div.profile-chapter-sections
         div.profile-active.active
-          p Here I am
+          div.section-body-connexion.no-border
+            div.connexion-image
+              img(src=`https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80`)
+            div.connexion-info
+              p.connexion-name #{connexion.name}
+              - const location = connexion.location ? `${connexion.location}` : 'Location'
+              p.connexion-circle-list #{location}
+          div.connexion-attributes-section
+            div.connexion-attributes-categories
+              p Occupation
+            div.connexion-attributes-answers
+              p Accountant
+            div.connexion-attributes-categories
+              p Birthday
+            div.connexion-attributes-answers
+              p X
+            div.connexion-attributes-categories
+              p Age
+            div.connexion-attributes-answers
+              p X
+            div.connexion-attributes-categories
+              p Home Town
+            div.connexion-attributes-answers
+              p X
+          div.add-new-category
+            button.add-new-category-button add new category
+          div.profile-circles-section
+            div.section-header.no-border
+              div
+                h4 circles
+              div
+                p hide
+              div
+                button.connexion-input
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>ic_add_24px</title><g class="nc-icon-wrapper" fill="#111111"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></g></svg>
+            div.my-circles
+              div.connexion-circle Penn State
+              div.connexion-circle New York City
+              div.connexion-circle Le Wagon
         div.chapter-active
           p this is for the chapter
 

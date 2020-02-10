@@ -36,6 +36,7 @@
   justify-content: center;
   padding: 10px 20px;
   margin: 0px;
+  margin-top: 5px;
 }
 
 ul {
@@ -81,3 +82,80 @@ ul {
 .chapter-active.active {
   display: block;
 }
+
+.no-border {
+  border: none;
+}
+
+
+.connexion-attributes-section {
+display: grid;
+grid-template-columns: 1fr 1fr;
+justify-content: center;
+align-items: center;
+margin: 10px 0px;
+}
+
+.connexion-attributes-categories {
+font-weight: 700;
+display: flex;
+justify-content: center;
+height: 60px;
+}
+
+.connexion-attributes-answers {
+font-weight: 300;
+display: flex;
+justify-content: center;
+height: 60px;
+}
+
+.add-new-category {
+display: grid;
+grid-template-columns: auto;
+height: 60px;
+justify-content: center;
+align-items: center;
+margin: 10px auto;
+width: 50%;
+background-color: white;
+}
+
+.add-new-category-button {
+display: flex;
+justify-content: center;
+padding: 15px;
+border: 1px solid $gray;
+background-color: white;
+font-size: 12px;
+}
+
+.add-new-category-button > svg {
+  font-size: 12px;
+}
+
+.profile-circles-section {
+  border-top: 1px solid $gray;
+}
+
+.my-circles {
+  display: flex;
+  justify-content: center;
+
+}
+
+.connexion-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-family: 'Comfortaa', cursive;
+  color: $blue;
+  line-height: 100px;
+  text-align: center;
+  background: white;
+  border: 1px solid $blue;
+  padding: 0px;
+  margin: 5px;
+}
+

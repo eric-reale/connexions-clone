@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Comfortaa:300,400,600|Raleway:300,400,600,700&display=swap);h1, h2, h3, h4, h5, h6 {
+@import url(https://fonts.googleapis.com/css?family=Comfortaa:300,400,600|Raleway:300,400,600,700&display=swap);@import url(https://fonts.googleapis.com/css?family=Comfortaa:300,400,600,700|Raleway:300,400,600,700&display=swap);h1, h2, h3, h4, h5, h6 {
   color: #4E8AFE;
   font-size: 3rem;
   letter-spacing: .12em;
@@ -853,7 +853,8 @@ body {
   -ms-flex-pack: center;
       justify-content: center;
   padding: 10px 20px;
-  margin: 0px; }
+  margin: 0px;
+  margin-top: 5px; }
 
 ul {
   -webkit-padding-start: 0px;
@@ -887,5 +888,85 @@ ul {
 
 .chapter-active.active {
   display: block; }
+
+.no-border {
+  border: none; }
+
+.connexion-attributes-section {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  margin: 10px 0px; }
+
+.connexion-attributes-categories {
+  font-weight: 700;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  height: 60px; }
+
+.connexion-attributes-answers {
+  font-weight: 300;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  height: 60px; }
+
+.add-new-category {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  height: 60px;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  margin: 10px auto;
+  width: 50%;
+  background-color: white; }
+
+.add-new-category-button {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  padding: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: white;
+  font-size: 12px; }
+
+.add-new-category-button > svg {
+  font-size: 12px; }
+
+.profile-circles-section {
+  border-top: 1px solid rgba(0, 0, 0, 0.5); }
+
+.my-circles {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center; }
+
+.connexion-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-family: 'Comfortaa', cursive;
+  color: #4E8AFE;
+  line-height: 100px;
+  text-align: center;
+  background: white;
+  border: 1px solid #4E8AFE;
+  padding: 0px;
+  margin: 5px; }
 
 /*# sourceMappingURL=style.css.map*/
