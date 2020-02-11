@@ -531,18 +531,8 @@ var addNewConnexion = void 0;
 var closeOut = void 0;
 var allConnexions = void 0;
 
-// function goToSinglePage(e) {
-//   console.log(e);
-// }
-
-// window.addEventListener('DOMContentLoaded', function() {
-//   allConnexions = document.querySelectorAll('.section-body-connexion');
-//   allConnexions.forEach(con => {
-//     con.addEventListener('click', goToSinglePage)});
-// });
-
 function displayNewConnexion(connexion) {
-  console.log(connexion);
+  // console.log(connexion);
   var now = new Date();
   var day = now.getDate();
   var month = now.getMonth() + 1;
@@ -551,9 +541,6 @@ function displayNewConnexion(connexion) {
   var sectionBody = document.querySelector('.section-body');
   var html = '\n    <a class="section-body-connexion section-body-connexion-a" href="/connexions/' + connexion._id + '">\n      <div class="connexion-image">\n        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80">\n      </div>\n      <div class="connexion-info">\n        <p class="connexion-name">' + connexion.name + '</p>\n        <p class="connexion-circle-list">No circles yet!</p>\n        <p class="connexion-logged">last logged: ' + month + '/' + day + '/' + year + '</p>\n      </div>\n      <div class="connexion-cirlces">\n        <span></span>\n      </div>\n    </div>\n  ';
   sectionBody.insertAdjacentHTML('afterbegin', html);
-
-  // allConnexions = document.querySelectorAll('.section-body-connexion');
-  // allConnexions.forEach(con => con.addEventListener('click', goToSinglePage));
 }
 
 function closeDiv() {
@@ -594,9 +581,6 @@ function newConnexion(e) {
 if (connexionInput) {
   connexionInput.on('click', openAddConnexionInput);
 };
-
-// addNewConnexion.on('submit', newConnexion);
-
 
 // export default openAddConnexionInput;
 

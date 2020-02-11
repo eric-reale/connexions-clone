@@ -7,18 +7,8 @@ let addNewConnexion;
 let closeOut;
 let allConnexions;
 
-// function goToSinglePage(e) {
-//   console.log(e);
-// }
-
-// window.addEventListener('DOMContentLoaded', function() {
-//   allConnexions = document.querySelectorAll('.section-body-connexion');
-//   allConnexions.forEach(con => {
-//     con.addEventListener('click', goToSinglePage)});
-// });
-
 function displayNewConnexion(connexion) {
-  console.log(connexion);
+  // console.log(connexion);
   const now = new Date();
     const day = now.getDate();
     const month = now.getMonth() + 1;
@@ -41,10 +31,6 @@ function displayNewConnexion(connexion) {
     </div>
   `;
   sectionBody.insertAdjacentHTML('afterbegin', html);
-
-  // allConnexions = document.querySelectorAll('.section-body-connexion');
-  // allConnexions.forEach(con => con.addEventListener('click', goToSinglePage));
-
 }
 
 function closeDiv() {
@@ -97,10 +83,6 @@ function newConnexion(e) {
 if (connexionInput) {
   connexionInput.on('click', openAddConnexionInput);
 };
-
-// addNewConnexion.on('submit', newConnexion);
-
-
 
 // export default openAddConnexionInput;
 export * from './openAddConnexionInput';

@@ -979,4 +979,25 @@ ul {
   -ms-flex-align: center;
       align-items: center; }
 
+.chapter-each-display {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  height: 75px;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-direction: column;
+      flex-direction: column; }
+
+.chapter-each-heading {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  font-size: 14px; }
+
+.chapter-each-description {
+  font-size: 12px; }
+
 /*# sourceMappingURL=style.css.map*/

@@ -1,0 +1,18 @@
+.chapter-each-display {
+  display: flex;
+  justify-content: center;
+  height: 75px;
+  align-items: center;
+  flex-direction: column;
+  // padding: 10px 20px;
+}
+
+.chapter-each-heading {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  font-size: 14px;
+}
+
+.chapter-each-description {
+  font-size: 12px;
+}

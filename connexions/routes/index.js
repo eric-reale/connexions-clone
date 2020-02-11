@@ -3,6 +3,7 @@ const router = express.Router();
 const authController = require('../controllers/authController');
 const userController = require('../controllers/userController');
 const connexionController = require('../controllers/connexionController');
+const chapterController = require('../controllers/chapterController');
 const { catchErrors } = require('../handlers/errorHandlers');
 
 router.get('/', authController.homePage);
@@ -14,6 +15,9 @@ router.post('/connexions/add', connexionController.addConnexion);
 router.get('/connexions/:id', catchErrors(connexionController.viewConnexion));
 router.get('/connexions/:id/edit', catchErrors(connexionController.editConnexion));
 router.post('/connexions/:id/update', connexionController.updateConnexion);
+
+router.get('/connexions/:id/chapter/new', chapterController.newChapter);
+router.post('/connexions/:id/chapter/add', chapterController.addChapter);
 
 router.get('/login', userController.loginForm);
 router.post('/login', authController.login);
