@@ -969,8 +969,14 @@ ul {
   padding: 0px;
   margin: 5px; }
 
-.black {
-  font-size: 30px;
-  color: black; }
+.connexion-attributes-categories-center {
+  font-weight: 700;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  height: 60px;
+  -ms-flex-align: center;
+      align-items: center; }
 
 /*# sourceMappingURL=style.css.map*/
