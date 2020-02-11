@@ -40,22 +40,13 @@ block content
               - const location = connexion.location ? `${connexion.location}` : 'Location'
               p.connexion-circle-list #{location}
           div.connexion-attributes-section
-            div.connexion-attributes-categories
-              p Occupation
-            div.connexion-attributes-answers
-              p Accountant
-            div.connexion-attributes-categories
-              p Birthday
-            div.connexion-attributes-answers
-              p X
-            div.connexion-attributes-categories
-              p Age
-            div.connexion-attributes-answers
-              p X
-            div.connexion-attributes-categories
-              p Home Town
-            div.connexion-attributes-answers
-              p X
+            - if (connexion._doc.category) { for (let i = 0; i < JSON.stringify(connexion._doc.category).split(",").length; i++) {
+            - const category = (JSON.stringify(connexion._doc.category).split(",")[`${i}`].split(":")[0].replace("{", '').slice(1, -1))
+            - const answer = connexion._doc.category[category]
+
+            div.connexion-attributes-categories #{category}
+            div.connexion-attributes-answers #{answer}
+            - }}
           div.add-new-category
             a.add-new-category-button(href=`/connexions/${connexion.id}/edit`) add new category
           div.profile-circles-section
@@ -73,5 +64,16 @@ block content
               div.connexion-circle Le Wagon
         div.chapter-active
           p this is for the chapter
+      .footer-tabs
+        div
+          p connexions
+        div
+          p circles
+        div.calendar
+          p calendar
+          p <span>coming soon!<span>
+        div.conversations
+          p conversations
+          p <span>coming soon!<span>
 
 

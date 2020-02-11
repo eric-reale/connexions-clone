@@ -8,6 +8,10 @@ const connexionSchema = new mongoose.Schema({
     trim: true,
     required: "Please enter a connexion's name!"
   },
+  location: {
+    type: String,
+    trim: true
+  },
   author: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',

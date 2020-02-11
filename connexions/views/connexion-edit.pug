@@ -11,19 +11,35 @@ block content
           p <span style="color: red;">hold</span>
       .section-header
         div
-          a#back(href="/connexions")
+          a#back(href=`/connexions/${connexion.id}`)
             p back
         div
           p #{connexion.name}
         div
          input#back(type="submit" form="update-connexion" value="save")
       form.connexion-attributes-section(id="update-connexion" action=`/connexions/${connexion.id}/update` method="POST")
-        - for (let i = 0; i < JSON.stringify(connexion._doc.category).split(",").length; i++) {
+        label.connexion-attributes-categories-center Name
+        input.connexion-attributes-answers(type="text" name="name" value=connexion.name)
+        label.connexion-attributes-categories-center Location
+        input.connexion-attributes-answers(type="text" name="location" value=connexion.location)
+        - if (connexion._doc.category) { for (let i = 0; i < JSON.stringify(connexion._doc.category).split(",").length; i++) {
         - const category = (JSON.stringify(connexion._doc.category).split(",")[`${i}`].split(":")[0].replace("{", '').slice(1, -1))
         - const answer = connexion._doc.category[category]
 
         label.connexion-attributes-categories-center(for=`category[${category}]`) #{category}
         input.connexion-attributes-answers(type="text" name=`category[${category}]` value=answer)
-        - }
+        - }}
       div.add-new-category
         button.add-new-category-button add new category
+
+      .footer-tabs
+        div
+          p connexions
+        div
+          p circles
+        div.calendar
+          p calendar
+          p <span>coming soon!<span>
+        div.conversations
+          p conversations
+          p <span>coming soon!<span>
