@@ -18,34 +18,12 @@ block content
         div
          input#back(type="submit" form="update-connexion" value="save")
       form.connexion-attributes-section(id="update-connexion" action=`/connexions/${connexion.id}/update` method="POST")
-        //- label.connexion-attributes-categories(for="name") Name
-        //- input.connexion-attributes-answers(type="text" name="name" value=connexion.name)
-
-          //- const cat = #{cat}
         - for (let i = 0; i < JSON.stringify(connexion._doc.category).split(",").length; i++) {
-          //- - const category = JSON.stringify(connexion._doc.category).split(",")}
-          //- [`${i}`].split(":")[0].replace("{", '').slice(1, -1)}
         - const category = (JSON.stringify(connexion._doc.category).split(",")[`${i}`].split(":")[0].replace("{", '').slice(1, -1))
         - const answer = connexion._doc.category[category]
 
         label.connexion-attributes-categories-center(for=`category[${category}]`) #{category}
         input.connexion-attributes-answers(type="text" name=`category[${category}]` value=answer)
         - }
-        //- label.connexion-attributes-categories(for="category[hometown]") Home Town
-        //- input.connexion-attributes-answers(type="text" name="category[hometown]")
-
       div.add-new-category
         button.add-new-category-button add new category
-        //- input(type="submit" value="submit")
-        //- div.connexion-attributes-categories
-        //-   p Birthday
-        //- div.connexion-attributes-answers
-        //-   p X
-        //- div.connexion-attributes-categories
-        //-   p Age
-        //- div.connexion-attributes-answers
-        //-   p X
-        //- div.connexion-attributes-categories
-        //-   p Home Town
-        //- div.connexion-attributes-answers
-        //-   p X

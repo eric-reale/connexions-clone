@@ -1,8 +1,6 @@
 import '../sass/style.scss';
 
 import { $, $$ } from './modules/bling';
-// import newConnexion from './modules/newConnexion';
-// import addConnexionInput from './modules/openAddConnexionInput';
 
 import getTabular from './modules/singlePageTab';
 import connexionProperties from './modules/displayConnexionProperties';
@@ -21,15 +19,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 // window.addEventListener('DOMContentLoaded', connexionProperties(connexion));
 
-
-
-// const connexionInput = document.querySelector('.connexion-input');
-// connexionInput.on('click', addConnexionInput);
-
-// let addNewConnexion;
-// // const addNewConnexion = document.querySelector('.add-new-connexion');
-// if(addNewConnexion) {
-//   addNewConnexion.on('submit', newConnexion);
-// }
-
-
+const newButtonCat = document.querySelector('.add-new-category-button')
+if (newButtonCat) {
+  newButtonCat.addEventListener('click', connexionProperties);
+  }
