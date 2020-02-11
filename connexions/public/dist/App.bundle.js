@@ -1050,10 +1050,52 @@ process.umask = function () {
 "use strict";
 
 
-function connexionProperties(connexion) {
-  console.log('here');
-  console.log(connexion);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var newLabels = void 0;
+var newInputs = void 0;
+
+function connexionProperties() {
+  var labelHTML = '\n    <input class="connexion-attributes-categories-center new-label" placeholder="occupation, home town, etc.">\n  ';
+  var inputHTML = '\n    <input class="connexion-attributes-answers new-inputs" type="text">\n  ';
+  var form = document.querySelector('#update-connexion');
+  form.insertAdjacentHTML('beforeend', labelHTML);
+  form.insertAdjacentHTML('beforeend', inputHTML);
+  grabLabelsInputs();
+};
+
+function updateInputName(e) {
+  // console.log(e);
+
+  newInputs.forEach(function (input) {
+    console.log(input.previousElementSibling.value);
+    input.name = 'test';
+  });
 }
+
+function grabLabelsInputs() {
+  newLabels = document.querySelectorAll('.new-label');
+  newInputs = document.querySelectorAll('.new-inputs');
+
+  if (newLabels) {
+    newLabels.forEach(function (label) {
+      label.addEventListener('keydown', function () {
+        var input = label.nextElementSibling;
+        console.log(input);
+        console.log(label.value);
+        input.name = 'category[' + label.value + ']';
+      });
+    });
+  };
+}
+
+// if(newLabels) {newLabels.forEach(label => {
+//   console.log(newLabels)
+//   label.addEventListener('keydown', updateInputName)
+// })};
+
+exports.default = connexionProperties;
 
 /***/ }),
 /* 11 */
@@ -1936,18 +1978,10 @@ window.addEventListener('DOMContentLoaded', function () {
 
 // window.addEventListener('DOMContentLoaded', connexionProperties(connexion));
 
-
-// const connexionInput = document.querySelector('.connexion-input');
-// connexionInput.on('click', addConnexionInput);
-
-// let addNewConnexion;
-// // const addNewConnexion = document.querySelector('.add-new-connexion');
-// if(addNewConnexion) {
-//   addNewConnexion.on('submit', newConnexion);
-// }
-
-// import newConnexion from './modules/newConnexion';
-// import addConnexionInput from './modules/openAddConnexionInput';
+var newButtonCat = document.querySelector('.add-new-category-button');
+if (newButtonCat) {
+  newButtonCat.addEventListener('click', _displayConnexionProperties2.default);
+}
 
 /***/ })
 /******/ ]);
