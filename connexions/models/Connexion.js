@@ -8,6 +8,7 @@ const connexionSchema = new mongoose.Schema({
     trim: true,
     required: "Please enter a connexion's name!"
   },
+  circles: [String],
   location: {
     type: String,
     trim: true

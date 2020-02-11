@@ -19,6 +19,9 @@ router.post('/connexions/:id/update', connexionController.updateConnexion);
 router.get('/connexions/:id/chapter/new', chapterController.newChapter);
 router.post('/connexions/:id/chapter/add', chapterController.addChapter);
 
+router.get('/connexions/:id/circles/new', connexionController.newCircle);
+router.post('/connexions/:id/circles/add', connexionController.addCircleToConnexion);
+
 router.get('/login', userController.loginForm);
 router.post('/login', authController.login);
 
