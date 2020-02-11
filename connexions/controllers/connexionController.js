@@ -64,3 +64,27 @@ exports.updateConnexion = async (req, res) => {
   res.redirect(`/connexions/${connexion._id}/edit`);
   // res.render('connexion-edit', { title: `Update my connexion`, connexion });
 }
+
+exports.newCircle = async (req, res) => {
+  const connexion = await Connexion.findOne({_id: req.params.id });
+  confirmOwner(connexion, req.user);
+  res.render('circle-new', { title: `Add to my Cirlces`, connexion });
+}
+
+exports.addCircleToConnexion = async (req, res) => {
+  const connexion = await Connexion.findOneAndUpdate({_id: req.params.id },
+    { $addToSet: req.body }, {
+    new: true,
+    runValidators: true,
+    strict: false
+  }).exec();
+  res.redirect(`/connexions/${connexion._id}/circles/new`);
+}
+
+exports.displayCircle = async (req, res) => {
+  // console.log(req.params);
+  const circleQuery = req.params.circle;
+  const connexions = await Connexion.find({ circles: circleQuery });
+  // console.log(connexions)
+  res.render('circle-single', { title: `${circleQuery}`, connexions });
+}

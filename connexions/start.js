@@ -17,8 +17,6 @@ mongoose.connection.on('error', (err) => {
   console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
 });
 
-// READY?! Let's go!
-
 // Import models
 require('./models/User');
 require('./models/Connexion');
