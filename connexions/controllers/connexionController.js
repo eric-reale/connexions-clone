@@ -88,3 +88,11 @@ exports.displayCircle = async (req, res) => {
   // console.log(connexions)
   res.render('circle-single', { title: `${circleQuery}`, connexions });
 }
+
+exports.allCircles = async (req, res) => {
+  const user = await User.findById(req.user._id)
+  const connexion = await Connexion.find({ author: user.id }).limit(1)
+  const circles = await Connexion.getCircleCount();
+  // const connexion = await Connexion.findOne({_id: req.params.id });
+  res.render('circles', { title: `My Circles`, circles, user, connexion });
+}
