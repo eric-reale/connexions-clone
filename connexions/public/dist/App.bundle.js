@@ -1065,15 +1065,6 @@ function connexionProperties() {
   grabLabelsInputs();
 };
 
-function updateInputName(e) {
-  // console.log(e);
-
-  newInputs.forEach(function (input) {
-    console.log(input.previousElementSibling.value);
-    input.name = 'test';
-  });
-}
-
 function grabLabelsInputs() {
   newLabels = document.querySelectorAll('.new-label');
   newInputs = document.querySelectorAll('.new-inputs');
@@ -1082,18 +1073,11 @@ function grabLabelsInputs() {
     newLabels.forEach(function (label) {
       label.addEventListener('keydown', function () {
         var input = label.nextElementSibling;
-        console.log(input);
-        console.log(label.value);
         input.name = 'category[' + label.value + ']';
       });
     });
   };
 }
-
-// if(newLabels) {newLabels.forEach(label => {
-//   console.log(newLabels)
-//   label.addEventListener('keydown', updateInputName)
-// })};
 
 exports.default = connexionProperties;
 
