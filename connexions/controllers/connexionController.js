@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const Connexion = mongoose.model('Connexion');
+const Chapter = mongoose.model('Chapter');
 const promisify = require('es6-promisify');
 
 exports.getConnexions = async (req, res) => {
@@ -95,9 +96,9 @@ exports.displayCircle = async (req, res) => {
 //   next();
 // }
 
-exports.getCirclesByConnexion = async (req, res, next) => {
+// exports.getCirclesByConnexion = async (req, res, next) => {
 
-}
+// }
 
 exports.allCircles = async (req, res) => {
   const user = await User.findById(req.user._id)

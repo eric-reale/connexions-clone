@@ -539,7 +539,7 @@ function displayNewConnexion(connexion) {
   var year = now.getFullYear();
 
   var sectionBody = document.querySelector('.section-body');
-  var html = '\n    <a class="section-body-connexion section-body-connexion-a" href="/connexions/' + connexion._id + '">\n      <div class="connexion-image">\n        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80">\n      </div>\n      <div class="connexion-info">\n        <p class="connexion-name">' + connexion.name + '</p>\n        <p class="connexion-circle-list">No circles yet!</p>\n        <p class="connexion-logged">last logged: ' + month + '/' + day + '/' + year + '</p>\n      </div>\n      <div class="connexion-cirlces">\n        <span></span>\n      </div>\n    </div>\n  ';
+  var html = '\n    <a class="section-body-connexion section-body-connexion-a" href="/connexions/' + connexion._id + '">\n      <div class="connexion-image">\n        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80">\n      </div>\n      <div class="connexion-info">\n        <p class="connexion-name">' + connexion.name + '</p>\n      </div>\n      <div class="connexion-circles">\n        <span class="no-circles-yet">No circles yet!</span>\n      </div>\n    </div>\n  ';
   sectionBody.insertAdjacentHTML('afterbegin', html);
 }
 

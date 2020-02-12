@@ -22,11 +22,9 @@ function displayNewConnexion(connexion) {
       </div>
       <div class="connexion-info">
         <p class="connexion-name">${connexion.name}</p>
-        <p class="connexion-circle-list">No circles yet!</p>
-        <p class="connexion-logged">last logged: ${month}/${day}/${year}</p>
       </div>
-      <div class="connexion-cirlces">
-        <span></span>
+      <div class="connexion-circles">
+        <span class="no-circles-yet">No circles yet!</span>
       </div>
     </div>
   `;

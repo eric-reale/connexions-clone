@@ -625,7 +625,7 @@ body {
       justify-content: space-between;
   -ms-flex-align: center;
       align-items: center;
-  padding: 10px;
+  padding: 5px 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   -ms-flex-negative: 0;
       flex-shrink: 0; }
@@ -638,7 +638,7 @@ body {
       justify-content: space-between;
   -ms-flex-align: center;
       align-items: center;
-  padding: 10px;
+  padding: 5px 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   -ms-flex-negative: 0;
       flex-shrink: 0; }
@@ -650,7 +650,8 @@ body {
 .section-body {
   grid-area: section-body;
   overflow-y: auto;
-  max-width: 100%; }
+  max-width: 100%;
+  height: 100vh; }
 
 .section-body-connexion {
   display: -ms-grid;
@@ -661,7 +662,7 @@ body {
       align-items: center;
   padding: 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-  height: 100px;
+  height: 80px;
   text-decoration: none;
   color: inherit;
   overflow: hidden; }
@@ -683,11 +684,23 @@ body {
 
 .connexion-circle-list {
   font-size: 14px;
-  margin: 4px; }
+  margin: 2px; }
+
+.no-circles-yet {
+  font-family: 'Comfortaa', cursive;
+  font-size: 12px; }
+
+.no-connexions-yet {
+  font-family: 'Comfortaa', cursive;
+  font-size: 20px;
+  text-align: center; }
 
 .connexion-logged {
   font-size: 14px;
   margin: 4px; }
+
+.connexion-circles {
+  text-align: center; }
 
 .circle {
   height: 20px;
@@ -818,6 +831,10 @@ body {
 .display-none {
   display: none; }
 
+.no-link {
+  text-decoration: none;
+  color: inherit; }
+
 @media (min-width: 700px) {
   .main-container {
     height: 95vh;
@@ -834,6 +851,13 @@ body {
 #back {
   letter-spacing: 0.04em;
   font-family: 'Comfortaa', cursive; }
+
+.profile-chapter {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  height: 100vh; }
 
 .tabs-section {
   display: -ms-grid;
