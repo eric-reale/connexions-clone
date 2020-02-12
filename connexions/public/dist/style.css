@@ -663,7 +663,8 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   height: 100px;
   text-decoration: none;
-  color: inherit; }
+  color: inherit;
+  overflow: hidden; }
 
 .section-body-connexion-a {
   text-decoration: none;
@@ -813,6 +814,9 @@ body {
   100% {
     opacity: 1;
     transform: translateY(0); } }
+
+.display-none {
+  display: none; }
 
 @media (min-width: 700px) {
   .main-container {

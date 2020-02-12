@@ -28,11 +28,19 @@ block content
             img(src=`https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80`)
           div
             p.connexion-name #{connexion.name}
-            p.connexion-circle-list circle 1 circle 2 circle 3
             p.connexion-logged last logged: 1/20/2020
-          div.connexion-cirlces
-            <span class="circle"></span>
-            <span class="circle"></span>
+          div.connexion-circles
+            //- each c in connexion
+            - // each circle in connexion.circles
+            each circle in connexion.circles.length ? connexion.circles : ['No circles yet!']
+              - console.log(circle)
+
+              if circle === 'No circles yet!'
+                span #{circle}
+              if connexion.circles.length < 9 && connexion.circles.length > 0
+                span.circle
+              if connexion.circles.length > 9
+                span.display-none #{circle}
     .footer-tabs
       div
         p connexions

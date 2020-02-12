@@ -64,6 +64,7 @@ body {
   height: 100px;
   text-decoration: none;
   color: inherit;
+  overflow: hidden;
 }
 .section-body-connexion-a {
   text-decoration: none;
@@ -239,6 +240,10 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.display-none {
+  display: none;
 }
 
 

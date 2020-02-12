@@ -89,10 +89,22 @@ exports.displayCircle = async (req, res) => {
   res.render('circle-single', { title: `${circleQuery}`, connexions });
 }
 
+// exports.accessConnexionForCircles = async (req, res, next) => {
+//   // const user = await User.findById(req.user._id)
+//   // const connexion = await Connexion.find({ author: user.id }).limit(1)
+//   next();
+// }
+
+exports.getCirclesByConnexion = async (req, res, next) => {
+
+}
+
 exports.allCircles = async (req, res) => {
   const user = await User.findById(req.user._id)
-  const connexion = await Connexion.find({ author: user.id }).limit(1)
-  const circles = await Connexion.getCircleCount();
+  const connexionPromise = Connexion.find({ author: user.id }).limit(1)
+  const circlesPromise = Connexion.getCircleCount();
+
+  const [connexion, circles] = await Promise.all([connexionPromise, circlesPromise])
   // const connexion = await Connexion.findOne({_id: req.params.id });
   res.render('circles', { title: `My Circles`, circles, user, connexion });
 }
