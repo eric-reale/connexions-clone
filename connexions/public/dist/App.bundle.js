@@ -2006,12 +2006,12 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-if (window) {
-  console.log(window);
-}
-if (document) {
-  console.log(document.title);
-}
+// if (window) {
+//   console.log(window)
+// }
+// if(document){
+//   console.log(document.title)
+// }
 
 window.addEventListener('DOMContentLoaded', function () {
   var tabs = document.querySelectorAll('.tab-underlined');

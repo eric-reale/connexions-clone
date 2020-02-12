@@ -9,12 +9,12 @@ import allCircles from './modules/allCircles';
 import * as connexionsNew from './modules/openAddConnexionInput';
 
 
-if (window) {
-  console.log(window)
-}
-if(document){
-  console.log(document.title)
-}
+// if (window) {
+//   console.log(window)
+// }
+// if(document){
+//   console.log(document.title)
+// }
 
 window.addEventListener('DOMContentLoaded', function() {
   const tabs = document.querySelectorAll('.tab-underlined');
