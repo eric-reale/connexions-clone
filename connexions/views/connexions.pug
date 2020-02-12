@@ -30,14 +30,10 @@ block content
             p.connexion-name #{connexion.name}
             p.connexion-logged last logged: 1/20/2020
           div.connexion-circles
-            //- each c in connexion
-            - // each circle in connexion.circles
-            each circle in connexion.circles.length ? connexion.circles : ['No circles yet!']
-              - console.log(circle)
-
+            each circle in connexion.circles.length ? connexion.circles.slice(0,9) : ['No circles yet!']
               if circle === 'No circles yet!'
                 span #{circle}
-              if connexion.circles.length < 9 && connexion.circles.length > 0
+              if connexion.circles.length
                 span.circle
               if connexion.circles.length > 9
                 span.display-none #{circle}
