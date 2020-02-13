@@ -62,16 +62,20 @@ block content
                 each circle in connexion.circles
                   a.connexion-circle(href=`/connexions/circles/${circle}`) #{circle}
           div.chapter-active
-            div.chapter-each-display
-              div.chapter-each-heading
-                div
-                  p The Name
-                div
-                  p Location
-                div
-                  p 2/12/2020
-              div.chapter-each-description
-                p lore im sdjfasl sdlfjsd lore im sdjfasl sdlfjsd lore im sdjfasl sdlfjsd lore im sdjfasl sdlfjsd
+            each chapter in chapters
+              div.chapter-each-display
+                div.chapter-each-heading
+                  div
+                    p #{chapter.name}
+                  div
+                    p #{chapter.location}
+                  div
+                    - let day = chapter.created.getDate()
+                    - let month = chapter.created.getMonth() + 1
+                    - let year = chapter.created.getFullYear();
+                    p #{month}-#{day}-#{year}
+                div.chapter-each-description
+                  p #{chapter.description}
             div.add-new-category
               a.add-new-category-button(href=`/connexions/${connexion.id}/chapter/new`) add new chapter
       .footer-tabs

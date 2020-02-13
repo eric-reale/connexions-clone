@@ -11,6 +11,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   font-size: 14px;
+  text-align: center;
+  width: 100%;
 }
 
 .chapter-each-description {

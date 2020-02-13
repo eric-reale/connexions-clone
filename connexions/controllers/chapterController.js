@@ -20,13 +20,15 @@ exports.addChapter = async (req, res) => {
     location: req.body.location,
     description: req.body.description
   })
-  newChapter.save()
-    .then(data => {
-      res.json(data)
-    })
-    .catch(err => {
-      res.json({message: err})
-    });
+  await newChapter.save()
+    // .then(data => {
+    //   res.json(data)
+    // })
+    // .catch(err => {
+    //   res.json({message: err})
+    // });
+  res.redirect(`/connexions/${connexion._id}/`);
+  // res.render('connexion-single', { title: `My connexion`, connexion });
 };
 
 
