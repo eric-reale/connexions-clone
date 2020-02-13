@@ -607,15 +607,19 @@ body {
     margin-right: auto;
     margin-left: auto; } }
 
-body {
-  background: white; }
+body, html {
+  background: white;
+  width: 100%;
+  height: 100%; }
 
 .main-container {
-  max-height: 100vh;
+  min-height: 100%;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
-      flex-direction: column; }
+      flex-direction: column;
+  -ms-flex-align: stretch;
+      align-items: stretch; }
 
 .logo-settings {
   grid-area: logo-settings;
@@ -651,7 +655,9 @@ body {
   grid-area: section-body;
   overflow-y: auto;
   max-width: 100%;
-  height: 100vh; }
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  height: 0px; }
 
 .section-body-connexion {
   display: -ms-grid;
@@ -857,7 +863,10 @@ body {
   display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
-  height: 100vh; }
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  overflow-y: scroll;
+  height: 0px; }
 
 .tabs-section {
   display: -ms-grid;
@@ -909,7 +918,13 @@ ul {
   display: none; }
 
 .profile-active.active {
-  display: block; }
+  min-height: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: stretch;
+      align-items: stretch; }
 
 .chapter-active {
   display: none; }

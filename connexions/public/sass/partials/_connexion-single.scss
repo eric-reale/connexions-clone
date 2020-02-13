@@ -10,7 +10,9 @@
 .profile-chapter {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  flex-grow: 1;
+  overflow-y: scroll;
+  height: 0px;
   // justify-content: space-between;
   // align-items: center;
   // padding: 10px;
@@ -74,7 +76,11 @@ ul {
 }
 
 .profile-active.active {
-  display: block;
+  // display: block;
+      min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 .chapter-active {
