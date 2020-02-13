@@ -63,7 +63,7 @@ block content
                   a.connexion-circle(href=`/connexions/circles/${circle}`) #{circle}
           div.chapter-active
             each chapter in chapters
-              div.chapter-each-display
+              a.chapter-each-display(href=`/connexions/${connexion.id}/chapter/${chapter.id}`)
                 div.chapter-each-heading
                   div
                     p #{chapter.name}
