@@ -1,23 +1,24 @@
 function allCircles() {
   console.log('here 123');
+  // const circleSection = document.querySelector('.circle-section');
 
   var dataset = {
             "children": [{"Name":"Penn State","Count":10},
-                {"Name":"Tea","Count":4},
-                {"Name":"Mashed Potatoes","Count":3},
-                {"Name":"Boiled Potatoes","Count":1},
-                {"Name":"Milk","Count":12},
-                {"Name":"Chicken Salad","Count":25}]
+                {"Name":"Washington DC","Count":8},
+                {"Name":"NYC","Count":3},
+                {"Name":"Le Wagon","Count":6},
+                {"Name":"Home","Count":4},
+                {"Name":"La Salle","Count":6}]
         };
 
-        var diameter = 350;
+        var diameter = 380;
         var color = d3.scaleOrdinal(d3.schemeCategory20);
 
         var bubble = d3.pack(dataset)
             .size([diameter, diameter])
             .padding(1.5);
 
-        var svg = d3.select("body")
+        var svg = d3.select(".circle-section")
             .append("svg")
             .attr("width", diameter)
             .attr("height", diameter)

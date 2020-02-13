@@ -3,7 +3,7 @@ let newInputs;
 
 function connexionProperties() {
   const labelHTML = `
-    <input class="connexion-attributes-categories-center new-label" placeholder="occupation, home town, etc.">
+    <input class=".connexion-attributes-categories connexion-attributes-categories-center new-label" placeholder="Job, hobby, etc.">
   `;
   const inputHTML = `
     <input class="connexion-attributes-answers new-inputs" type="text">

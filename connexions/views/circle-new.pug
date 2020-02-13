@@ -11,7 +11,7 @@ block content
           p <span style="color: red;">hold</span>
       .section-header
         div
-          a#back(href=`/connexions/${connexion.id}`)
+          a#back(href="javascript:history.back()")
             p back
         div
           p #{connexion.name}
