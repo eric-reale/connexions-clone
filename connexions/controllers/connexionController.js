@@ -81,7 +81,7 @@ exports.addCircleToConnexion = async (req, res) => {
     runValidators: true,
     strict: false
   }).exec();
-  res.redirect(`/connexions/${connexion._id}/circles/new`);
+  res.redirect(`/connexions/${connexion._id}`);
 }
 
 exports.displayCircle = async (req, res) => {
@@ -89,7 +89,7 @@ exports.displayCircle = async (req, res) => {
   const circleQuery = req.params.circle;
   const connexions = await Connexion.find({ circles: circleQuery });
   // console.log(connexions)
-  res.render('circle-single', { title: `${circleQuery}`, connexions });
+  res.render('circle-single', { title: `${circleQuery}`, connexions, circleQuery });
 }
 
 // exports.accessConnexionForCircles = async (req, res, next) => {
