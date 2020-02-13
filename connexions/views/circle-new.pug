@@ -21,3 +21,16 @@ block content
         form(action=`/connexions/${connexion.id}/circles/add` method="POST")
           input(name="circles")
           button(type="submit")
+      .footer-tabs
+        div
+          a.no-link(href=`/connexions`)
+            p connexions
+        div
+          a.no-link(href=`/circles`)
+            p circles
+        div.calendar
+          p calendar
+          p <span>coming soon!<span>
+        div.conversations
+          p conversations
+          p <span>coming soon!<span>

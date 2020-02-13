@@ -1043,4 +1043,11 @@ ul {
 .chapter-each-description {
   font-size: 12px; }
 
+.circle-section {
+  overflow-y: auto;
+  max-width: 100%;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  height: 0px; }
+
 /*# sourceMappingURL=style.css.map*/
