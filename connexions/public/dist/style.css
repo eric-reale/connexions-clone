@@ -938,13 +938,12 @@ ul {
 .connexion-attributes-section {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  -ms-flex-pack: center;
-      justify-content: center;
+  -ms-grid-columns: 60% 30%;
+      grid-template-columns: 60% 30%;
   -ms-flex-align: center;
       align-items: center;
-  margin: 10px 0px; }
+  margin: 10px 0px;
+  font-family: 'Comfortaa', cursive; }
 
 .connexion-attributes-categories {
   font-weight: 700;
@@ -952,7 +951,11 @@ ul {
   display: flex;
   -ms-flex-pack: center;
       justify-content: center;
-  height: 60px; }
+  height: 60px;
+  font-family: 'Comfortaa', cursive; }
+
+.connexion-attributes-categories-center {
+  text-align: center; }
 
 .connexion-attributes-answers {
   font-weight: 300;
@@ -960,7 +963,14 @@ ul {
   display: flex;
   -ms-flex-pack: center;
       justify-content: center;
-  height: 60px; }
+  height: 60px;
+  font-family: 'Comfortaa', cursive; }
+
+.new-inputs {
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0 0 0 100px white;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-width: thin;
+  border-radius: 4px; }
 
 .add-new-category {
   display: -ms-grid;
@@ -985,6 +995,22 @@ ul {
   border: 1px solid rgba(0, 0, 0, 0.5);
   background-color: white;
   font-size: 12px; }
+
+.add-new-category a {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  padding: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: white;
+  font-size: 12px;
+  font-family: 'Comfortaa', cursive;
+  line-height: 1.16; }
+
+a {
+  text-decoration: none !important;
+  color: inherit; }
 
 .add-new-category-button > svg {
   font-size: 12px; }
