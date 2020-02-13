@@ -18,6 +18,19 @@ block content
           p name
         div
          input#back(type="submit" form="update-connexion" value="save")
-      .this-circle-connexions
+      .circle-section
         each connexion in connexions
           p #{connexion.name}
+      .footer-tabs
+        div
+          a.no-link(href=`/connexions`)
+            p connexions
+        div
+          a.no-link(href=`/circles`)
+            p circles
+        div.calendar
+          p calendar
+          p <span>coming soon!<span>
+        div.conversations
+          p conversations
+          p <span>coming soon!<span>

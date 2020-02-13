@@ -1,14 +1,17 @@
-body {
+body, html {
   background: white;
+  width: 100%;
+  height: 100%;
 }
 
 .main-container {
-  max-height: 100vh;
+  min-height: 100%;
   // display: grid;
   // grid-gap: 0px;
 
   display: flex;
-  flex-direction: column
+  flex-direction: column;
+  align-items: stretch;
 }
 //   grid-template-columns: 1fr;
 //   grid-template-rows: auto auto 7fr 1fr;
@@ -25,7 +28,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 5px 10px;
   border-bottom: 1px solid $gray;
 
   flex-shrink: 0;
@@ -36,9 +39,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 5px 10px;
   border-bottom: 1px solid $gray;
-
   flex-shrink: 0;
 }
 
@@ -51,6 +53,8 @@ body {
   grid-area: section-body;
   overflow-y: auto;
   max-width: 100%;
+  flex-grow: 1;
+  height: 0px;
 }
 
 .section-body-connexion {
@@ -61,7 +65,7 @@ body {
   align-items: center;
   padding: 10px;
   border-bottom: 1px solid $gray;
-  height: 100px;
+  height: 80px;
   text-decoration: none;
   color: inherit;
   overflow: hidden;
@@ -90,7 +94,18 @@ body {
 
 .connexion-circle-list {
   font-size: 14px;
-  margin: 4px;
+  margin: 2px;
+}
+
+.no-circles-yet {
+  font-family: 'Comfortaa', cursive;
+  font-size: 12px;
+}
+
+.no-connexions-yet {
+  font-family: 'Comfortaa', cursive;
+  font-size: 20px;
+  text-align:center;
 }
 
 .connexion-logged {
@@ -98,8 +113,8 @@ body {
   margin: 4px;
 }
 
-.connextion-circles {
-
+.connexion-circles {
+  text-align: center;
 }
 
 .circle {
@@ -244,6 +259,12 @@ body {
 
 .display-none {
   display: none;
+}
+
+
+.no-link {
+ text-decoration: none;
+ color: inherit;
 }
 
 

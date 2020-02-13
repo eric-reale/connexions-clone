@@ -22,26 +22,33 @@ block content
       //-   form.add-new-connexion(method="POST" action="/connexions/add")
       //-     input.add-new-connexion-input(type="text" name="name")
       //-     button.add-new-connexion-button(type="submit" value="add") Add
-      each connexion in connexions
-        a.section-body-connexion.section-body-connexion-a(href=`/connexions/${connexion.id}`)
-          div.connexion-image
-            img(src=`https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80`)
-          div
-            p.connexion-name #{connexion.name}
-            p.connexion-logged last logged: 1/20/2020
-          div.connexion-circles
-            each circle in connexion.circles.length ? connexion.circles.slice(0,9) : ['No circles yet!']
-              if circle === 'No circles yet!'
-                span #{circle}
-              if connexion.circles.length
-                span.circle
-              if connexion.circles.length > 9
-                span.display-none #{circle}
+      if (connexions.length === 0)
+        p.no-connexions-yet No connexions yet!
+      if connexions
+        each connexion in connexions
+          a.section-body-connexion.section-body-connexion-a(href=`/connexions/${connexion.id}`)
+            div.connexion-image
+              img(src=`https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80`)
+            div
+              p.connexion-name #{connexion.name}
+              - const location = connexion.location ? `${connexion.location}` : ''
+              p.connexion-circle-list #{location}
+              //- p.connexion-logged #{connextion.location}
+            div.connexion-circles
+              each circle in connexion.circles.length ? connexion.circles.slice(0,6) : ['No circles yet!']
+                if circle === 'No circles yet!'
+                  span.no-circles-yet #{circle}
+                if connexion.circles.length
+                  span.circle
+                if connexion.circles.length > 6
+                  span.display-none #{circle}
     .footer-tabs
       div
-        p connexions
+        a.no-link(href=`/connexions`)
+          p connexions
       div
-        p circles
+        a.no-link(href=`/circles`)
+          p circles
       div.calendar
         p calendar
         p <span>coming soon!<span>
