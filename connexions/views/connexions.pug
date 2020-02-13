@@ -33,7 +33,7 @@ block content
               p.connexion-name #{connexion.name}
               - const location = connexion.location ? `${connexion.location}` : ''
               p.connexion-circle-list #{location}
-              //- p.connexion-logged #{connextion.location}
+              //- p.connexion-logged #{connextion.location} access the chapters and display last created?
             div.connexion-circles
               each circle in connexion.circles.length ? connexion.circles.slice(0,6) : ['No circles yet!']
                 if circle === 'No circles yet!'
