@@ -144,12 +144,17 @@ font-size: 12px;
 
 .profile-circles-section {
   border-top: 1px solid $gray;
+
 }
 
 .my-circles {
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
 
+  // horizontal scrolling
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 
 .connexion-circle {
@@ -165,6 +170,10 @@ font-size: 12px;
   border: 1px solid $blue;
   padding: 0px;
   margin: 5px;
+
+  // for horizontal scrolling
+  display: inline-block;
 }
+
 
 

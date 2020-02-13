@@ -993,10 +993,9 @@ ul {
   border-top: 1px solid rgba(0, 0, 0, 0.5); }
 
 .my-circles {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: center;
-      justify-content: center; }
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap; }
 
 .connexion-circle {
   width: 100px;
@@ -1010,7 +1009,8 @@ ul {
   background: white;
   border: 1px solid #4E8AFE;
   padding: 0px;
-  margin: 5px; }
+  margin: 5px;
+  display: inline-block; }
 
 .connexion-attributes-categories-center {
   font-weight: 700;
@@ -1049,5 +1049,13 @@ ul {
   -ms-flex-positive: 1;
       flex-grow: 1;
   height: 0px; }
+
+.display-all-circles {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center; }
 
 /*# sourceMappingURL=style.css.map*/
