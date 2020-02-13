@@ -42,7 +42,7 @@ exports.viewConnexion = async (req, res) => {
   const connexion = await Connexion.findById(req.params.id)
   // console.log(connexion)
   const chapters = await Chapter.find({connexion: connexion._id})
-  console.log(chapters);
+  // console.log(chapters);
   // console.log('here');
   confirmOwner(connexion, req.user);
   res.render('connexion-single', { title: `My connexion`, connexion, chapters });
