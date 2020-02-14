@@ -87,7 +87,7 @@ exports.addCircleToConnexion = async (req, res) => {
 exports.displayCircle = async (req, res) => {
   // console.log(req.params);
   const circleQuery = req.params.circle;
-  const connexions = await Connexion.find({ circles: circleQuery });
+  const connexions = await Connexion.find({ circles: circleQuery, author: req.user._id });
   // console.log(connexions)
   res.render('circle-single', { title: `${circleQuery}`, connexions, circleQuery });
 }
