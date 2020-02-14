@@ -14,15 +14,19 @@ block content
           a#back(href="javascript:history.back()")
             p back
         div
-          p name
+          p New Chapter
         div
-          p here
+          input#back(type="submit" form="new-chapter" value="save")
       .section-body
-        form(action=`/connexions/${connexion.id}/chapter/add` method="POST")
-          input(name="name")
-          input(name="location")
-          input(name="description")
-          button(type="submit")
+        form(id="new-chapter" action=`/connexions/${connexion.id}/chapter/add` method="POST")
+          .section-chapter-headers
+            div
+              input.chapter-answers(type="text" name="name" placeholder="chapter name")
+            div
+              input.chapter-answers(type="text" name="location" placeholder="location")
+          .section-chapter-description
+            div
+              textarea.chapter-answers-description(type="text" rows="20" name="description" placeholder="description")
       .footer-tabs
         div
           a.no-link(href=`/connexions`)

@@ -32,12 +32,12 @@ block content
           </ul>
         div.profile-chapter-sections
           div.profile-active.active
-            div.section-body-connexion.no-border
+            div.single-body-connexion.no-border
               div.connexion-image
                 img(src=`https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80`)
               div.connexion-info
-                p.connexion-name #{connexion.name}
-                - const location = connexion.location ? `${connexion.location}` : 'Location'
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>ic_location_on_24px</title><g class="nc-icon-wrapper" fill="#111111"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></g></svg>
+                - const location = connexion.location ? `${connexion.location}` : `Where\'s ${connexion.name}?`
                 p.connexion-circle-list #{location}
             div.connexion-attributes-section
               - if (connexion._doc.category) { for (let i = 0; i < JSON.stringify(connexion._doc.category).split(",").length; i++) {

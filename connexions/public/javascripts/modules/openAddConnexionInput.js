@@ -20,8 +20,9 @@ function displayNewConnexion(connexion) {
       <div class="connexion-image">
         <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80">
       </div>
-      <div class="connexion-info">
+      <div>
         <p class="connexion-name">${connexion.name}</p>
+        <p class="connexion-circle-list"></p>
       </div>
       <div class="connexion-circles">
         <span class="no-circles-yet">No circles yet!</span>

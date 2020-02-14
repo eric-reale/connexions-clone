@@ -5,10 +5,13 @@ import { $, $$ } from './modules/bling';
 import getTabular from './modules/singlePageTab';
 import connexionProperties from './modules/displayConnexionProperties';
 import allCircles from './modules/allCircles';
+import linksToCircles from './modules/addLinksToCircles';
 
 import * as connexionsNew from './modules/openAddConnexionInput';
 
-
+// if (circles) {
+//   linksToCircles(circles);
+// }
 // if (window) {
 //   console.log(window)
 // }
@@ -35,6 +38,7 @@ if (newButtonCat) {
 window.addEventListener('DOMContentLoaded', function() {
   if (document.title === 'My Circles | Connexions!') {
     allCircles();
+    // linksToCircles(circles);
   } else {
     return
   }
