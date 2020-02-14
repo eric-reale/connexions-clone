@@ -107,7 +107,15 @@ exports.allCircles = async (req, res) => {
   const connexionPromise = Connexion.find({ author: user.id }).limit(1)
   const circlesPromise = Connexion.getCircleCount();
 
-  const [connexion, circles] = await Promise.all([connexionPromise, circlesPromise])
-  // const connexion = await Connexion.findOne({_id: req.params.id });
+  let [connexion, circles] = await Promise.all([connexionPromise, circlesPromise])
+  // circles = circles.filter(circle => circle._id.author === user.id);
+  // console.log(circles)
+
+
+  // TODO - currently getting all circles but need to query properly to only get cirlces for this user/author
+
+
+  // // const connexion = await Connexion.findOne({_id: req.params.id });
+  // console.log(user);
   res.render('circles', { title: `My Circles`, circles, user, connexion });
 }

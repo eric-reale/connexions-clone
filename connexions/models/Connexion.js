@@ -28,7 +28,7 @@ const connexionSchema = new mongoose.Schema({
 connexionSchema.statics.getCircleCount = function() {
   return this.aggregate([
     { $unwind: '$circles' },
-    { $group: { _id: '$circles', count: { $sum: 1 } } },
+    { $group: { _id: {circles:'$circles', author:'$author'}, count: { $sum: 1 } } },
     { $sort: { count: -1 } }
   ]);
 };

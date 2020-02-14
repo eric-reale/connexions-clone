@@ -41,7 +41,7 @@ function allCircles() {
 
         node.append("title")
             .text(function(d) {
-                return d.Name + ": " + d.Count;
+                return d.data.Name + ": " + d.data.Count;
             });
 
         node.append("circle")
