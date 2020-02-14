@@ -95,6 +95,26 @@ ul {
   border: none;
 }
 
+.single-body-connexion {
+  // display: flex;
+  // justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  align-items: center;
+  padding: 10px;
+  height: 80px;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+}
+
+.connexion-info {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
 
 .connexion-attributes-section {
   display: grid;
@@ -119,6 +139,14 @@ ul {
 }
 
 .connexion-attributes-answers {
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  font-family: 'Comfortaa', cursive;
+}
+
+.connexion-attributes-answers-inputs {
   font-weight: 300;
   display: flex;
   justify-content: center;

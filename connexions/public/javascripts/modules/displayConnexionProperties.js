@@ -6,7 +6,7 @@ function connexionProperties() {
     <input class=".connexion-attributes-categories connexion-attributes-categories-center new-label" placeholder="Job, hobby, etc.">
   `;
   const inputHTML = `
-    <input class="connexion-attributes-answers new-inputs" type="text">
+    <input class="connexion-attributes-answers-inputs new-inputs" type="text">
   `
   const form = document.querySelector('#update-connexion');
   form.insertAdjacentHTML('beforeend', labelHTML);

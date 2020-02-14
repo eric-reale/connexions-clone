@@ -1110,7 +1110,7 @@ var newInputs = void 0;
 
 function connexionProperties() {
   var labelHTML = '\n    <input class=".connexion-attributes-categories connexion-attributes-categories-center new-label" placeholder="Job, hobby, etc.">\n  ';
-  var inputHTML = '\n    <input class="connexion-attributes-answers new-inputs" type="text">\n  ';
+  var inputHTML = '\n    <input class="connexion-attributes-answers-inputs new-inputs" type="text">\n  ';
   var form = document.querySelector('#update-connexion');
   form.insertAdjacentHTML('beforeend', labelHTML);
   form.insertAdjacentHTML('beforeend', inputHTML);

@@ -64,7 +64,7 @@ exports.updateConnexion = async (req, res) => {
   }).exec();
   // console.log(connexion);
   // console.log('here');
-  res.redirect(`/connexions/${connexion._id}/edit`);
+  res.redirect(`/connexions/${connexion._id}/`);
   // res.render('connexion-edit', { title: `Update my connexion`, connexion });
 }
 
