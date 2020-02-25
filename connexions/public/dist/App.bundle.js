@@ -2058,7 +2058,7 @@ if (newButtonCat) {
 window.addEventListener('DOMContentLoaded', function () {
   if (document.title === 'My Circles | Connexions!') {
     (0, _allCircles2.default)();
-    // linksToCircles(circles);
+    (0, _addLinksToCircles2.default)(circles);
   } else {
     return;
   }
