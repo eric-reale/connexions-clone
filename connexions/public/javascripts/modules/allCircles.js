@@ -59,12 +59,12 @@ function allCircles(circles) {
 
         var myLink = node.append("a")
 
-        node.append("title")
+        myLink.append("title")
             .text(function(d) {
                 return d.data.Name + ": " + d.data.Count;
             });
 
-        node.append("circle")
+        myLink.append("circle")
             .attr("r", function(d) {
                 return d.r;
             })
@@ -72,7 +72,7 @@ function allCircles(circles) {
                 return color(i);
             });
 
-        node.append("text")
+        myLink.append("text")
             .attr("dy", ".2em")
             .style("text-anchor", "middle")
             .text(function(d) {
@@ -84,7 +84,7 @@ function allCircles(circles) {
             })
             .attr("fill", "white");
 
-        node.append("text")
+        myLink.append("text")
             .attr("dy", "1.3em")
             .style("text-anchor", "middle")
             .text(function(d) {

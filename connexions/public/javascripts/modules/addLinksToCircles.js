@@ -1,16 +1,11 @@
 function addLinksToCircles(circles) {
+  // console.log(circles);
   const allCircles = document.querySelectorAll('.node > a');
   allCircles.forEach(node => {
-    console.log(node)
-    // const a = document.createElement('a')
-    // node.append(a);
-    // node.lastChild.href = '/connexions'
-    node.setAttribute('href', '/connexions');
+    let nodeName = node.firstChild.textContent.split(":")[0];
+    console.log(nodeName);
+    node.setAttribute('href', `/connexions/circles/${nodeName}`);
   })
-  // console.log('now here')
-  // console.log(circles)
-  // console.log('can i get a what what')
-
 }
 
 export default addLinksToCircles;

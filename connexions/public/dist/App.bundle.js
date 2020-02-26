@@ -1044,17 +1044,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 function addLinksToCircles(circles) {
+  // console.log(circles);
   var allCircles = document.querySelectorAll('.node > a');
   allCircles.forEach(function (node) {
-    console.log(node);
-    // const a = document.createElement('a')
-    // node.append(a);
-    // node.lastChild.href = '/connexions'
-    node.setAttribute('href', '/connexions');
+    var nodeName = node.firstChild.textContent.split(":")[0];
+    console.log(nodeName);
+    node.setAttribute('href', '/connexions/circles/' + nodeName);
   });
-  // console.log('now here')
-  // console.log(circles)
-  // console.log('can i get a what what')
 }
 
 exports.default = addLinksToCircles;
@@ -1118,23 +1114,23 @@ function allCircles(circles) {
 
     var myLink = node.append("a");
 
-    node.append("title").text(function (d) {
+    myLink.append("title").text(function (d) {
         return d.data.Name + ": " + d.data.Count;
     });
 
-    node.append("circle").attr("r", function (d) {
+    myLink.append("circle").attr("r", function (d) {
         return d.r;
     }).style("fill", function (d, i) {
         return color(i);
     });
 
-    node.append("text").attr("dy", ".2em").style("text-anchor", "middle").text(function (d) {
+    myLink.append("text").attr("dy", ".2em").style("text-anchor", "middle").text(function (d) {
         return d.data.Name.substring(0, d.r / 3);
     }).attr("font-family", "sans-serif").attr("font-size", function (d) {
         return d.r / 5;
     }).attr("fill", "white");
 
-    node.append("text").attr("dy", "1.3em").style("text-anchor", "middle").text(function (d) {
+    myLink.append("text").attr("dy", "1.3em").style("text-anchor", "middle").text(function (d) {
         return d.data.Count;
     }).attr("font-family", "Gill Sans", "Gill Sans MT").attr("font-size", function (d) {
         return d.r / 5;
