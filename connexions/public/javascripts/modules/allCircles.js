@@ -10,9 +10,8 @@ function allCircles(circles) {
 
 // Creates object to pass into dataset in proper format
   function createObjectData(myCircleObject) {
-    let objectToReturn = []
+    let objectToReturn = [];
     Object.entries(myCircleObject).forEach(circle => {
-      // console.log(circle[1]);
       objectToReturn.push(circle[1]);
     })
     return objectToReturn;
@@ -31,6 +30,7 @@ function allCircles(circles) {
 
         var diameter = 380;
         var color = d3.scaleOrdinal(d3.schemeCategory20);
+        var blue = ['rgb(135,206,235)', 'rgb(30,144,255)', 'rgb(0,0,139)', 'rgb(0,0,255)', 'rgb(65,105,225)']
 
         var bubble = d3.pack(dataset)
             .size([diameter, diameter])
@@ -68,9 +68,9 @@ function allCircles(circles) {
             .attr("r", function(d) {
                 return d.r;
             })
-            .style("fill", function(d,i) {
-                return color(i);
-            });
+            .style("fill", function() {
+              return blue[Math.floor(Math.random() * blue.length)];
+            })
 
         myLink.append("text")
             .attr("dy", ".2em")
