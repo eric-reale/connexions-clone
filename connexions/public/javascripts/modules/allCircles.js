@@ -1,15 +1,42 @@
-function allCircles() {
-  console.log('here 123');
-  // const circleSection = document.querySelector('.circle-section');
+function allCircles(circles) {
+
+  let myCircleArray = circles.map((circle) => {
+      return [circle._id.circles, circle.count]
+  })
+
+  let myCircleObject = myCircleArray.map(circle => {
+    return {"Name": circle[0], "Count": circle[1]}
+  })
+
+  let circle0 = circles[0]._id.circles;
+  let circle01= circles[0].count;
+  // console.log(circle0, circle01);
+  // function createObjectData(myCircleObject) {
+  //   return [{"Name": "Test run", "Count": 20}, {"Name": "Test run", "Count": 20}]
+  // }
+
+  function createObjectData(myCircleObject) {
+    let objectToReturn = []
+    Object.entries(myCircleObject).forEach(circle => {
+      // console.log(circle[1]);
+      objectToReturn.push(circle[1]);
+    })
+    return objectToReturn;
+  }
 
   var dataset = {
-            "children": [{"Name":"Penn State","Count":10},
-                {"Name":"Washington DC","Count":8},
-                {"Name":"NYC","Count":3},
-                {"Name":"Le Wagon","Count":6},
-                {"Name":"Home","Count":4},
-                {"Name":"La Salle","Count":6}]
+            "children":
+            createObjectData(myCircleObject)
+
+            // {"Name":"Penn State","Count":10},
+            //     {"Name":"Washington DC","Count":8},
+            //     {"Name":"NYC","Count":3},
+            //     {"Name":"Le Wagon","Count":6},
+            //     {"Name":"Home","Count":4},
+            //     {"Name":"La Salle","Count":6}]
         };
+
+        // console.log(dataset);
 
         var diameter = 380;
         var color = d3.scaleOrdinal(d3.schemeCategory20);

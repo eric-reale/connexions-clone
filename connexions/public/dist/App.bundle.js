@@ -1044,9 +1044,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 function addLinksToCircles(circles) {
-  console.log('now here');
-  console.log(circles);
-  console.log('can i get a what what');
+  // console.log('now here')
+  // console.log(circles)
+  // console.log('can i get a what what')
+
 }
 
 exports.default = addLinksToCircles;
@@ -1061,13 +1062,44 @@ exports.default = addLinksToCircles;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-function allCircles() {
-    console.log('here 123');
-    // const circleSection = document.querySelector('.circle-section');
+function allCircles(circles) {
+
+    var myCircleArray = circles.map(function (circle) {
+        return [circle._id.circles, circle.count];
+    });
+
+    var myCircleObject = myCircleArray.map(function (circle) {
+        return { "Name": circle[0], "Count": circle[1] };
+    });
+
+    var circle0 = circles[0]._id.circles;
+    var circle01 = circles[0].count;
+    // console.log(circle0, circle01);
+    // function createObjectData(myCircleObject) {
+    //   return [{"Name": "Test run", "Count": 20}, {"Name": "Test run", "Count": 20}]
+    // }
+
+    function createObjectData(myCircleObject) {
+        var objectToReturn = [];
+        Object.entries(myCircleObject).forEach(function (circle) {
+            // console.log(circle[1]);
+            objectToReturn.push(circle[1]);
+        });
+        return objectToReturn;
+    }
 
     var dataset = {
-        "children": [{ "Name": "Penn State", "Count": 10 }, { "Name": "Washington DC", "Count": 8 }, { "Name": "NYC", "Count": 3 }, { "Name": "Le Wagon", "Count": 6 }, { "Name": "Home", "Count": 4 }, { "Name": "La Salle", "Count": 6 }]
+        "children": createObjectData(myCircleObject)
+
+        // {"Name":"Penn State","Count":10},
+        //     {"Name":"Washington DC","Count":8},
+        //     {"Name":"NYC","Count":3},
+        //     {"Name":"Le Wagon","Count":6},
+        //     {"Name":"Home","Count":4},
+        //     {"Name":"La Salle","Count":6}]
     };
+
+    // console.log(dataset);
 
     var diameter = 380;
     var color = d3.scaleOrdinal(d3.schemeCategory20);
@@ -2057,7 +2089,7 @@ if (newButtonCat) {
 
 window.addEventListener('DOMContentLoaded', function () {
   if (document.title === 'My Circles | Connexions!') {
-    (0, _allCircles2.default)();
+    (0, _allCircles2.default)(circles);
     (0, _addLinksToCircles2.default)(circles);
   } else {
     return;
