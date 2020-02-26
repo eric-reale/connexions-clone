@@ -1,20 +1,14 @@
 function allCircles(circles) {
-
+// Parses necessary data from circles; results in circle name and count
   let myCircleArray = circles.map((circle) => {
       return [circle._id.circles, circle.count]
-  })
+  });
 
   let myCircleObject = myCircleArray.map(circle => {
     return {"Name": circle[0], "Count": circle[1]}
-  })
+  });
 
-  let circle0 = circles[0]._id.circles;
-  let circle01= circles[0].count;
-  // console.log(circle0, circle01);
-  // function createObjectData(myCircleObject) {
-  //   return [{"Name": "Test run", "Count": 20}, {"Name": "Test run", "Count": 20}]
-  // }
-
+// Creates object to pass into dataset in proper format
   function createObjectData(myCircleObject) {
     let objectToReturn = []
     Object.entries(myCircleObject).forEach(circle => {
@@ -27,7 +21,6 @@ function allCircles(circles) {
   var dataset = {
             "children":
             createObjectData(myCircleObject)
-
             // {"Name":"Penn State","Count":10},
             //     {"Name":"Washington DC","Count":8},
             //     {"Name":"NYC","Count":3},
@@ -35,8 +28,6 @@ function allCircles(circles) {
             //     {"Name":"Home","Count":4},
             //     {"Name":"La Salle","Count":6}]
         };
-
-        // console.log(dataset);
 
         var diameter = 380;
         var color = d3.scaleOrdinal(d3.schemeCategory20);
@@ -65,6 +56,8 @@ function allCircles(circles) {
             .attr("transform", function(d) {
                 return "translate(" + d.x + "," + d.y + ")";
             });
+
+        var myLink = node.append("a")
 
         node.append("title")
             .text(function(d) {
