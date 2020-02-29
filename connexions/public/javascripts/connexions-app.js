@@ -6,6 +6,7 @@ import getTabular from './modules/singlePageTab';
 import connexionProperties from './modules/displayConnexionProperties';
 import allCircles from './modules/allCircles';
 import linksToCircles from './modules/addLinksToCircles';
+import * as deleteConnexions from './modules/deleteConnexions';
 
 import * as connexionsNew from './modules/openAddConnexionInput';
 
@@ -18,6 +19,7 @@ import * as connexionsNew from './modules/openAddConnexionInput';
 // if(document){
 //   console.log(document.title)
 // }
+
 
 window.addEventListener('DOMContentLoaded', function() {
   const tabs = document.querySelectorAll('.tab-underlined');
