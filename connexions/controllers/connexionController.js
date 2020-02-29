@@ -60,6 +60,12 @@ exports.updateConnexion = async (req, res) => {
   // res.render('connexion-edit', { title: `Update my connexion`, connexion });
 }
 
+exports.deleteConnexion = async (req, res) => {
+  const connexion = await Connexion.findOne({_id: req.params.id });
+  connexion.remove();
+  res.redirect(`/connexions/`);
+}
+
 exports.newCircle = async (req, res) => {
   const connexion = await Connexion.findOne({_id: req.params.id });
   confirmOwner(connexion, req.user);

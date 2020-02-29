@@ -11,15 +11,14 @@ block content
           p#delete-connexion <span style="color: red;">delete</span>
           <div id="modal-delete" class="modal">
             <span onclick="document.getElementById('modal-delete').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <form class="modal-content" action="/">
+            form.modal-content(action=`/connexions/${connexion.id}/delete` method="GET")
               <div class="container">
                 <p>Are you sure you want to delete #{connexion.name}?</p>
 
                 <div class="clearfix">
-                  <button type="button" class="register-secondary" style="background-color: red;">confirm delete</button>
+                  <button type="submit" class="register-secondary" style="background-color: red;">confirm delete</button>
                 </div>
               </div>
-            </form>
           </div>
       .section-header
         div

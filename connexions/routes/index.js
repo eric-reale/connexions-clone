@@ -15,6 +15,7 @@ router.post('/connexions/add', connexionController.addConnexion);
 router.get('/connexions/:id', catchErrors(connexionController.viewConnexion));
 router.get('/connexions/:id/edit', catchErrors(connexionController.editConnexion));
 router.post('/connexions/:id/update', connexionController.updateConnexion);
+router.get('/connexions/:id/delete', connexionController.deleteConnexion);
 
 router.get('/connexions/:id/chapter/new', chapterController.newChapter);
 router.post('/connexions/:id/chapter/add', chapterController.addChapter);
