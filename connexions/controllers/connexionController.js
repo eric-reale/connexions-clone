@@ -7,7 +7,6 @@ const promisify = require('es6-promisify');
 exports.getConnexions = async (req, res) => {
   // console.log(req.user._id);
   const connexions = await Connexion.find({author: req.user._id}).sort({ created: 'desc' });
-  // console.log(connexions);
   res.render('connexions', { title: 'Connexions', connexions});
 }
 
@@ -40,30 +39,23 @@ const confirmOwner = (connexion, user) => {
 
 exports.viewConnexion = async (req, res) => {
   const connexion = await Connexion.findById(req.params.id)
-  // console.log(connexion)
   const chapters = await Chapter.find({connexion: connexion._id})
-  // console.log(chapters);
-  // console.log('here');
   confirmOwner(connexion, req.user);
   res.render('connexion-single', { title: `My connexion`, connexion, chapters });
 };
 
 exports.editConnexion = async (req, res) => {
   const connexion = await Connexion.findOne({_id: req.params.id });
-  // console.log(connexion);
   confirmOwner(connexion, req.user);
   res.render('connexion-edit', { title: `Update my connexion`, connexion });
 };
 
 exports.updateConnexion = async (req, res) => {
-  // console.log(req.body)
   const connexion = await Connexion.findOneAndUpdate({_id: req.params.id }, req.body, {
     new: true,
     runValidators: true,
     strict: false
   }).exec();
-  // console.log(connexion);
-  // console.log('here');
   res.redirect(`/connexions/${connexion._id}/`);
   // res.render('connexion-edit', { title: `Update my connexion`, connexion });
 }
@@ -85,38 +77,14 @@ exports.addCircleToConnexion = async (req, res) => {
 }
 
 exports.displayCircle = async (req, res) => {
-  // console.log(req.params);
   const circleQuery = req.params.circle;
   const connexions = await Connexion.find({ circles: circleQuery, author: req.user._id });
-  // console.log(connexions)
   res.render('circle-single', { title: `${circleQuery}`, connexions, circleQuery });
 }
 
-// exports.accessConnexionForCircles = async (req, res, next) => {
-//   // const user = await User.findById(req.user._id)
-//   // const connexion = await Connexion.find({ author: user.id }).limit(1)
-//   next();
-// }
-
-// exports.getCirclesByConnexion = async (req, res, next) => {
-
-// }
-
 exports.allCircles = async (req, res) => {
-  const user = await User.findById(req.user._id)
-  const connexionPromise = Connexion.find({ author: user.id }).limit(1)
-  const circlesPromise = Connexion.getCircleCount();
-
-  let [connexion, circles] = await Promise.all([connexionPromise, circlesPromise])
-  console.log(circles)
-  // circles = circles.filter(circle => circle._id.author === user.id);
-  // console.log(circles)
-
-
-  // TODO - currently getting all circles but need to query properly to only get cirlces for this user/author
-
-
-  // // const connexion = await Connexion.findOne({_id: req.params.id });
-  // console.log(user);
-  res.render('circles', { title: `My Circles`, circles, user, connexion });
+  const user = await User.findById(req.user._id);
+  const circlesPromise = Connexion.getCircleCount(user);
+  let [circles] = await Promise.all([circlesPromise])
+  res.render('circles', { title: `My Circles`, circles, user });
 }

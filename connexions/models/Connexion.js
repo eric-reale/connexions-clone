@@ -25,9 +25,10 @@ const connexionSchema = new mongoose.Schema({
 }, { strict: false })
 
 
-connexionSchema.statics.getCircleCount = function() {
+connexionSchema.statics.getCircleCount = async function(user) {
   return this.aggregate([
     { $unwind: '$circles'},
+    { $match: { author : user._id } }, // match the circle author to the user
     { $group: { _id: {circles:'$circles', author:'$author'}, count: { $sum: 1 } } },
     { $sort: { count: -1 } }
   ]);
