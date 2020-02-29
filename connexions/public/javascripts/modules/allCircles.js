@@ -1,18 +1,41 @@
-function allCircles() {
-  console.log('here 123');
-  // const circleSection = document.querySelector('.circle-section');
+function allCircles(circles) {
+// Parses necessary data from circles; results in circle name and count
+  let myCircleArray = circles.map((circle) => {
+      return [circle._id.circles, circle.count]
+  });
+
+  let myCircleObject = myCircleArray.map(circle => {
+    return {"Name": circle[0], "Count": circle[1]}
+  });
+
+// Creates object to pass into dataset in proper format
+  function createObjectData(myCircleObject) {
+    let objectToReturn = [];
+    Object.entries(myCircleObject).forEach(circle => {
+      objectToReturn.push(circle[1]);
+    });
+    return objectToReturn;
+  }
 
   var dataset = {
-            "children": [{"Name":"Penn State","Count":10},
-                {"Name":"Washington DC","Count":8},
-                {"Name":"NYC","Count":3},
-                {"Name":"Le Wagon","Count":6},
-                {"Name":"Home","Count":4},
-                {"Name":"La Salle","Count":6}]
+            "children":
+            createObjectData(myCircleObject)
+            // {"Name":"Penn State","Count":10},
+            //     {"Name":"Washington DC","Count":8},
+            //     {"Name":"NYC","Count":3},
+            //     {"Name":"Le Wagon","Count":6},
+            //     {"Name":"Home","Count":4},
+            //     {"Name":"La Salle","Count":6}]
         };
 
         var diameter = 380;
-        var color = d3.scaleOrdinal(d3.schemeCategory20);
+        // var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+        var blue = ['rgb(135,206,235)',
+        'rgb(30,144,255)',
+        'rgb(0,0,139)',
+        'rgb(0,0,255)',
+        'rgb(65,105,225)']
 
         var bubble = d3.pack(dataset)
             .size([diameter, diameter])
@@ -39,20 +62,22 @@ function allCircles() {
                 return "translate(" + d.x + "," + d.y + ")";
             });
 
-        node.append("title")
+        var myLink = node.append("a")
+
+        myLink.append("title")
             .text(function(d) {
                 return d.data.Name + ": " + d.data.Count;
             });
 
-        node.append("circle")
+        myLink.append("circle")
             .attr("r", function(d) {
                 return d.r;
             })
-            .style("fill", function(d,i) {
-                return color(i);
-            });
+            .style("fill", function() {
+              return blue[Math.floor(Math.random() * blue.length)];
+            })
 
-        node.append("text")
+        myLink.append("text")
             .attr("dy", ".2em")
             .style("text-anchor", "middle")
             .text(function(d) {
@@ -64,7 +89,7 @@ function allCircles() {
             })
             .attr("fill", "white");
 
-        node.append("text")
+        myLink.append("text")
             .attr("dy", "1.3em")
             .style("text-anchor", "middle")
             .text(function(d) {

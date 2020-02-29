@@ -1044,9 +1044,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 function addLinksToCircles(circles) {
-  console.log('now here');
-  console.log(circles);
-  console.log('can i get a what what');
+  var allCircles = document.querySelectorAll('.node > a');
+  allCircles.forEach(function (node) {
+    var nodeName = node.firstChild.textContent.split(":")[0];
+    node.setAttribute('href', '/connexions/circles/' + nodeName);
+  });
 }
 
 exports.default = addLinksToCircles;
@@ -1061,16 +1063,39 @@ exports.default = addLinksToCircles;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-function allCircles() {
-    console.log('here 123');
-    // const circleSection = document.querySelector('.circle-section');
+function allCircles(circles) {
+    // Parses necessary data from circles; results in circle name and count
+    var myCircleArray = circles.map(function (circle) {
+        return [circle._id.circles, circle.count];
+    });
+
+    var myCircleObject = myCircleArray.map(function (circle) {
+        return { "Name": circle[0], "Count": circle[1] };
+    });
+
+    // Creates object to pass into dataset in proper format
+    function createObjectData(myCircleObject) {
+        var objectToReturn = [];
+        Object.entries(myCircleObject).forEach(function (circle) {
+            objectToReturn.push(circle[1]);
+        });
+        return objectToReturn;
+    }
 
     var dataset = {
-        "children": [{ "Name": "Penn State", "Count": 10 }, { "Name": "Washington DC", "Count": 8 }, { "Name": "NYC", "Count": 3 }, { "Name": "Le Wagon", "Count": 6 }, { "Name": "Home", "Count": 4 }, { "Name": "La Salle", "Count": 6 }]
+        "children": createObjectData(myCircleObject)
+        // {"Name":"Penn State","Count":10},
+        //     {"Name":"Washington DC","Count":8},
+        //     {"Name":"NYC","Count":3},
+        //     {"Name":"Le Wagon","Count":6},
+        //     {"Name":"Home","Count":4},
+        //     {"Name":"La Salle","Count":6}]
     };
 
     var diameter = 380;
-    var color = d3.scaleOrdinal(d3.schemeCategory20);
+    // var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+    var blue = ['rgb(135,206,235)', 'rgb(30,144,255)', 'rgb(0,0,139)', 'rgb(0,0,255)', 'rgb(65,105,225)'];
 
     var bubble = d3.pack(dataset).size([diameter, diameter]).padding(1.5);
 
@@ -1086,23 +1111,25 @@ function allCircles() {
         return "translate(" + d.x + "," + d.y + ")";
     });
 
-    node.append("title").text(function (d) {
+    var myLink = node.append("a");
+
+    myLink.append("title").text(function (d) {
         return d.data.Name + ": " + d.data.Count;
     });
 
-    node.append("circle").attr("r", function (d) {
+    myLink.append("circle").attr("r", function (d) {
         return d.r;
-    }).style("fill", function (d, i) {
-        return color(i);
+    }).style("fill", function () {
+        return blue[Math.floor(Math.random() * blue.length)];
     });
 
-    node.append("text").attr("dy", ".2em").style("text-anchor", "middle").text(function (d) {
+    myLink.append("text").attr("dy", ".2em").style("text-anchor", "middle").text(function (d) {
         return d.data.Name.substring(0, d.r / 3);
     }).attr("font-family", "sans-serif").attr("font-size", function (d) {
         return d.r / 5;
     }).attr("fill", "white");
 
-    node.append("text").attr("dy", "1.3em").style("text-anchor", "middle").text(function (d) {
+    myLink.append("text").attr("dy", "1.3em").style("text-anchor", "middle").text(function (d) {
         return d.data.Count;
     }).attr("font-family", "Gill Sans", "Gill Sans MT").attr("font-size", function (d) {
         return d.r / 5;
@@ -2057,8 +2084,8 @@ if (newButtonCat) {
 
 window.addEventListener('DOMContentLoaded', function () {
   if (document.title === 'My Circles | Connexions!') {
-    (0, _allCircles2.default)();
-    // linksToCircles(circles);
+    (0, _allCircles2.default)(circles);
+    (0, _addLinksToCircles2.default)(circles);
   } else {
     return;
   }

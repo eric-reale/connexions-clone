@@ -108,6 +108,7 @@ exports.allCircles = async (req, res) => {
   const circlesPromise = Connexion.getCircleCount();
 
   let [connexion, circles] = await Promise.all([connexionPromise, circlesPromise])
+  console.log(circles)
   // circles = circles.filter(circle => circle._id.author === user.id);
   // console.log(circles)
 
