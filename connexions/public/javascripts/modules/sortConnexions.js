@@ -9,10 +9,15 @@ const circlesFunction = (connexion) => {
   if (length === 0) {
     circleHTML = `<span class="no-circles-yet">No circles yet!</span>`;
   } else {
-    for (let i = 0; i < length; i++) {
-      eachCircleHTML= `<span class="circle"></span>`;
-      circleArray.push(eachCircleHTML)
-    }
+      let i = 0;
+      while (i < length) {
+          eachCircleHTML= `<span class="circle"></span>`;
+          circleArray.push(eachCircleHTML)
+          i++;
+          if (i === 6) { // no more than 6 circles to be displayed
+            break;
+          }
+        }
     circleHTML = circleArray.join("");
   }
   return circleHTML;

@@ -663,9 +663,15 @@ var circlesFunction = function circlesFunction(connexion) {
   if (length === 0) {
     circleHTML = '<span class="no-circles-yet">No circles yet!</span>';
   } else {
-    for (var i = 0; i < length; i++) {
+    var i = 0;
+    while (i < length) {
       eachCircleHTML = '<span class="circle"></span>';
       circleArray.push(eachCircleHTML);
+      i++;
+      if (i === 6) {
+        // no more than 6 circles to be displayed
+        break;
+      }
     }
     circleHTML = circleArray.join("");
   }
