@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 35);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,84 +73,9 @@
 "use strict";
 
 
-__webpack_require__(16);
-
-var _bling = __webpack_require__(3);
-
-var _singlePageTab = __webpack_require__(15);
-
-var _singlePageTab2 = _interopRequireDefault(_singlePageTab);
-
-var _displayConnexionProperties = __webpack_require__(14);
-
-var _displayConnexionProperties2 = _interopRequireDefault(_displayConnexionProperties);
-
-var _allCircles = __webpack_require__(12);
-
-var _allCircles2 = _interopRequireDefault(_allCircles);
-
-var _addLinksToCircles = __webpack_require__(11);
-
-var _addLinksToCircles2 = _interopRequireDefault(_addLinksToCircles);
-
-var _deleteConnexions = __webpack_require__(13);
-
-var deleteConnexions = _interopRequireWildcard(_deleteConnexions);
-
-var _openAddConnexionInput = __webpack_require__(4);
-
-var connexionsNew = _interopRequireWildcard(_openAddConnexionInput);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// if (circles) {
-//   linksToCircles(circles);
-// }
-// if (window) {
-//   console.log(window)
-// }
-// if(document){
-//   console.log(document.title)
-// }
-
-
-window.addEventListener('DOMContentLoaded', function () {
-  var tabs = document.querySelectorAll('.tab-underlined');
-  if (tabs.length > 0) {
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', _singlePageTab2.default);
-    });
-  }
-});
-
-// window.addEventListener('DOMContentLoaded', connexionProperties(connexion));
-
-var newButtonCat = document.querySelector('.add-new-category-button');
-if (newButtonCat) {
-  newButtonCat.addEventListener('click', _displayConnexionProperties2.default);
-}
-
-window.addEventListener('DOMContentLoaded', function () {
-  if (document.title === 'My Circles | Connexions!') {
-    (0, _allCircles2.default)(circles);
-    (0, _addLinksToCircles2.default)(circles);
-  } else {
-    return;
-  }
-});
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var bind = __webpack_require__(9);
+var bind = __webpack_require__(10);
 
 /*global toString:true*/
 
@@ -445,13 +370,13 @@ module.exports = {
 };
 
 /***/ }),
-/* 2 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(0);
 var normalizeHeaderName = __webpack_require__(32);
 
 var PROTECTION_PREFIX = /^\)\]\}',?\n/;
@@ -469,10 +394,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(5);
+    adapter = __webpack_require__(6);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(5);
+    adapter = __webpack_require__(6);
   }
   return adapter;
 }
@@ -537,10 +462,10 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 });
 
 module.exports = defaults;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ }),
-/* 3 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -570,6 +495,52 @@ exports.$ = $;
 exports.$$ = $$;
 
 /***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _deleteConnexions = __webpack_require__(3);
+
+Object.keys(_deleteConnexions).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _deleteConnexions[key];
+    }
+  });
+});
+var deleteConnexionButton = document.querySelector('#delete-connexion');
+
+// function setUpDeleteButton() {
+//   const connexionsDivs = document.querySelectorAll('.section-body-connexion');
+//   connexionsDivs.forEach(div => div.classList.add('connexion-list-width'));
+// }
+
+var modal = document.getElementById('modal-delete');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+function openDeleteModal() {
+  modal.style.display = 'block';
+}
+
+if (deleteConnexionButton) {
+  deleteConnexionButton.addEventListener('click', openDeleteModal);
+}
+
+/***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -596,7 +567,7 @@ var _axios = __webpack_require__(17);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _bling = __webpack_require__(3);
+var _bling = __webpack_require__(2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -664,14 +635,120 @@ if (connexionInput) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _sortConnexions = __webpack_require__(5);
+
+Object.keys(_sortConnexions).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _sortConnexions[key];
+    }
+  });
+});
+var sortButton = document.querySelector('#sort-button');
+var sectionBodyDiv = document.querySelector('.section-body');
+
+var circlesFunction = function circlesFunction(connexion) {
+  var length = connexion.circles.length;
+  var circleHTML = void 0;
+  var eachCircleHTML = void 0;
+  var circleArray = [];
+  if (length === 0) {
+    circleHTML = '<span class="no-circles-yet">No circles yet!</span>';
+  } else {
+    for (var i = 0; i < length; i++) {
+      eachCircleHTML = '<span class="circle"></span>';
+      circleArray.push(eachCircleHTML);
+    }
+    circleHTML = circleArray.join("");
+  }
+  return circleHTML;
+};
+
+function generateHTML() {
+  var htmlArray = [];
+  connexions.forEach(function (connexion) {
+    var location = connexion.location !== undefined ? connexion.location : "";
+    var circles = circlesFunction(connexion);
+
+    var newHTML = '<a class="section-body-connexion section-body-connexion-a"\n              href="/connexions/' + connexion._id + '">\n                <div class="connexion-image">\n                  <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80">\n                </div>\n                <div>\n                  <p class="connexion-name">' + connexion.name + '</p>\n                  <p class="connexion-circle-list">' + location + '\n                  </p>\n                </div>\n                <div class="connexion-circles">\n                  ' + circles + '\n                </div>\n            </a>';
+    htmlArray.push(newHTML);
+  });
+  return htmlArray.join("");
+}
+
+function alphabeticalMethod() {
+  connexions.sort(function (a, b) {
+    return a.name.toUpperCase() > b.name.toUpperCase() ? 1 : -1;
+  });
+  sectionBodyDiv.innerHTML = "";
+  var html = generateHTML();
+  sectionBodyDiv.insertAdjacentHTML('afterbegin', html);
+  sortButton.textContent = "created";
+}
+
+function createdByMethod() {
+  connexions.sort(function (a, b) {
+    return a.created < b.created ? 1 : -1;
+  });
+  sectionBodyDiv.innerHTML = "";
+  var html = generateHTML();
+  sectionBodyDiv.insertAdjacentHTML('afterbegin', html);
+  sortButton.textContent = "circles";
+}
+
+function circleCount() {
+  connexions.sort(function (a, b) {
+    return a.circles.length < b.circles.length ? 1 : -1;
+  });
+  sectionBodyDiv.innerHTML = "";
+  var html = generateHTML();
+  sectionBodyDiv.insertAdjacentHTML('afterbegin', html);
+  sortButton.textContent = "alpha";
+}
+
+function chooseSortMethod(e) {
+  var text = e.currentTarget.textContent;
+  switch (text) {
+    case 'alpha':
+      alphabeticalMethod();
+      break;
+    case 'created':
+      createdByMethod();
+      break;
+    case 'circles':
+      circleCount();
+      break;
+    default:
+      null;
+      break;
+  }
+}
+
+if (sortButton) {
+  sortButton.addEventListener('click', chooseSortMethod);
+}
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(0);
 var settle = __webpack_require__(24);
 var buildURL = __webpack_require__(27);
 var parseHeaders = __webpack_require__(33);
 var isURLSameOrigin = __webpack_require__(31);
-var createError = __webpack_require__(8);
+var createError = __webpack_require__(9);
 var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(26);
 
 module.exports = function xhrAdapter(config) {
@@ -836,10 +913,10 @@ module.exports = function xhrAdapter(config) {
     request.send(requestData);
   });
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -865,7 +942,7 @@ Cancel.prototype.__CANCEL__ = true;
 module.exports = Cancel;
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -876,7 +953,7 @@ module.exports = function isCancel(value) {
 };
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -899,7 +976,7 @@ module.exports = function createError(message, config, code, response) {
 };
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -916,7 +993,7 @@ module.exports = function bind(fn, thisArg) {
 };
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1109,7 +1186,7 @@ process.umask = function () {
 };
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1129,7 +1206,7 @@ function addLinksToCircles(circles) {
 exports.default = addLinksToCircles;
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1214,52 +1291,6 @@ function allCircles(circles) {
 }
 
 exports.default = allCircles;
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _deleteConnexions = __webpack_require__(13);
-
-Object.keys(_deleteConnexions).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _deleteConnexions[key];
-    }
-  });
-});
-var deleteConnexionButton = document.querySelector('#delete-connexion');
-
-// function setUpDeleteButton() {
-//   const connexionsDivs = document.querySelectorAll('.section-body-connexion');
-//   connexionsDivs.forEach(div => div.classList.add('connexion-list-width'));
-// }
-
-var modal = document.getElementById('modal-delete');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};
-
-function openDeleteModal() {
-  modal.style.display = 'block';
-}
-
-if (deleteConnexionButton) {
-  deleteConnexionButton.addEventListener('click', openDeleteModal);
-}
 
 /***/ }),
 /* 14 */
@@ -1361,10 +1392,10 @@ module.exports = __webpack_require__(18);
 "use strict";
 
 
-var utils = __webpack_require__(1);
-var bind = __webpack_require__(9);
+var utils = __webpack_require__(0);
+var bind = __webpack_require__(10);
 var Axios = __webpack_require__(20);
-var defaults = __webpack_require__(2);
+var defaults = __webpack_require__(1);
 
 /**
  * Create an instance of Axios
@@ -1397,9 +1428,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(6);
+axios.Cancel = __webpack_require__(7);
 axios.CancelToken = __webpack_require__(19);
-axios.isCancel = __webpack_require__(7);
+axios.isCancel = __webpack_require__(8);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -1419,7 +1450,7 @@ module.exports.default = axios;
 "use strict";
 
 
-var Cancel = __webpack_require__(6);
+var Cancel = __webpack_require__(7);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -1482,8 +1513,8 @@ module.exports = CancelToken;
 "use strict";
 
 
-var defaults = __webpack_require__(2);
-var utils = __webpack_require__(1);
+var defaults = __webpack_require__(1);
+var utils = __webpack_require__(0);
 var InterceptorManager = __webpack_require__(21);
 var dispatchRequest = __webpack_require__(22);
 var isAbsoluteURL = __webpack_require__(30);
@@ -1573,7 +1604,7 @@ module.exports = Axios;
 "use strict";
 
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(0);
 
 function InterceptorManager() {
   this.handlers = [];
@@ -1631,10 +1662,10 @@ module.exports = InterceptorManager;
 "use strict";
 
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(0);
 var transformData = __webpack_require__(25);
-var isCancel = __webpack_require__(7);
-var defaults = __webpack_require__(2);
+var isCancel = __webpack_require__(8);
+var defaults = __webpack_require__(1);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -1723,7 +1754,7 @@ module.exports = function enhanceError(error, config, code, response) {
 "use strict";
 
 
-var createError = __webpack_require__(8);
+var createError = __webpack_require__(9);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -1749,7 +1780,7 @@ module.exports = function settle(resolve, reject, response) {
 "use strict";
 
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(0);
 
 /**
  * Transform the data for a request or a response
@@ -1816,7 +1847,7 @@ module.exports = btoa;
 "use strict";
 
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(0);
 
 function encode(val) {
   return encodeURIComponent(val).replace(/%40/gi, '@').replace(/%3A/gi, ':').replace(/%24/g, '$').replace(/%2C/gi, ',').replace(/%20/g, '+').replace(/%5B/gi, '[').replace(/%5D/gi, ']');
@@ -1902,7 +1933,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(0);
 
 module.exports = utils.isStandardBrowserEnv() ?
 
@@ -1983,7 +2014,7 @@ module.exports = function isAbsoluteURL(url) {
 "use strict";
 
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(0);
 
 module.exports = utils.isStandardBrowserEnv() ?
 
@@ -2052,7 +2083,7 @@ function nonStandardBrowserEnv() {
 "use strict";
 
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(0);
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -2070,7 +2101,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(0);
 
 /**
  * Parse headers into an object
@@ -2141,6 +2172,85 @@ module.exports = function spread(callback) {
     return callback.apply(null, arr);
   };
 };
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(16);
+
+var _bling = __webpack_require__(2);
+
+var _singlePageTab = __webpack_require__(15);
+
+var _singlePageTab2 = _interopRequireDefault(_singlePageTab);
+
+var _displayConnexionProperties = __webpack_require__(14);
+
+var _displayConnexionProperties2 = _interopRequireDefault(_displayConnexionProperties);
+
+var _allCircles = __webpack_require__(13);
+
+var _allCircles2 = _interopRequireDefault(_allCircles);
+
+var _addLinksToCircles = __webpack_require__(12);
+
+var _addLinksToCircles2 = _interopRequireDefault(_addLinksToCircles);
+
+var _deleteConnexions = __webpack_require__(3);
+
+var deleteConnexions = _interopRequireWildcard(_deleteConnexions);
+
+var _openAddConnexionInput = __webpack_require__(4);
+
+var connexionsNew = _interopRequireWildcard(_openAddConnexionInput);
+
+var _sortConnexions = __webpack_require__(5);
+
+var sortConnexions = _interopRequireWildcard(_sortConnexions);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// if (circles) {
+//   linksToCircles(circles);
+// }
+// if (window) {
+//   console.log(window)
+// }
+// if(document){
+//   console.log(document.title)
+// }
+
+
+window.addEventListener('DOMContentLoaded', function () {
+  var tabs = document.querySelectorAll('.tab-underlined');
+  if (tabs.length > 0) {
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', _singlePageTab2.default);
+    });
+  }
+});
+
+// window.addEventListener('DOMContentLoaded', connexionProperties(connexion));
+
+var newButtonCat = document.querySelector('.add-new-category-button');
+if (newButtonCat) {
+  newButtonCat.addEventListener('click', _displayConnexionProperties2.default);
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  if (document.title === 'My Circles | Connexions!') {
+    (0, _allCircles2.default)(circles);
+    (0, _addLinksToCircles2.default)(circles);
+  } else {
+    return;
+  }
+});
 
 /***/ })
 /******/ ]);

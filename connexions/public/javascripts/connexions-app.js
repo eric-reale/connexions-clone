@@ -7,8 +7,8 @@ import connexionProperties from './modules/displayConnexionProperties';
 import allCircles from './modules/allCircles';
 import linksToCircles from './modules/addLinksToCircles';
 import * as deleteConnexions from './modules/deleteConnexions';
-
 import * as connexionsNew from './modules/openAddConnexionInput';
+import * as sortConnexions from './modules/sortConnexions';
 
 // if (circles) {
 //   linksToCircles(circles);
