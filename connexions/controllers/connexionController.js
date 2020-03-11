@@ -52,8 +52,9 @@ exports.editConnexion = async (req, res) => {
 };
 
 exports.updateConnexion = async (req, res) => {
-  // console.log(req.body)
+  console.log(req.body)
   const connexion = await Connexion.findOneAndUpdate({_id: req.params.id }, req.body, {
+    returnNewDocument: true,
     new: true,
     runValidators: true,
     strict: false

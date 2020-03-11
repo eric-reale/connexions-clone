@@ -2282,9 +2282,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 function renameLabelName(e) {
   var updatedLabelName = e.currentTarget.value;
-  e.currentTarget.name = updatedLabelName;
+  // e.currentTarget.name = updatedLabelName;
+  e.currentTarget.setAttribute('for', 'category[' + updatedLabelName + ']');
   var answerInput = e.currentTarget.nextElementSibling;
-  answerInput.name = "category[" + updatedLabelName + "]";
+  answerInput.name = 'category[' + updatedLabelName + ']';
 }
 
 exports.default = renameLabelName;
