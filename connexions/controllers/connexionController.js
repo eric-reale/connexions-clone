@@ -5,14 +5,15 @@ const Chapter = mongoose.model('Chapter');
 const promisify = require('es6-promisify');
 
 exports.getConnexions = async (req, res) => {
-  // console.log(req.user._id);
+  if (!req.user._id) {
+     res.redirect(`/login`);
+   }
+
   const connexions = await Connexion.find({author: req.user._id}).sort({ created: 'desc' });
   res.render('connexions', { title: 'Connexions', connexions});
+  // }
+  // res.redirect(`/login`);
 }
-
-// exports.sortConnexions = async (req, res) => {
-//   //
-// }
 
 exports.addConnexion = (req, res) => {
   req.body.author = req.user._id;
@@ -51,7 +52,9 @@ exports.editConnexion = async (req, res) => {
 };
 
 exports.updateConnexion = async (req, res) => {
+  console.log(req.body)
   const connexion = await Connexion.findOneAndUpdate({_id: req.params.id }, req.body, {
+    returnNewDocument: true,
     new: true,
     runValidators: true,
     strict: false
