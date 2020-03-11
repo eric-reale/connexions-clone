@@ -844,6 +844,9 @@ body, html {
 .connexion-list-width {
   width: 80%; }
 
+#sort-button {
+  cursor: pointer; }
+
 @media (min-width: 700px) {
   .main-container {
     height: 95vh;

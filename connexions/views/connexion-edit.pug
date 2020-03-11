@@ -27,7 +27,7 @@ block content
           - const category = (JSON.stringify(connexion._doc.category).split(",")[`${i}`].split(":")[0].replace("{", '').slice(1, -1))
           - const answer = connexion._doc.category[category]
 
-          label.connexion-attributes-categories-center(for=`category[${category}]`) #{category}
+          input.connexion-attributes-categories-center(type="text" name=category for=`category[${category}]` value=category)
           input.connexion-attributes-answers-inputs(type="text" name=`category[${category}]` value=answer)
           - }}
         div.add-new-category

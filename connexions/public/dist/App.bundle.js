@@ -2218,6 +2218,10 @@ var _sortConnexions = __webpack_require__(5);
 
 var sortConnexions = _interopRequireWildcard(_sortConnexions);
 
+var _updateLabelName = __webpack_require__(37);
+
+var _updateLabelName2 = _interopRequireDefault(_updateLabelName);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -2232,6 +2236,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //   console.log(document.title)
 // }
 
+var labelInputs = document.querySelectorAll('.connexion-attributes-categories-center');
+// console.log(labelInputs);
+if (labelInputs) {
+  labelInputs.forEach(function (label) {
+    return label.addEventListener('change', _updateLabelName2.default);
+  });
+}
 
 window.addEventListener('DOMContentLoaded', function () {
   var tabs = document.querySelectorAll('.tab-underlined');
@@ -2257,6 +2268,26 @@ window.addEventListener('DOMContentLoaded', function () {
     return;
   }
 });
+
+/***/ }),
+/* 36 */,
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function renameLabelName(e) {
+  var updatedLabelName = e.currentTarget.value;
+  e.currentTarget.name = updatedLabelName;
+  var answerInput = e.currentTarget.nextElementSibling;
+  answerInput.name = "category[" + updatedLabelName + "]";
+}
+
+exports.default = renameLabelName;
 
 /***/ })
 /******/ ]);
