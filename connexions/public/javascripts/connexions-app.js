@@ -3,7 +3,7 @@ import '../sass/style.scss';
 import { $, $$ } from './modules/bling';
 
 import getTabular from './modules/singlePageTab';
-import connexionProperties from './modules/displayConnexionProperties';
+import * as connexionProperties from './modules/displayConnexionProperties';
 import allCircles from './modules/allCircles';
 import linksToCircles from './modules/addLinksToCircles';
 import * as deleteConnexions from './modules/deleteConnexions';
@@ -20,6 +20,7 @@ import renameLabelName from './modules/updateLabelName';
 // if(document){
 //   console.log(document.title)
 // }
+
 
 const labelInputs = document.querySelectorAll('.connexion-attributes-categories-center');
 // console.log(labelInputs);

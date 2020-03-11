@@ -1,5 +1,15 @@
 let newLabels;
 let newInputs;
+let removeLineInputs = document.querySelectorAll('.remove-line');
+
+function removeInputLine(e) {
+  const x = e.currentTarget;
+  const input1 = e.currentTarget.previousElementSibling
+  const input2 = e.currentTarget.previousElementSibling.previousElementSibling
+  x.remove();
+  input1.remove();
+  input2.remove();
+}
 
 function connexionProperties() {
   const labelHTML = `
@@ -8,9 +18,12 @@ function connexionProperties() {
   const inputHTML = `
     <input class="connexion-attributes-answers-inputs new-inputs" type="text">
   `
+  const x = `
+  <a class="boxclose remove-line"></a>`
   const form = document.querySelector('#update-connexion');
   form.insertAdjacentHTML('beforeend', labelHTML);
   form.insertAdjacentHTML('beforeend', inputHTML);
+  form.insertAdjacentHTML('beforeend', x);
   grabLabelsInputs();
 };
 
@@ -24,6 +37,12 @@ function grabLabelsInputs() {
       input.name = `category[${label.value}]`;
     })
   })};
+  removeLineInputs = document.querySelectorAll('.remove-line');
+  removeLineInputs.forEach(x => x.addEventListener('click', removeInputLine))
+}
+
+if (removeLineInputs) {
+  removeLineInputs.forEach(x => x.addEventListener('click', removeInputLine))
 }
 
 

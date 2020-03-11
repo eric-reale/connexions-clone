@@ -30,7 +30,7 @@ block content
           each answer, category in connexion._doc.category
             input.connexion-attributes-categories-center(type="text" for=`category[${category}]` value=category)
             input.connexion-attributes-answers-inputs(type="text" name=`category[${category}]` value=answer)
-            a.boxclose
+            a.boxclose.remove-line
 
           //- - if (connexion._doc.category) { for (let i = 0; i < JSON.stringify(connexion._doc.category).split(",").length; i++) {
           //- - const category = (JSON.stringify(connexion._doc.category).split(",")[`${i}`].split(":")[0].replace("{", '').slice(1, -1))

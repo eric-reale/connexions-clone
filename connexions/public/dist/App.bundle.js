@@ -1310,13 +1310,25 @@ Object.defineProperty(exports, "__esModule", {
 });
 var newLabels = void 0;
 var newInputs = void 0;
+var removeLineInputs = document.querySelectorAll('.remove-line');
+
+function removeInputLine(e) {
+  var x = e.currentTarget;
+  var input1 = e.currentTarget.previousElementSibling;
+  var input2 = e.currentTarget.previousElementSibling.previousElementSibling;
+  x.remove();
+  input1.remove();
+  input2.remove();
+}
 
 function connexionProperties() {
   var labelHTML = '\n    <input class=".connexion-attributes-categories connexion-attributes-categories-center new-label" placeholder="Job, hobby, etc.">\n  ';
   var inputHTML = '\n    <input class="connexion-attributes-answers-inputs new-inputs" type="text">\n  ';
+  var x = '\n  <a class="boxclose remove-line"></a>';
   var form = document.querySelector('#update-connexion');
   form.insertAdjacentHTML('beforeend', labelHTML);
   form.insertAdjacentHTML('beforeend', inputHTML);
+  form.insertAdjacentHTML('beforeend', x);
   grabLabelsInputs();
 };
 
@@ -1332,6 +1344,16 @@ function grabLabelsInputs() {
       });
     });
   };
+  removeLineInputs = document.querySelectorAll('.remove-line');
+  removeLineInputs.forEach(function (x) {
+    return x.addEventListener('click', removeInputLine);
+  });
+}
+
+if (removeLineInputs) {
+  removeLineInputs.forEach(function (x) {
+    return x.addEventListener('click', removeInputLine);
+  });
 }
 
 exports.default = connexionProperties;
@@ -2216,7 +2238,7 @@ var _singlePageTab2 = _interopRequireDefault(_singlePageTab);
 
 var _displayConnexionProperties = __webpack_require__(14);
 
-var _displayConnexionProperties2 = _interopRequireDefault(_displayConnexionProperties);
+var connexionProperties = _interopRequireWildcard(_displayConnexionProperties);
 
 var _allCircles = __webpack_require__(13);
 
@@ -2256,6 +2278,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //   console.log(document.title)
 // }
 
+
 var labelInputs = document.querySelectorAll('.connexion-attributes-categories-center');
 // console.log(labelInputs);
 if (labelInputs) {
@@ -2277,7 +2300,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 var newButtonCat = document.querySelector('.add-new-category-button');
 if (newButtonCat) {
-  newButtonCat.addEventListener('click', _displayConnexionProperties2.default);
+  newButtonCat.addEventListener('click', connexionProperties);
 }
 
 window.addEventListener('DOMContentLoaded', function () {
