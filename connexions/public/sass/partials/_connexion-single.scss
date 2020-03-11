@@ -125,6 +125,15 @@ ul {
   font-family: 'Comfortaa', cursive;
 }
 
+.connexion-attributes-section-edit {
+  display: grid;
+  grid-template-columns:55% 30% 6%;
+  // justify-content: center;
+  align-items: center;
+  margin: 10px 0px;
+  font-family: 'Comfortaa', cursive;
+}
+
 .connexion-attributes-categories {
   font-weight: 700;
   display: flex;

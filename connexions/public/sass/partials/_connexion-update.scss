@@ -5,3 +5,26 @@
   height: 60px;
   align-items: center;
 }
+
+a.boxclose{
+    cursor:pointer;
+    color: #fff;
+    border: 1px solid #AEAEAE;
+    border-radius: 30px;
+    background: #605F61;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 0px;
+    padding: 11px 3px;
+    text-align: center;
+}
+
+.boxclose:before {
+    content: "×";
+}
+
+.hidden-background {
+  background: white !important;
+  border: none !important;
+  color: white;
+}
