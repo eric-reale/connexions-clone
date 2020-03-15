@@ -1311,6 +1311,7 @@ Object.defineProperty(exports, "__esModule", {
 var newLabels = void 0;
 var newInputs = void 0;
 var removeLineInputs = document.querySelectorAll('.remove-line');
+var newButtonCat = document.querySelector('.add-new-category-button');
 
 function removeInputLine(e) {
   var x = e.currentTarget;
@@ -1354,6 +1355,10 @@ if (removeLineInputs) {
   removeLineInputs.forEach(function (x) {
     return x.addEventListener('click', removeInputLine);
   });
+}
+
+if (newButtonCat) {
+  newButtonCat.addEventListener('click', connexionProperties);
 }
 
 exports.default = connexionProperties;
@@ -2298,10 +2303,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
 // window.addEventListener('DOMContentLoaded', connexionProperties(connexion));
 
-var newButtonCat = document.querySelector('.add-new-category-button');
-if (newButtonCat) {
-  newButtonCat.addEventListener('click', connexionProperties);
-}
 
 window.addEventListener('DOMContentLoaded', function () {
   if (document.title === 'My Circles | Connexions!') {

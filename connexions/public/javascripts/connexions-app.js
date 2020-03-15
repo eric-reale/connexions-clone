@@ -40,10 +40,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 // window.addEventListener('DOMContentLoaded', connexionProperties(connexion));
 
-const newButtonCat = document.querySelector('.add-new-category-button')
-if (newButtonCat) {
-  newButtonCat.addEventListener('click', connexionProperties);
-  }
+
 
 window.addEventListener('DOMContentLoaded', function() {
   if (document.title === 'My Circles | Connexions!') {
