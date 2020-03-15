@@ -16,11 +16,13 @@ block content
         div
           p #{connexion.name}
         div
-         input#back(type="submit" form="update-connexion" value="save")
+         input#back(type="submit" form="" value="edit")
       .circle-section
-        form(action=`/connexions/${connexion.id}/circles/add` method="POST")
-          input(name="circles")
-          button(type="submit")
+        div.circle-input-div
+          form(action=`/connexions/${connexion.id}/circles/add` method="POST")
+            input.new-circle-input(name="circles")
+            div.add-new-category(style="width: 70%")
+              button.add-new-category-button(type="submit") add new circle
       .footer-tabs
         div
           a.no-link(href=`/connexions`)
