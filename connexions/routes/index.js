@@ -26,6 +26,7 @@ router.post('/connexions/:connexion_id/chapter/:chapter_id/update', chapterContr
 router.get('/connexions/:id/circles/new', connexionController.newCircle);
 router.post('/connexions/:id/circles/add', connexionController.addCircleToConnexion);
 router.get('/connexions/circles/:circle', connexionController.displayCircle);
+router.get('/connexions/circles/:circle/delete', connexionController.deleteCircle);
 router.get('/circles', connexionController.allCircles);
 
 router.get('/login', userController.loginForm);

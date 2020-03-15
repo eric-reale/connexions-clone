@@ -15,13 +15,13 @@ block content
             p back
         div
           p #{connexion.name}
-        div
-         input#back(type="submit" form="" value="edit")
+        a#back(href=``)
+          p edit
       .circle-section
         div.circle-input-div
           form(action=`/connexions/${connexion.id}/circles/add` method="POST")
             input.new-circle-input(name="circles")
-            div.add-new-category(style="width: 70%")
+            div.add-new-category.adjust-width
               button.add-new-category-button(type="submit") add new circle
       .footer-tabs
         div

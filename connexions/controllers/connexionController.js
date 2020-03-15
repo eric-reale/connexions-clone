@@ -75,6 +75,13 @@ exports.newCircle = async (req, res) => {
   res.render('circle-new', { title: `Add to my Cirlces`, connexion });
 }
 
+exports.deleteCircle = async (req, res) => {
+  const circle = req.params.circle
+  const connexions = await Connexion.updateMany({ circles: req.params.circle, author: req.user._id },
+    { $pull: {circles: circle }});
+  res.redirect(`/connexions/`);
+}
+
 exports.addCircleToConnexion = async (req, res) => {
   const connexion = await Connexion.findOneAndUpdate({_id: req.params.id },
     { $addToSet: req.body }, {
