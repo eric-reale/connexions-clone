@@ -10,6 +10,7 @@ import * as deleteConnexions from './modules/deleteConnexions';
 import * as connexionsNew from './modules/openAddConnexionInput';
 import * as sortConnexions from './modules/sortConnexions';
 import renameLabelName from './modules/updateLabelName';
+import removeConnexionFromCircle from './modules/removeConnexionFromCircle';
 
 // if (circles) {
 //   linksToCircles(circles);
@@ -21,6 +22,12 @@ import renameLabelName from './modules/updateLabelName';
 //   console.log(document.title)
 // }
 
+window.addEventListener('DOMContentLoaded', function() {
+  const removeFromCircle = document.querySelectorAll('.remove-line-circle');
+  removeFromCircle.forEach(toRemove => {
+    toRemove.addEventListener('click', (e) => removeConnexionFromCircle(e, circle));
+  });
+});
 
 const labelInputs = document.querySelectorAll('.connexion-attributes-categories-center');
 // console.log(labelInputs);
