@@ -1,6 +1,7 @@
 let newLabels;
 let newInputs;
 let removeLineInputs = document.querySelectorAll('.remove-line');
+const newButtonCat = document.querySelector('.add-new-category-button')
 
 function removeInputLine(e) {
   const x = e.currentTarget;
@@ -44,6 +45,10 @@ function grabLabelsInputs() {
 if (removeLineInputs) {
   removeLineInputs.forEach(x => x.addEventListener('click', removeInputLine))
 }
+
+if (newButtonCat) {
+  newButtonCat.addEventListener('click', connexionProperties);
+  }
 
 
 export default connexionProperties;

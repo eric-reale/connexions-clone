@@ -16,6 +16,7 @@ router.get('/connexions/:id', catchErrors(connexionController.viewConnexion));
 router.get('/connexions/:id/edit', catchErrors(connexionController.editConnexion));
 router.post('/connexions/:id/update', connexionController.updateConnexion);
 router.get('/connexions/:id/delete', connexionController.deleteConnexion);
+router.post('/connexions/updateConnexionCircles', connexionController.updateConnexionCircles)
 
 router.get('/connexions/:id/chapter/new', chapterController.newChapter);
 router.post('/connexions/:id/chapter/add', chapterController.addChapter);
@@ -26,6 +27,8 @@ router.post('/connexions/:connexion_id/chapter/:chapter_id/update', chapterContr
 router.get('/connexions/:id/circles/new', connexionController.newCircle);
 router.post('/connexions/:id/circles/add', connexionController.addCircleToConnexion);
 router.get('/connexions/circles/:circle', connexionController.displayCircle);
+router.get('/connexions/circles/:circle/edit', connexionController.editCircle);
+router.get('/connexions/circles/:circle/delete', connexionController.deleteCircle);
 router.get('/circles', connexionController.allCircles);
 
 router.get('/login', userController.loginForm);

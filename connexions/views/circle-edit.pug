@@ -3,26 +3,35 @@ extends layout
 block content
     .main-container
       .logo-settings
+        script.
+          var circle = !{JSON.stringify(circleQuery)};
+          var connexions = !{JSON.stringify(connexions)};
         div
           <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="16" height="16" viewBox="0 0 16 16"><title>settings gear 63</title><g class="nc-icon-wrapper" stroke-width="1" fill="#111111" stroke="#111111"><g><circle data-color="color-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="8" cy="8" r="2.5"/><path fill="none" stroke="#111111" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M15.5 9V7l-2.177-.363a5.463 5.463 0 0 0-.595-1.437l1.283-1.796-1.415-1.414L10.8 3.272a5.463 5.463 0 0 0-1.437-.595L9 .5H7l-.363 2.177a5.463 5.463 0 0 0-1.437.595L3.404 1.99 1.99 3.404 3.272 5.2a5.463 5.463 0 0 0-.595 1.437L.5 7v2l2.177.363c.131.512.332.994.595 1.437L1.99 12.596l1.414 1.414L5.2 12.728c.443.263.925.464 1.437.595L7 15.5h2l.363-2.177a5.463 5.463 0 0 0 1.437-.595l1.796 1.283 1.414-1.414-1.282-1.797c.263-.443.464-.925.595-1.437L15.5 9z"/></g></g></svg>
         div
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" xml:space="preserve" width="32" height="32"><title>multiple 11</title><g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" fill="#111111" stroke="#111111"><path data-cap="butt" data-color="color-2" fill="none" stroke-miterlimit="10" d="M10.713,13.719 C10.232,12.705,9.197,12,8,12H4c-1.657,0-3,1.343-3,3v5h2v7h6" stroke-linecap="butt"/> <circle data-color="color-2" fill="none" stroke-miterlimit="10" cx="6" cy="6" r="3"/> <path data-cap="butt" data-color="color-2" fill="none" stroke-miterlimit="10" d="M21.287,13.719 C21.768,12.705,22.803,12,24,12h4c1.657,0,3,1.343,3,3v5h-2v7h-6" stroke-linecap="butt"/> <circle data-color="color-2" fill="none" stroke-miterlimit="10" cx="26" cy="6" r="3"/> <path fill="none" stroke="#111111" stroke-miterlimit="10" d="M19,31h-6v-8h-3v-7 c0-2.209,1.791-4,4-4h4c2.209,0,4,1.791,4,4v7h-3V31z"/> <circle fill="none" stroke="#111111" stroke-miterlimit="10" cx="16" cy="5" r="4"/></g></svg>
         div
-          p <span style="color: red;">hold</span>
+          p <span style="color: white;"></span>
       .section-header
         div
-          a#back(href="javascript:history.back()")
+          a#back(href="/connexions")
             p back
         div
-          p #{connexion.name}
-        a#back(href=``)
-          p edit
+          p #{circleQuery}
+        div
+          input#back(type="submit" form="" value="save")
       .circle-section
-        div.circle-input-div
-          form(action=`/connexions/${connexion.id}/circles/add` method="POST")
-            input.new-circle-input(name="circles")
-            div.add-new-category.adjust-width
-              button.add-new-category-button(type="submit") add new circle
+        if connexions
+          each connexion in connexions
+            a.section-body-connexion.section-body-connexion-a(href=`/connexions/${connexion.id}`)
+              div.connexion-image
+                img(src=`https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80`)
+              div(data-id = connexion.id)
+                p.connexion-name #{connexion.name}
+                - const location = connexion.location ? `${connexion.location}` : ''
+                p.connexion-circle-list #{location}
+              div.boxclose.remove-line-circle(style="width: 25px")
+                //- p.connexion-logged #{connextion.location} access the chapters and display last created?
       .footer-tabs
         div
           a.no-link(href=`/connexions`)
