@@ -3,7 +3,7 @@ const circleNameInput = document.querySelector('.new-circle-input');
 let allOfTheCircles;
 
 function generateCircleNameEvent(circles) {
-  console.log(circles);
+  // console.log(circles);
   circles.forEach(circle => {
     circle.addEventListener('click', function(e) {
       const selectedCircle = e.currentTarget.textContent;

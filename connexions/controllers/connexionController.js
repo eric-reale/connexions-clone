@@ -118,13 +118,6 @@ exports.allCircles = async (req, res) => {
   const user = await User.findById(req.user._id);
   const circlesPromise = Connexion.getCircleCount(user);
   let [circles] = await Promise.all([circlesPromise])
-  console.log(circles)
+  // console.log(circles)
   res.render('circles', { title: `My Circles`, circles, user });
-}
-
-exports.existingCircles = async (req, res) => {
-  const user = await User.findById(req.user._id);
-  const circlesPromise = Connexion.getCircleCount(user);
-  let [circles] = await Promise.all([circlesPromise])
-  console.log(circles);
 }

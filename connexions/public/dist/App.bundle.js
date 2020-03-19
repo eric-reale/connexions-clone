@@ -1387,7 +1387,7 @@ var circleNameInput = document.querySelector('.new-circle-input');
 var allOfTheCircles = void 0;
 
 function generateCircleNameEvent(circles) {
-  console.log(circles);
+  // console.log(circles);
   circles.forEach(function (circle) {
     circle.addEventListener('click', function (e) {
       var selectedCircle = e.currentTarget.textContent;
