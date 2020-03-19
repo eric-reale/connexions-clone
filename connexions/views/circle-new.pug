@@ -18,6 +18,12 @@ block content
         a#back(href=``)
           p edit
       .circle-section
+        div.display-circle-list
+          div.para-existing-circle
+            h1 your circles
+          div.my-circles(style="margin-bottom: 10px")
+            each circle in connexion.circles
+              a.connexion-circle(href=`/connexions/circles/${circle}`) #{circle}
         div.circle-input-div
           form(action=`/connexions/${connexion.id}/circles/add` method="POST")
             input.new-circle-input(name="circles")
