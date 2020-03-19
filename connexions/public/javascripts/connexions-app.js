@@ -11,6 +11,7 @@ import * as connexionsNew from './modules/openAddConnexionInput';
 import * as sortConnexions from './modules/sortConnexions';
 import renameLabelName from './modules/updateLabelName';
 import removeConnexionFromCircle from './modules/removeConnexionFromCircle';
+import getCircleName from './modules/displayExistingCircles';
 
 // if (circles) {
 //   linksToCircles(circles);
@@ -21,6 +22,17 @@ import removeConnexionFromCircle from './modules/removeConnexionFromCircle';
 // if(document){
 //   console.log(document.title)
 // }
+
+
+let circleNames;
+window.addEventListener('DOMContentLoaded', function() {
+  if (document.title === 'Add to my Circles | Connexions!') {
+    circleNames = getCircleName(circles)
+  } else {
+    return;
+  }
+});
+
 
 window.addEventListener('DOMContentLoaded', function() {
   const removeFromCircle = document.querySelectorAll('.remove-line-circle');
