@@ -77,9 +77,12 @@ exports.deleteConnexion = async (req, res) => {
 }
 
 exports.newCircle = async (req, res) => {
-  const connexion = await Connexion.findOne({_id: req.params.id });
-  confirmOwner(connexion, req.user);
-  res.render('circle-new', { title: `Add to my Cirlces`, connexion });
+  const user = await User.findById(req.user._id);
+  const connexionPromise = Connexion.findOne({_id: req.params.id });
+  const circlesPromise = Connexion.getCircleCount(user);
+  let [circles, connexion] = await Promise.all([circlesPromise, connexionPromise])
+  // confirmOwner(connexion, req.user);
+  res.render('circle-new', { title: `Add to my Circles`, connexion, circles });
 }
 
 exports.editCircle = async (req, res) => {
@@ -115,5 +118,6 @@ exports.allCircles = async (req, res) => {
   const user = await User.findById(req.user._id);
   const circlesPromise = Connexion.getCircleCount(user);
   let [circles] = await Promise.all([circlesPromise])
+  // console.log(circles)
   res.render('circles', { title: `My Circles`, circles, user });
 }

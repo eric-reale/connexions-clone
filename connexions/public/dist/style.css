@@ -1329,7 +1329,8 @@ div.boxclose {
   display: flex;
   -ms-flex-pack: center;
       justify-content: center;
-  margin: 15px; }
+  margin: 15px;
+  margin-top: 20px; }
 
 .new-circle-input {
   background-color: red !important;
@@ -1347,5 +1348,14 @@ div.boxclose {
 
 .adjust-width {
   width: 70%; }
+
+.display-circle-list {
+  margin-top: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5); }
+
+.para-existing-circle {
+  margin-left: 10px; }
+  .para-existing-circle h1 {
+    font-size: 2rem; }
 
 /*# sourceMappingURL=style.css.map*/

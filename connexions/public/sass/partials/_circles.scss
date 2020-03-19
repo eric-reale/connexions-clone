@@ -23,7 +23,8 @@
 .circle-input-div {
   display: flex;
   justify-content: center;
-  margin: 15px
+  margin: 15px;
+  margin-top: 20px;
 }
 
 .new-circle-input  {
@@ -43,4 +44,16 @@
 
 .adjust-width {
   width: 70%;
+}
+
+.display-circle-list {
+  margin-top: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.para-existing-circle {
+  margin-left: 10px;
+  h1 {
+    font-size: 2rem;
+  }
 }

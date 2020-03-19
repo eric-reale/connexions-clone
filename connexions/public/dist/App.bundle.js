@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 37);
+/******/ 	return __webpack_require__(__webpack_require__.s = 38);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -377,7 +377,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(34);
+var normalizeHeaderName = __webpack_require__(35);
 
 var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 var DEFAULT_CONTENT_TYPE = {
@@ -749,7 +749,7 @@ if (sortButton) {
 "use strict";
 
 
-module.exports = __webpack_require__(20);
+module.exports = __webpack_require__(21);
 
 /***/ }),
 /* 7 */
@@ -759,12 +759,12 @@ module.exports = __webpack_require__(20);
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(26);
-var buildURL = __webpack_require__(29);
-var parseHeaders = __webpack_require__(35);
-var isURLSameOrigin = __webpack_require__(33);
+var settle = __webpack_require__(27);
+var buildURL = __webpack_require__(30);
+var parseHeaders = __webpack_require__(36);
+var isURLSameOrigin = __webpack_require__(34);
 var createError = __webpack_require__(10);
-var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(28);
+var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(29);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -857,7 +857,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(31);
+      var cookies = __webpack_require__(32);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ? cookies.read(config.xsrfCookieName) : undefined;
@@ -974,7 +974,7 @@ module.exports = function isCancel(value) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(25);
+var enhanceError = __webpack_require__(26);
 
 /**
  * Create an Error with the specified message, config, error code, and response.
@@ -1382,6 +1382,55 @@ exports.default = connexionProperties;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var circleSectionDiv = document.querySelector('.my-circles');
+var circleNameInput = document.querySelector('.new-circle-input');
+var allOfTheCircles = void 0;
+
+function generateCircleNameEvent(circles) {
+  // console.log(circles);
+  circles.forEach(function (circle) {
+    circle.addEventListener('click', function (e) {
+      var selectedCircle = e.currentTarget.textContent;
+      circleNameInput.value = selectedCircle;
+    });
+  });
+}
+
+function createCircleHTML(array) {
+  // console.log(array);
+  var fixArray = [];
+  array.forEach(function (arr) {
+    fixArray.push(arr[0]);
+  });
+  var html = fixArray.map(function (circle) {
+    return '<div class="connexion-circle">' + circle + '</div>';
+  });
+  html = html.join('');
+  circleSectionDiv.insertAdjacentHTML('afterbegin', html);
+  allOfTheCircles = document.querySelectorAll('.connexion-circle');
+  generateCircleNameEvent(allOfTheCircles);
+}
+
+function getCircleName(circles) {
+  var myCircleArray = circles.map(function (circle) {
+    return [circle._id.circles];
+  });
+  // console.log(myCircleArray);
+  createCircleHTML(myCircleArray);
+}
+
+exports.default = getCircleName;
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _axios = __webpack_require__(6);
 
@@ -1406,7 +1455,7 @@ function removeConnexionFromCircle(e, circle) {
 exports.default = removeConnexionFromCircle;
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1446,7 +1495,7 @@ function singlePageTab(e) {
 exports.default = singlePageTab;
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1466,13 +1515,13 @@ function renameLabelName(e) {
 exports.default = renameLabelName;
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1480,7 +1529,7 @@ exports.default = renameLabelName;
 
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(11);
-var Axios = __webpack_require__(22);
+var Axios = __webpack_require__(23);
 var defaults = __webpack_require__(1);
 
 /**
@@ -1515,14 +1564,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(8);
-axios.CancelToken = __webpack_require__(21);
+axios.CancelToken = __webpack_require__(22);
 axios.isCancel = __webpack_require__(9);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(36);
+axios.spread = __webpack_require__(37);
 
 module.exports = axios;
 
@@ -1530,7 +1579,7 @@ module.exports = axios;
 module.exports.default = axios;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1593,7 +1642,7 @@ CancelToken.source = function source() {
 module.exports = CancelToken;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1601,10 +1650,10 @@ module.exports = CancelToken;
 
 var defaults = __webpack_require__(1);
 var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(23);
-var dispatchRequest = __webpack_require__(24);
-var isAbsoluteURL = __webpack_require__(32);
-var combineURLs = __webpack_require__(30);
+var InterceptorManager = __webpack_require__(24);
+var dispatchRequest = __webpack_require__(25);
+var isAbsoluteURL = __webpack_require__(33);
+var combineURLs = __webpack_require__(31);
 
 /**
  * Create a new instance of Axios
@@ -1684,7 +1733,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = Axios;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1742,14 +1791,14 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 module.exports = InterceptorManager;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(27);
+var transformData = __webpack_require__(28);
 var isCancel = __webpack_require__(9);
 var defaults = __webpack_require__(1);
 
@@ -1808,7 +1857,7 @@ module.exports = function dispatchRequest(config) {
 };
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1834,7 +1883,7 @@ module.exports = function enhanceError(error, config, code, response) {
 };
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1860,7 +1909,7 @@ module.exports = function settle(resolve, reject, response) {
 };
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1886,7 +1935,7 @@ module.exports = function transformData(data, headers, fns) {
 };
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1927,7 +1976,7 @@ function btoa(input) {
 module.exports = btoa;
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1994,7 +2043,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 };
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2013,7 +2062,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 };
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2072,7 +2121,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2094,7 +2143,7 @@ module.exports = function isAbsoluteURL(url) {
 };
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2163,7 +2212,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2181,7 +2230,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 };
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2226,7 +2275,7 @@ module.exports = function parseHeaders(headers) {
 };
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2260,17 +2309,17 @@ module.exports = function spread(callback) {
 };
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(19);
+__webpack_require__(20);
 
 var _bling = __webpack_require__(2);
 
-var _singlePageTab = __webpack_require__(17);
+var _singlePageTab = __webpack_require__(18);
 
 var _singlePageTab2 = _interopRequireDefault(_singlePageTab);
 
@@ -2298,13 +2347,17 @@ var _sortConnexions = __webpack_require__(5);
 
 var sortConnexions = _interopRequireWildcard(_sortConnexions);
 
-var _updateLabelName = __webpack_require__(18);
+var _updateLabelName = __webpack_require__(19);
 
 var _updateLabelName2 = _interopRequireDefault(_updateLabelName);
 
-var _removeConnexionFromCircle = __webpack_require__(16);
+var _removeConnexionFromCircle = __webpack_require__(17);
 
 var _removeConnexionFromCircle2 = _interopRequireDefault(_removeConnexionFromCircle);
+
+var _displayExistingCircles = __webpack_require__(16);
+
+var _displayExistingCircles2 = _interopRequireDefault(_displayExistingCircles);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -2319,6 +2372,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // if(document){
 //   console.log(document.title)
 // }
+
+
+var circleNames = void 0;
+window.addEventListener('DOMContentLoaded', function () {
+  if (document.title === 'Add to my Circles | Connexions!') {
+    circleNames = (0, _displayExistingCircles2.default)(circles);
+  } else {
+    return;
+  }
+});
 
 window.addEventListener('DOMContentLoaded', function () {
   var removeFromCircle = document.querySelectorAll('.remove-line-circle');
