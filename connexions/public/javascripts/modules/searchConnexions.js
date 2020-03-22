@@ -30,7 +30,6 @@ const circlesFunction = (connexion) => {
 
 function generateHTML(connexions) {
   let htmlArray = []
-  console.log(connexions);
   connexions.forEach(connexion => {
     let location = (connexion.location !== undefined) ? connexion.location : "";
     let circles = circlesFunction(connexion);
@@ -56,11 +55,10 @@ function generateHTML(connexions) {
 
 function searchConnexions(e) {
   let searchValue = e.currentTarget.value.toUpperCase();
-  let searchedConnexions = [];
-  searchedConnexions = connexions.filter(connexion => {
-    return connexion.name.toUpperCase().includes(searchValue)
+  let searchedConnexions = connexions.filter(connexion => {
+    return connexion.name.toUpperCase().includes(searchValue);
     });
-  console.log(searchedConnexions)
+  // console.log(searchedConnexions)
   sectionBodyDiv.innerHTML = "";
   let html = generateHTML(searchedConnexions);
   sectionBodyDiv.insertAdjacentHTML('afterbegin', html);
@@ -70,8 +68,6 @@ function displaySearchInput() {
   if (searchBarInput) {
     return;
   }
-  console.log('here');
-
   const inputHTML = `
     <input class="search-bar-input">
   `;
@@ -80,12 +76,25 @@ function displaySearchInput() {
   logoSettings.classList.remove('logo-settings');
   logoTextAlign.classList.add('logo-text-align');
   searchBarInput = document.querySelector('.search-bar-input');
+  searchIcon.classList.add('active-search');
   searchBarInput.addEventListener('keyup', searchConnexions);
-
 };
 
-if(searchIcon) {
-  searchIcon.addEventListener('click', displaySearchInput)
+function removeSearchInput() {
+  searchBarInput.remove();
+  searchIcon.classList.remove('active-search');
+  searchBarInput = '';
 }
+
+if(searchIcon) {
+  searchIcon.addEventListener('click', function() {
+    if (searchIcon.classList.contains('active-search')) {
+      removeSearchInput();
+       }
+    else {
+      displaySearchInput();
+    }
+  }
+)}
 
 export * from './searchConnexions';

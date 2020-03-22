@@ -2483,7 +2483,6 @@ var circlesFunction = function circlesFunction(connexion) {
 
 function generateHTML(connexions) {
   var htmlArray = [];
-  console.log(connexions);
   connexions.forEach(function (connexion) {
     var location = connexion.location !== undefined ? connexion.location : "";
     var circles = circlesFunction(connexion);
@@ -2496,11 +2495,10 @@ function generateHTML(connexions) {
 
 function searchConnexions(e) {
   var searchValue = e.currentTarget.value.toUpperCase();
-  var searchedConnexions = [];
-  searchedConnexions = connexions.filter(function (connexion) {
+  var searchedConnexions = connexions.filter(function (connexion) {
     return connexion.name.toUpperCase().includes(searchValue);
   });
-  console.log(searchedConnexions);
+  // console.log(searchedConnexions)
   sectionBodyDiv.innerHTML = "";
   var html = generateHTML(searchedConnexions);
   sectionBodyDiv.insertAdjacentHTML('afterbegin', html);
@@ -2510,19 +2508,30 @@ function displaySearchInput() {
   if (searchBarInput) {
     return;
   }
-  console.log('here');
-
   var inputHTML = '\n    <input class="search-bar-input">\n  ';
   searchBarArea.insertAdjacentHTML('afterbegin', inputHTML);
   logoSettings.classList.add('logo-settings-with-search');
   logoSettings.classList.remove('logo-settings');
   logoTextAlign.classList.add('logo-text-align');
   searchBarInput = document.querySelector('.search-bar-input');
+  searchIcon.classList.add('active-search');
   searchBarInput.addEventListener('keyup', searchConnexions);
 };
 
+function removeSearchInput() {
+  searchBarInput.remove();
+  searchIcon.classList.remove('active-search');
+  searchBarInput = '';
+}
+
 if (searchIcon) {
-  searchIcon.addEventListener('click', displaySearchInput);
+  searchIcon.addEventListener('click', function () {
+    if (searchIcon.classList.contains('active-search')) {
+      removeSearchInput();
+    } else {
+      displaySearchInput();
+    }
+  });
 }
 
 /***/ })
