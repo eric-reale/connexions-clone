@@ -578,11 +578,14 @@ var closeOut = void 0;
 var allConnexions = void 0;
 
 function displayNewConnexion(connexion) {
+  if (connexion.name === undefined) {
+    return;
+  }
   // console.log(connexion);
-  var now = new Date();
-  var day = now.getDate();
-  var month = now.getMonth() + 1;
-  var year = now.getFullYear();
+  // const now = new Date();
+  //   const day = now.getDate();
+  //   const month = now.getMonth() + 1;
+  //   const year = now.getFullYear();
 
   var sectionBody = document.querySelector('.section-body');
   var html = '\n    <a class="section-body-connexion section-body-connexion-a" href="/connexions/' + connexion._id + '">\n      <div class="connexion-image">\n        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80">\n      </div>\n      <div>\n        <p class="connexion-name">' + connexion.name + '</p>\n        <p class="connexion-circle-list"></p>\n      </div>\n      <div class="connexion-circles">\n        <span class="no-circles-yet">No circles yet!</span>\n      </div>\n    </div>\n  ';
@@ -2347,6 +2350,10 @@ var _sortConnexions = __webpack_require__(5);
 
 var sortConnexions = _interopRequireWildcard(_sortConnexions);
 
+var _searchConnexions = __webpack_require__(40);
+
+var searchConnexions = _interopRequireWildcard(_searchConnexions);
+
 var _updateLabelName = __webpack_require__(19);
 
 var _updateLabelName2 = _interopRequireDefault(_updateLabelName);
@@ -2420,6 +2427,112 @@ window.addEventListener('DOMContentLoaded', function () {
     return;
   }
 });
+
+/***/ }),
+/* 39 */,
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _searchConnexions = __webpack_require__(40);
+
+Object.keys(_searchConnexions).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _searchConnexions[key];
+    }
+  });
+});
+var searchIcon = document.querySelector('#search-icon');
+var searchBarArea = document.querySelector('.search-bar-area');
+var logoSettings = document.querySelector('.logo-settings');
+var logoTextAlign = document.querySelector('.logo-with-search');
+var sectionBodyDiv = document.querySelector('.section-body');
+var searchBarInput = void 0;
+
+var circlesFunction = function circlesFunction(connexion) {
+  var length = connexion.circles.length;
+  var circleHTML = void 0;
+  var eachCircleHTML = void 0;
+  var circleArray = [];
+  if (length === 0) {
+    circleHTML = '<span class="no-circles-yet">No circles yet!</span>';
+  } else {
+    var i = 0;
+    while (i < length) {
+      eachCircleHTML = '<span class="circle"></span>';
+      circleArray.push(eachCircleHTML);
+      i++;
+      if (i === 6) {
+        // no more than 6 circles to be displayed
+        break;
+      }
+    }
+    circleHTML = circleArray.join("");
+  }
+  return circleHTML;
+};
+
+function generateHTML(connexions) {
+  var htmlArray = [];
+  connexions.forEach(function (connexion) {
+    var location = connexion.location !== undefined ? connexion.location : "";
+    var circles = circlesFunction(connexion);
+
+    var newHTML = '<a class="section-body-connexion section-body-connexion-a"\n              href="/connexions/' + connexion._id + '">\n                <div class="connexion-image">\n                  <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80">\n                </div>\n                <div>\n                  <p class="connexion-name">' + connexion.name + '</p>\n                  <p class="connexion-circle-list">' + location + '\n                  </p>\n                </div>\n                <div class="connexion-circles">\n                  ' + circles + '\n                </div>\n            </a>';
+    htmlArray.push(newHTML);
+  });
+  return htmlArray.join("");
+}
+
+function searchConnexions(e) {
+  var searchValue = e.currentTarget.value.toUpperCase();
+  var searchedConnexions = connexions.filter(function (connexion) {
+    return connexion.name.toUpperCase().includes(searchValue);
+  });
+  // console.log(searchedConnexions)
+  sectionBodyDiv.innerHTML = "";
+  var html = generateHTML(searchedConnexions);
+  sectionBodyDiv.insertAdjacentHTML('afterbegin', html);
+}
+
+function displaySearchInput() {
+  if (searchBarInput) {
+    return;
+  }
+  var inputHTML = '\n    <input class="search-bar-input">\n  ';
+  searchBarArea.insertAdjacentHTML('afterbegin', inputHTML);
+  logoSettings.classList.add('logo-settings-with-search');
+  logoSettings.classList.remove('logo-settings');
+  logoTextAlign.classList.add('logo-text-align');
+  searchBarInput = document.querySelector('.search-bar-input');
+  searchIcon.classList.add('active-search');
+  searchBarInput.addEventListener('keyup', searchConnexions);
+};
+
+function removeSearchInput() {
+  searchBarInput.remove();
+  searchIcon.classList.remove('active-search');
+  searchBarInput = '';
+}
+
+if (searchIcon) {
+  searchIcon.addEventListener('click', function () {
+    if (searchIcon.classList.contains('active-search')) {
+      removeSearchInput();
+    } else {
+      displaySearchInput();
+    }
+  });
+}
 
 /***/ })
 /******/ ]);

@@ -8,11 +8,14 @@ let closeOut;
 let allConnexions;
 
 function displayNewConnexion(connexion) {
+  if (connexion.name === undefined) {
+    return;
+  }
   // console.log(connexion);
-  const now = new Date();
-    const day = now.getDate();
-    const month = now.getMonth() + 1;
-    const year = now.getFullYear();
+  // const now = new Date();
+  //   const day = now.getDate();
+  //   const month = now.getMonth() + 1;
+  //   const year = now.getFullYear();
 
   const sectionBody = document.querySelector('.section-body');
   const html = `
