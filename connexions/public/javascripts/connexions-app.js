@@ -9,6 +9,7 @@ import linksToCircles from './modules/addLinksToCircles';
 import * as deleteConnexions from './modules/deleteConnexions';
 import * as connexionsNew from './modules/openAddConnexionInput';
 import * as sortConnexions from './modules/sortConnexions';
+import * as searchConnexions from './modules/searchConnexions';
 import renameLabelName from './modules/updateLabelName';
 import removeConnexionFromCircle from './modules/removeConnexionFromCircle';
 import getCircleName from './modules/displayExistingCircles';

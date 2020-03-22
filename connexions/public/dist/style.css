@@ -771,6 +771,38 @@ body, html {
   height: 75px;
   animation: slide-down .6s ease; }
 
+.search-bar-input {
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0 0 0 100px white;
+  border: 1px solid black;
+  border-radius: 4px;
+  color: black;
+  width: 200px;
+  padding: 8px; }
+
+.search-bar-area {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: end;
+      justify-content: flex-end; }
+
+.logo-settings-with-search {
+  grid-area: logo-settings;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-flex-align: center;
+      align-items: center;
+  padding: 5px 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  -ms-flex-negative: 0;
+      flex-shrink: 0; }
+
+.logo-text-align {
+  text-align: center; }
+
 .add-new-connexion {
   display: -ms-grid;
   display: grid;
@@ -846,6 +878,9 @@ body, html {
   width: 80%; }
 
 #sort-button {
+  cursor: pointer; }
+
+#search-icon {
   cursor: pointer; }
 
 @media (min-width: 700px) {

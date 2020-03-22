@@ -171,6 +171,41 @@ body, html {
   animation: slide-down .6s ease;
 }
 
+.search-bar-input {
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0 0 0 100px white;
+  border: 1px solid black;
+  border-radius: 4px;
+  color: black;
+  width: 200px;
+  padding: 8px;
+}
+
+.search-bar-area {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.logo-settings-with-search {
+  grid-area: logo-settings;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 5px 10px;
+  border-bottom: 1px solid $gray;
+
+  flex-shrink: 0;
+}
+
+#logo-with-search {}
+
+.logo-text-align {
+  text-align: center;
+}
+
+
+
+
 
 .add-new-connexion {
   display: grid;
@@ -271,6 +306,9 @@ body, html {
   cursor: pointer;
 }
 
+#search-icon {
+  cursor: pointer;
+}
 
 @media (min-width: 700px) {
    .main-container{
