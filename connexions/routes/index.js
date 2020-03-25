@@ -41,7 +41,12 @@ router.post('/register',
   userController.register,
   authController.login
 );
-router.get('/forgot-password', authController.forgotPassword);
+router.get('/forgot-password', authController.forgotPage);
+router.post('/forgot', authController.forgotPassword);
+router.get('/password-reset/:token', authController.reset);
+router.post('/password-reset/:token',
+    authController.confirmedPasswords,
+    authController.update);
 // router.post('/forgot-password', authController.forgot); PASSWORD RESET TODO
 
 module.exports = router;

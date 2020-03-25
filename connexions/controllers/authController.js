@@ -16,6 +16,68 @@ exports.login = passport.authenticate('local', {
   successFlash: 'You are now logged in!'
 });
 
-exports.forgotPassword = (req, res) => {
+exports.forgotPage = (req, res) => {
+  // console.log('forgot page')
   res.render('forgot');
+}
+
+exports.forgotPassword = async (req, res) => {
+  // console.log('forgot here')
+  const user = await User.findOne({email: req.body.email});
+  if(!user) {
+    req.flash('error', 'No account with that email exists!');
+    return res.redirect('/login');
+  }
+  user.resetPasswordToken = crypto.randomBytes(20).toString('hex');
+  user.resetPasswordExpires = Date.now() + 3600000; // 1 hour from now
+  await user.save();
+  // console.log('saved user')
+  const resetURL = `http://${req.headers.host}/password-reset/${user.resetPasswordToken}`;
+  req.flash('success', `You have been emailed a password reset link. ${resetURL}`);
+  res.redirect('/login');
+}
+
+exports.reset = async (req, res) => {
+  // res.json(req.params);
+  const user = await User.findOne({
+    resetPasswordToken: req.params.token,
+    resetPasswordExpires: { $gt: Date.now() }
+  });
+  if(!user) {
+    req.flash('error', 'Password reset is invalid or has expired');
+    return res.redirect('/login')
+  }
+  res.render('reset', { title: 'Reset your password'});
+}
+
+exports.confirmedPasswords = (req, res, next) => {
+  console.log(req.body)
+  if(req.body.password === req.body['password-confirm']) {
+    next();
+    return;
+  }
+  req.flash('error', 'Passwords do not match!');
+  res.redirect('back');
+}
+
+exports.update = async (req, res) => {
+  // console.log('update');
+  const user = await User.findOne({
+    resetPasswordToken: req.params.token,
+    resetPasswordExpires: { $gt: Date.now() }
+  });
+
+  if(!user) {
+    req.flash('error', 'Password reset is invalid or has expired');
+    return res.redirect('/login')
+  };
+
+  const setPassword = promisify(user.setPassword, user);
+  await setPassword(req.body.password);
+  user.resetPasswordToken = undefined;
+  user.resetPasswordExpires = undefined;
+  const updatedUser = await user.save();
+  await req.login(updatedUser);
+  req.flash('success', 'Your password has been reset!')
+  res.redirect('/connexions');
 }

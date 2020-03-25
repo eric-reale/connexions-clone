@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  .login-register-container
+    a.login-back(href=`/login`)
+      p back
+    h2.login-register-form-header reset password
+    form.login-register-forms(method="POST" autocomplete="off")
+      input.email-password(type="password" name="password" placeholder="password")
+      input.email-password(type="password" name="password-confirm" placeholder="confirm password")
+      input.login-primary.login-login(type="submit" value="reset password")
+    block messages
+      if locals.flashes
+        .inner.inner--flashes
+          .flash-messages
+            - const categories = Object.keys(locals.flashes)
+            each category in categories
+              each message in flashes[category]
+                .flash(class=`flash--${category}`)
+                  p.flash__text!= message
+                  button.flash__remove(onClick="this.parentElement.remove()") &times;
+
