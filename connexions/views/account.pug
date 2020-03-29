@@ -3,7 +3,7 @@ extends layout
 block content
     .main-container
       script.
-        var connexion = !{JSON.stringify(connexion)};
+        var user = !{JSON.stringify(user)};
       .logo-settings
         div
           a(href="/account")
@@ -11,38 +11,24 @@ block content
         div
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" xml:space="preserve" width="32" height="32"><title>multiple 11</title><g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" fill="#111111" stroke="#111111"><path data-cap="butt" data-color="color-2" fill="none" stroke-miterlimit="10" d="M10.713,13.719 C10.232,12.705,9.197,12,8,12H4c-1.657,0-3,1.343-3,3v5h2v7h6" stroke-linecap="butt"/> <circle data-color="color-2" fill="none" stroke-miterlimit="10" cx="6" cy="6" r="3"/> <path data-cap="butt" data-color="color-2" fill="none" stroke-miterlimit="10" d="M21.287,13.719 C21.768,12.705,22.803,12,24,12h4c1.657,0,3,1.343,3,3v5h-2v7h-6" stroke-linecap="butt"/> <circle data-color="color-2" fill="none" stroke-miterlimit="10" cx="26" cy="6" r="3"/> <path fill="none" stroke="#111111" stroke-miterlimit="10" d="M19,31h-6v-8h-3v-7 c0-2.209,1.791-4,4-4h4c2.209,0,4,1.791,4,4v7h-3V31z"/> <circle fill="none" stroke="#111111" stroke-miterlimit="10" cx="16" cy="5" r="4"/></g></svg>
         div
-          p <span style="color: red;">hold</span>
+          a#back(href="/logout") log out
       .section-header
         div
-          a#back(href=`/connexions/${connexion.id}`)
+          a#back(href="/connexions/")
             p back
         div
-          p #{connexion.name}
+          p Edit my account
         div
-         input#back(type="submit" form="update-connexion" value="save")
+         p
+            p
       .section-body
-        form.connexion-attributes-section-edit(id="update-connexion" action=`/connexions/${connexion.id}/update` method="POST")
-          label.connexion-attributes-categories-center Name
-          input.connexion-attributes-answers-inputs(type="text" name="name" value=connexion.name)
-          div.boxclose.hidden-background
-          label.connexion-attributes-categories-center Location
-          input.connexion-attributes-answers-inputs(type="text" name="location" value=connexion.location)
-          div.boxclose.hidden-background
-          if (connexion._doc.category)
-            each answer, category in connexion._doc.category
-              input.connexion-attributes-categories-center(type="text" for=`category[${category}]` value=category)
-              input.connexion-attributes-answers-inputs(type="text" name=`category[${category}]` value=answer)
-              a.boxclose.remove-line
-
-          //- - if (connexion._doc.category) { for (let i = 0; i < JSON.stringify(connexion._doc.category).split(",").length; i++) {
-          //- - const category = (JSON.stringify(connexion._doc.category).split(",")[`${i}`].split(":")[0].replace("{", '').slice(1, -1))
-          //- - const answer = connexion._doc.category[category]
-
-          //- input.connexion-attributes-categories-center(type="text" for=`category[${category}]` value=category)
-          //- input.connexion-attributes-answers-inputs(type="text" name=`category[${category}]` value=answer)
-          //- - }}
-        div.add-new-category
-          button.add-new-category-button add new category
+        h2.login-register-form-header(style="font-size: 2rem; margin: 10px") edit account
+        form.login-register-forms(action="/account" method="POST" autocomplete="off")
+          input.email-password(type="email" name="email" value=user.email)
+          //- input.email-password(type="password" name="password" placeholder="password")
+          input.login-primary.login-login(type="submit" value="update")
+          a.forgot-password(href=`/update-password`)
+            p reset password
       .footer-tabs
         div
           a.no-link(href=`/connexions`)
@@ -56,3 +42,5 @@ block content
         div.conversations
           p conversations
           p <span>coming soon!<span>
+
+

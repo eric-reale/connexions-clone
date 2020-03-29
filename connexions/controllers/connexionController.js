@@ -5,6 +5,7 @@ const Chapter = mongoose.model('Chapter');
 const promisify = require('es6-promisify');
 
 exports.getConnexions = async (req, res) => {
+  // console.log(req)
   if (!req.user._id) {
      res.redirect(`/login`);
    }

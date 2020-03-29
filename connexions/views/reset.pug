@@ -2,7 +2,7 @@ extends layout
 
 block content
   .login-register-container
-    a.login-back(href=`/login`)
+    a.login-back(href="javascript:history.back()")
       p back
     h2.login-register-form-header reset password
     form.login-register-forms(method="POST" autocomplete="off")
