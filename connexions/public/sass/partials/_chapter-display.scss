@@ -10,15 +10,16 @@
 }
 
 .chapter-each-heading {
-  display: grid;
-  grid-template-columns: 1fr 1fr 95px;
+  display: flex;
+  justify-content: space-between;
   font-size: 12px;
   text-align: left;
   width: 100%;
-  margin: 0px 20px;
+  padding: 0px 12px;
   font-weight: 700;
   letter-spacing: 0.04em;
   font-family: 'Comfortaa', cursive;
+  margin-top: 10px;
 }
 
 .chapter-each-description {
@@ -37,12 +38,11 @@
 }
 
 .section-chapter-headers {
-  display: grid;
-  grid-template-columns: auto auto;
+
   font-size: 16px;
   text-align: left;
   width: 100%;
-  margin: 0px 20px;
+  padding: 0px 12px;
   font-weight: 700;
   letter-spacing: 0.04em;
   font-family: 'Comfortaa', cursive;
@@ -91,6 +91,7 @@
   justify-content: center;
   height: 50px;
   font-family: 'Comfortaa', cursive;
+  width: 100%;
 }
 
 .chapter-answers-description {

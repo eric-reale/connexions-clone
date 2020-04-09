@@ -15,7 +15,7 @@ block content
           a#back(href=`/connexions/${chapter.connexion}/chapter/${chapter.id}/`)
             p back
         div
-          p #{chapter.name}
+          p #{chapter.name.split(' ').slice(0, 4).join(' ')}
         div
          input#back(type="submit" form="update-chapter" value="save")
       .section-body.no-overflow
@@ -23,8 +23,6 @@ block content
           .section-chapter-headers
             div
               input.chapter-answers(type="text" name="name" value=chapter.name)
-            div
-              input.chapter-answers(type="text" name="location" value=chapter.location)
           .section-date
             div
               - let day = chapter.created.getDate()

@@ -15,7 +15,7 @@ block content
           a#back(href=`/connexions/${chapter.connexion}/`)
             p back
         div
-          p #{chapter.name}
+          p #{chapter.name.split(' ').slice(0, 4).join(' ')}
         div
          a#back(href=`/connexions/${chapter.connexion}/chapter/${chapter.id}/edit`)
             p edit
@@ -23,8 +23,6 @@ block content
         .section-chapter-headers
           div
             p #{chapter.name}
-          div
-            p #{chapter.location}
         .section-date
           div
             - let day = chapter.created.getDate()

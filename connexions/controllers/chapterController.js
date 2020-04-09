@@ -17,7 +17,6 @@ exports.addChapter = async (req, res) => {
     author: connexion.author,
     connexion: connexion.id,
     name: req.body.name,
-    location: req.body.location,
     description: req.body.description
   })
   await newChapter.save()
@@ -43,7 +42,7 @@ exports.editChapter = async (req, res) => {
 }
 
 exports.updateChapter = async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const chapter = await Chapter.findOneAndUpdate({_id: req.params.chapter_id }, req.body, {
     new: true,
     runValidators: true,

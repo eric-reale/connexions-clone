@@ -73,13 +73,12 @@ block content
                 each circle in connexion.circles
                   a.connexion-circle(href=`/connexions/circles/${circle}`) #{circle}
           div.chapter-active
+            br
             each chapter in chapters
               a.chapter-each-display(href=`/connexions/${connexion.id}/chapter/${chapter.id}`)
                 div.chapter-each-heading
                   div
-                    p #{chapter.name}
-                  div
-                    p #{chapter.location}
+                    p #{chapter.name.split(' ').slice(0, 5).join(' ')}
                   div
                     - let day = chapter.created.getDate()
                     - let month = chapter.created.getMonth() + 1
