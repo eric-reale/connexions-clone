@@ -23,6 +23,7 @@ router.post('/connexions/:id/chapter/add', chapterController.addChapter);
 router.get('/connexions/:connexion_id/chapter/:chapter_id', chapterController.showChapter);
 router.get('/connexions/:connexion_id/chapter/:chapter_id/edit', chapterController.editChapter);
 router.post('/connexions/:connexion_id/chapter/:chapter_id/update', chapterController.updateChapter);
+router.get('/connexions/:connexion_id/chapter/:chapter_id/delete', chapterController.deleteChapter);
 
 router.get('/connexions/:id/circles/new', connexionController.newCircle);
 router.post('/connexions/:id/circles/add', connexionController.addCircleToConnexion);

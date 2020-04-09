@@ -17,7 +17,8 @@ exports.addChapter = async (req, res) => {
     author: connexion.author,
     connexion: connexion.id,
     name: req.body.name,
-    description: req.body.description
+    description: req.body.description,
+    date: Date()
   })
   await newChapter.save()
     // .then(data => {
@@ -51,3 +52,9 @@ exports.updateChapter = async (req, res) => {
   res.redirect(`/connexions/${chapter.connexion}/chapter/${chapter.id}`);
 }
 
+exports.deleteChapter = async (req, res) => {
+  const chapter = await Chapter.findOne({_id: req.params.chapter_id });
+  const connexionID = chapter.connexion;
+  chapter.remove();
+  res.redirect(`/connexions/${connexionID}`);
+}

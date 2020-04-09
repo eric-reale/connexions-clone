@@ -18,6 +18,10 @@ const chapterSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
+  date: {
+    type: Date,
+    default: Date.now
+  },
   connexion: {
     type: mongoose.Schema.ObjectId,
     ref: 'Connexion',
