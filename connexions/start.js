@@ -17,6 +17,10 @@ mongoose.connection.on('error', (err) => {
   console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
 });
 
+mongoose.connection.once('open', function() {
+  console.log("Connected to MongoDB");
+});
+
 // Import models
 require('./models/User');
 require('./models/Connexion');
